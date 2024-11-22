@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/core/constantk/color.dart';
+
 import 'package:store313/core/localizationk/translation.dart';
 import 'package:store313/core/servicesk/services.dart';
 import 'package:store313/routes.dart';
@@ -40,12 +40,14 @@ debugShowCheckedModeBanner: false,
                         fontWeight: FontWeight.bold, fontSize: 20), 
                         headlineMedium:   TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 28), 
-          bodySmall:TextStyle(
-                          height: 2, color: AppColor.grey, fontSize: 17),
+      //    bodyMedium:TextStyle(
+        //         height: 2, color: AppColor.grey, fontSize: 17),
         ),
       primarySwatch: Colors.blue
       ),
-      home:Languagek(),
+    //  home:Test(),
+     home:Languagek(),
+    // home: Login(),
       routes: routes,
     );
   }

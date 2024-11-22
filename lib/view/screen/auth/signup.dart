@@ -1,28 +1,30 @@
 
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/auth/login_controller.dart';
+import 'package:store313/controller/auth/sugnup_controller.dart';
+
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/view/widiget/auth/costomtestfeld.dart';
 import 'package:store313/view/widiget/auth/custombuttomauth.dart';
 import 'package:store313/view/widiget/auth/customsubtitleauth.dart';
 import 'package:store313/view/widiget/auth/customtexttitleaout.dart';
 import 'package:store313/view/widiget/auth/logoauth.dart';
-import 'package:store313/view/widiget/auth/textsignup.dart';
+import 'package:store313/view/widiget/auth/textSignUp.dart';
 
-class Login extends StatelessWidget{
-  const Login({super.key});
+class SignUp extends StatelessWidget{
+  const SignUp({super.key});
   @override
   Widget build(BuildContext context) {
 
 //نحقن الكونترولر الخاص بها
-  LoginControllerImp controller_Login=  Get.put(LoginControllerImp());
+ SignUp_ControllerImp controller= Get.put(SignUp_ControllerImp());
     return SafeArea(child:   Scaffold(
       appBar: AppBar(
         //لجعلالعنوان في المنتصف
         centerTitle: true,
        backgroundColor: Colors.white,
-        title: Text("Sign In",style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: AppColor.grey),),),
+        title: Text("Sign Up",style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: AppColor.grey),),),
 body: Container(
    color: Colors.white,
   //color: Colors.red,
@@ -31,7 +33,7 @@ body: Container(
   child: ListView(
     children:[
        const SizedBox(height: 15,),
-       const CustomLogoAuth(),
+    
     const SizedBox(height: 15,),
     const CustomTextTitleAuth(title:"welcome",),
      const SizedBox(height: 10,),
@@ -39,30 +41,43 @@ body: Container(
      ,const SizedBox(height: 35,),
     
       Customtextfeld(
-      mycontroller: controller_Login.email_controller,
+        mycontroller: controller.username_controller,
+        hintText: "Enter your Username",
+       labeltext: 'Username',
+        iconss:Icons.person_outline,
+      //   mycontroller: ,
+      ),
+    
+       Customtextfeld(
+        mycontroller: controller.email_controller,
         hintText: "Enter your Email",
        labeltext: 'Email',
         iconss:Icons.email_outlined,
       //   mycontroller: ,
       ),
-       Customtextfeld(hintText: "Enter your Password",
-       mycontroller: controller_Login.password_controller,
+           Customtextfeld(
+            mycontroller: controller.phone_controller,
+            hintText: "Enter your Phone",
+       labeltext: 'Phone',
+        iconss:Icons.phone_outlined,
+      //   mycontroller: ,
+      ),
+        Customtextfeld(
+          mycontroller: controller.password_controller,
+          hintText: "Enter your Password",
        labeltext: 'Password',
         iconss:Icons.lock_outline,
       //   mycontroller: ,
       ),
-     InkWell(
-      onTap: (){controller_Login.goToforget();},
-      child: const Text("Foreget Password", textAlign: TextAlign.end,)),
-     CustomButtomAuth(textbuttom: "Sign In",onPressed: (){},),
+     CustomButtomAuth(textbuttom: "Sign Up",onPressed: (){
+      controller.goToCheckEmail();
+     },),
     const SizedBox(height: 30,),
 TextSignUpAndSignIn(
-  title2: "Don `t have account? ",
-  title: "Sing Up",onTap: (){
-    controller_Login.goToSignUp();
- // Get.toNamed()
+  title2: "have account? ",
+  title: "Sing In",onTap: (){
+  controller.goToSignIn();
 },)
-
     ],
 
   ),)
@@ -72,3 +87,4 @@ TextSignUpAndSignIn(
   }
 
 }
+  

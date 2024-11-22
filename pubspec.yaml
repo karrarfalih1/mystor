@@ -77,6 +77,8 @@ dependencies:
   device_preview: ^1.2.0
   responsive_builder: ^0.7.1
   image_pickers: ^2.0.5+2
+  otp_text_field: ^1.1.3
+  flutter_otp_text_field: ^1.2.0
 
 dev_dependencies:
   flutter_test:
