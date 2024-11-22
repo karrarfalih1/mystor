@@ -3,36 +3,30 @@
 import 'package:get/get.dart';
 import 'package:store313/core/constantk/routesname.dart';
 
-abstract class CheckEmail_Controller extends  GetxController{
-  checkemail();
+abstract class VerifyCodeSignUp_Controller extends  GetxController{
+  checkCode();
   //عند الضغط عليها راح ياخذني لثفحة  انشاسء الحساب
   goToSuccessSingUp();
 }
-class CheckEmail_ControllerImp extends CheckEmail_Controller{
- late TextEditingController email_controller;
+class VerifyCodeSignUp_ControllerImp extends VerifyCodeSignUp_Controller{
+ String? verfiycode;
 
  
 
   @override
-  checkemail() {
+  checkCode() {
     
   }
   
   @override
   goToSuccessSingUp() {
-   Get.offNamed(Approute.verifyCodeSignUp);
+   Get.offNamed(Approute.successSignup);
   }
 @override
   void onInit() {
 
-   email_controller =TextEditingController();
+  
     super.onInit();
   }
 
-  @override
-  void dispose() {
-   email_controller.dispose();
-
-    super.dispose();
-  }
 }

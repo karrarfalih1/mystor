@@ -5,6 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:store313/controller/auth/successsignup_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/localizationk/changelocal.dart';
@@ -17,7 +18,7 @@ class Success_SignUp extends GetView<LocaleController>{
   @override
   Widget build(BuildContext context) {
 
-   
+   CuccessSignUp_ControllerImp controller=Get.put(CuccessSignUp_ControllerImp());
    return Scaffold(
        appBar: AppBar(
         //لجعلالعنوان في المنتصف
@@ -42,6 +43,7 @@ body: Container(
         Container(
           width: double.infinity,
           child: CustomButtomAuth(textbuttom: "Sign In",onPressed: (){
+            controller.GoToSignIn();
              //   controller.();
                },),
         ),

@@ -27,7 +27,6 @@ class OnBoarding extends StatelessWidget {
           child: Column( 
             children: [
                DotcontrollerOnBoarding(),
-            
               Spacer( flex: 2,),
                 CustombuttonOnBoarding(),
              

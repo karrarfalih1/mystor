@@ -55,7 +55,7 @@ body: Container(
       //   mycontroller: ,
       ),
     
-     CustomButtomAuth(textbuttom: "Check",onPressed: (){
+     CustomButtomAuth(textbuttom: "Save",onPressed: (){
       controller.goToSuccessResetPassword();
      },),
     const SizedBox(height: 30,),

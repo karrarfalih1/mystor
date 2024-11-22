@@ -2,7 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:path/path.dart';
 import 'package:store313/controller/onboarding_controller.dart';
+import 'package:store313/core/constantk/color.dart';
 import 'package:store313/data/datasource/static/static.dart';
 
 class CustomSliderOnBoarding extends GetView<OnboardingControllerImp>{
@@ -23,7 +25,7 @@ class CustomSliderOnBoarding extends GetView<OnboardingControllerImp>{
                   ),
                   Text(
                     onBordingList[i].title!,
-                    style: Theme.of(context).textTheme.headlineSmall
+                    style:const TextStyle(fontSize: 20,fontWeight: FontWeight.bold)
                   ),
                   const SizedBox(
                     height: 50,
@@ -45,8 +47,8 @@ class CustomSliderOnBoarding extends GetView<OnboardingControllerImp>{
                       onBordingList[i].body!,
                       textAlign: TextAlign.center,
 
-                      //نوع  الخط وترتيباته اخذناها من الثيم الي موجود بال main
-                      style: Theme.of(context).textTheme.bodySmall
+                     
+                      style:TextStyle(fontSize: 16,color: AppColor.grey)
                     ),
                   )
                 ]);

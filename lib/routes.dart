@@ -8,6 +8,7 @@ import 'package:store313/view/screen/auth/signup.dart';
 import 'package:store313/view/screen/auth/forget/success_reset_password.dart';
 import 'package:store313/view/screen/auth/success_signup.dart';
 import 'package:store313/view/screen/auth/forget/verifycode.dart';
+import 'package:store313/view/screen/auth/verifycodesignup.dart';
 import 'package:store313/view/screen/onboarding.dart';
 
 Map<String,Widget Function (BuildContext)>routes={
@@ -20,6 +21,7 @@ Map<String,Widget Function (BuildContext)>routes={
     Approute.successResetPassword:(context)=>const Success_Reset_Password(),
     Approute.successSignup:(context)=>const Success_SignUp(),
      Approute.checkEmail:(context)=>const CheckEmail(),
+     Approute.verifyCodeSignUp:(context)=>const VerifyCodeSignUp(),
     
     
 //OnBoarding

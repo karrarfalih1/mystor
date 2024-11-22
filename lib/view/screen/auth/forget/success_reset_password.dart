@@ -5,6 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:store313/controller/auth/cuccessresetpassword_coontroller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/localizationk/changelocal.dart';
@@ -17,7 +18,7 @@ class Success_Reset_Password extends GetView<LocaleController>{
   @override
   Widget build(BuildContext context) {
 
-   
+   CuccessrestPassword_ControllerImp controller=Get.put(CuccessrestPassword_ControllerImp());
    return Scaffold(
        appBar: AppBar(
         //لجعلالعنوان في المنتصف
@@ -38,14 +39,15 @@ body: Container(
      Icon(Icons.check,size: 200,),
      Text("Go to Login"),
   //   SizedBox(height: 100,),
-  Spacer(),
+ const Spacer(),
         Container(
           width: double.infinity,
           child: CustomButtomAuth(textbuttom: "Sign In",onPressed: (){
+            controller.GoToSignIn();
              //   controller.();
                },),
         ),
-        SizedBox(height: 40,)
+     const   SizedBox(height: 40,)
 
 
 ],),),

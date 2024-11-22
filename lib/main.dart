@@ -30,21 +30,8 @@ class MyApp extends StatelessWidget {
       //لاخفاء الشريط الاحمر
 debugShowCheckedModeBanner: false,
       locale: controllerlang.mylang,
-      title: 'Flutter Demo',
-      theme: ThemeData(
- 
-        //للتحكم في نوع الخط 9
-        fontFamily: "playfairDisplay",
-        textTheme:const TextTheme(
-          headlineSmall:   TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 20), 
-                        headlineMedium:   TextStyle(
-                        fontWeight: FontWeight.bold, fontSize: 28), 
-      //    bodyMedium:TextStyle(
-        //         height: 2, color: AppColor.grey, fontSize: 17),
-        ),
-      primarySwatch: Colors.blue
-      ),
+      theme: controllerlang.appTheme,
+      title: 'Flutter Demo',     
     //  home:Test(),
      home:Languagek(),
     // home: Login(),
