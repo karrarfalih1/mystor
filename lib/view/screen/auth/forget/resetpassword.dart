@@ -40,6 +40,9 @@ body: Container(
      ,const SizedBox(height: 35,),
     
       Customtextfeld(
+         valid: (val){
+              
+            },
         mycontroller: controller.newpassword_controller,
         hintText: "Enter The New Password",
        labeltext: 'New Password',
@@ -48,6 +51,9 @@ body: Container(
       ),
       
       Customtextfeld(
+         valid: (val){
+              
+            },
         mycontroller: controller.Renewpassword_controller,
         hintText: "Re Enter The New Password",
        labeltext: 'New Password',

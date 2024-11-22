@@ -37,6 +37,9 @@ body: Container(
      ,const SizedBox(height: 35,),
     
       Customtextfeld(
+         valid: (val){
+              
+            },
         mycontroller: controller.checkemail(),
         hintText: "Enter your Email",
        labeltext: 'Email',

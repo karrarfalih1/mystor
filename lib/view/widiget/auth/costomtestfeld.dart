@@ -4,9 +4,13 @@ class Customtextfeld extends StatelessWidget {
   final String hintText;
   final String labeltext;
   final  IconData  iconss;
+  TextInputType? keyboardType;
   final  TextEditingController? mycontroller;
   final void Function()? onPressedk;
-  const Customtextfeld({super.key, required this.hintText, this.onPressedk, required this.labeltext, required this.iconss,required  this.mycontroller});
+  final String? Function(String?)? valid;
+  Customtextfeld({super.key, required this.hintText, this.onPressedk,
+   required this.labeltext, required this.iconss,
+   required  this.mycontroller,required this.valid,this.keyboardType});
   @override
   Widget build(BuildContext context) {
    
@@ -14,7 +18,8 @@ class Customtextfeld extends StatelessWidget {
       
       margin:const EdgeInsets.only(bottom: 15,top: 15),
       child: TextFormField(
-        
+        keyboardType: keyboardType,
+        validator: valid,
         controller: mycontroller,
       decoration: InputDecoration(
        

@@ -10,17 +10,24 @@ abstract class LoginController extends  GetxController{
   goToforget();
 }
 class LoginControllerImp extends LoginController{
-
+GlobalKey<FormState> formstatesignin=GlobalKey<FormState>();
  late TextEditingController email_controller;
  late TextEditingController password_controller;
   @override
   login() {
-    
+    //للتحقق من الفالديتر
+    var formdatasignink=formstatesignin.currentState;
+    if(formdatasignink!.validate()){
+     print(" vlaid--------------------sign in");
+    }else{
+      print("note vlaid--------------------sign in");
+    }
   }
   
   @override
   goToSignUp() {
    Get.toNamed(Approute.signup);
+    Get.delete<LoginControllerImp>();
   }
 @override
   void onInit() {

@@ -5,7 +5,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/auth/cuccessresetpassword_coontroller.dart';
+import 'package:store313/controller/auth/successresetpassword_coontroller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/localizationk/changelocal.dart';
