@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/auth/login_controller.dart';
 import 'package:store313/core/constantk/color.dart';
+import 'package:store313/core/functionsk/alertexitapp.dart';
 import 'package:store313/core/functionsk/validinput.dart';
 import 'package:store313/view/widiget/auth/costomtestfeld.dart';
 import 'package:store313/view/widiget/auth/custombuttomauth.dart';
@@ -18,14 +19,18 @@ class Login extends StatelessWidget{
   Widget build(BuildContext context) {
 
 //نحقن الكونترولر الخاص بها
-  LoginControllerImp controller_Login=  Get.put(LoginControllerImp());
+LoginControllerImp controller_Login =Get.put(LoginControllerImp());
     return SafeArea(child:   Scaffold(
       appBar: AppBar(
         //لجعلالعنوان في المنتصف
         centerTitle: true,
        backgroundColor: Colors.white,
         title: Text("Sign In",style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: AppColor.grey),),),
-body: Container(
+body: WillPopScope(
+  //حتى  لا يخرج من التطبيق مباشرتا
+  onWillPop: alertExitApp,
+  child:
+Container(
    color: Colors.white,
   //color: Colors.red,
   padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
@@ -52,17 +57,23 @@ body: Container(
           iconss:Icons.email_outlined,
         //   mycontroller: ,
         ),
-         Customtextfeld(
-           valid: (val){
-                 return validInput(val!, 5, 30,"password" );
+       GetBuilder<LoginControllerImp>(
+        builder:(controller_Login) {
+          return    Customtextfeld(
+             valid: (val){
+                return validInput(val!, 6, 30, "password");
               },
-          
-          hintText: "Enter your Password",
-         mycontroller: controller_Login.password_controller,
+              onTap: (){
+                controller_Login.hidandviewpassword();
+              },
+              obscureText: controller_Login.typepaworrdtext==true?true:false,
+            mycontroller: controller_Login.password_controller,
+            hintText: "Enter your Password",
          labeltext: 'Password',
-          iconss:Icons.lock_outline,
+          iconss:controller_Login.typepaworrdtext==true? Icons.remove_red_eye_outlined:Icons.lock,
         //   mycontroller: ,
-        ),
+        );
+        }),
        InkWell(
         onTap: (){controller_Login.goToforget();},
         child: const Text("Foreget Password", textAlign: TextAlign.end,)),
@@ -73,6 +84,7 @@ body: Container(
     TextSignUpAndSignIn(
     title2: "Don `t have account? ",
     title: "Sing Up",onTap: (){
+      print("to ---------------------- sign up");
       controller_Login.goToSignUp();
      // Get.toNamed()
     },)
@@ -80,8 +92,8 @@ body: Container(
       ],
     
     ),
-  ),)
-    ));
+  ),)))
+    );
     
   
   }

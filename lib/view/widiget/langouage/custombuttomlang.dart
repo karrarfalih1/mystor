@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:store313/controller/onboarding_controller.dart';
-import 'package:store313/data/datasource/static/static.dart';
 
 class CustombuttomLang extends StatelessWidget {
   final String title;

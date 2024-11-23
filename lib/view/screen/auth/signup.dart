@@ -5,12 +5,12 @@ import 'package:get/get.dart';
 import 'package:store313/controller/auth/sugnup_controller.dart';
 
 import 'package:store313/core/constantk/color.dart';
+import 'package:store313/core/functionsk/alertexitapp.dart';
 import 'package:store313/core/functionsk/validinput.dart';
 import 'package:store313/view/widiget/auth/costomtestfeld.dart';
 import 'package:store313/view/widiget/auth/custombuttomauth.dart';
 import 'package:store313/view/widiget/auth/customsubtitleauth.dart';
 import 'package:store313/view/widiget/auth/customtexttitleaout.dart';
-import 'package:store313/view/widiget/auth/logoauth.dart';
 import 'package:store313/view/widiget/auth/textSignUp.dart';
 
 class SignUp extends StatelessWidget{
@@ -19,14 +19,18 @@ class SignUp extends StatelessWidget{
   Widget build(BuildContext context) {
 
 //نحقن الكونترولر الخاص بها
- SignUp_ControllerImp controller= Get.put(SignUp_ControllerImp());
+ Get.lazyPut(()=>SignUp_ControllerImp());
     return SafeArea(child:   Scaffold(
       appBar: AppBar(
         //لجعلالعنوان في المنتصف
         centerTitle: true,
        backgroundColor: Colors.white,
         title: Text("Sign Up",style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: AppColor.grey),),),
-body: Container(
+body: WillPopScope(
+  onWillPop: alertExitApp
+  ,
+  child: GetBuilder<SignUp_ControllerImp>(builder: (controller)=>
+Container(
    color: Colors.white,
   //color: Colors.red,
   padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
@@ -81,10 +85,14 @@ body: Container(
              valid: (val){
                 return validInput(val!, 6, 30, "password");
               },
+              onTap: (){
+                controller.hidandviewpassword();
+              },
+              obscureText: controller.typepaworrdtext==true?true:false,
             mycontroller: controller.password_controller,
             hintText: "Enter your Password",
          labeltext: 'Password',
-          iconss:Icons.lock_outline,
+          iconss:controller.typepaworrdtext==true? Icons.remove_red_eye_outlined:Icons.lock,
         //   mycontroller: ,
         ),
        CustomButtomAuth(textbuttom: "Sign Up",onPressed: (){
@@ -99,7 +107,9 @@ body: Container(
       ],
     
     ),
-  ),)
+  ),)), )
+
+
     ));
     
   

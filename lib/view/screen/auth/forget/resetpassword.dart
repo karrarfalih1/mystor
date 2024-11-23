@@ -41,6 +41,8 @@ body: Container(
     
       Customtextfeld(
          valid: (val){
+           return null;
+         
               
             },
         mycontroller: controller.newpassword_controller,
@@ -52,6 +54,8 @@ body: Container(
       
       Customtextfeld(
          valid: (val){
+           return null;
+         
               
             },
         mycontroller: controller.Renewpassword_controller,

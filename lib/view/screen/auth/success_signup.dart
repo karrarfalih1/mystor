@@ -36,18 +36,18 @@ body: Container(
     crossAxisAlignment: CrossAxisAlignment.center,
     
     children: [
-     Icon(Icons.check,size: 200,),
-     Text("Go to Login"),
+     const Icon(Icons.check,size: 200,),
+     const Text("Go to Login"),
   //   SizedBox(height: 100,),
-  Spacer(),
-        Container(
+  const Spacer(),
+        SizedBox(
           width: double.infinity,
           child: CustomButtomAuth(textbuttom: "Sign In",onPressed: (){
             controller.GoToSignIn();
              //   controller.();
                },),
         ),
-        SizedBox(height: 40,)
+        const SizedBox(height: 40,)
 
 
 ],),),

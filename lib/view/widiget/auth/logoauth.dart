@@ -1,7 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/imagesasset.dart';
 
 class CustomLogoAuth extends StatelessWidget {

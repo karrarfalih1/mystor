@@ -8,11 +8,13 @@ abstract class LoginController extends  GetxController{
   //عند الضغط عليها راح ياخذني لثفحة  انشاسء الحساب
   goToSignUp();
   goToforget();
+  hidandviewpassword();
 }
 class LoginControllerImp extends LoginController{
 GlobalKey<FormState> formstatesignin=GlobalKey<FormState>();
  late TextEditingController email_controller;
  late TextEditingController password_controller;
+ late bool typepaworrdtext=true;
   @override
   login() {
     //للتحقق من الفالديتر
@@ -26,8 +28,7 @@ GlobalKey<FormState> formstatesignin=GlobalKey<FormState>();
   
   @override
   goToSignUp() {
-   Get.toNamed(Approute.signup);
-    Get.delete<LoginControllerImp>();
+   Get.offAllNamed(Approute.signup);
   }
 @override
   void onInit() {
@@ -46,5 +47,9 @@ GlobalKey<FormState> formstatesignin=GlobalKey<FormState>();
   @override
   goToforget() {
    Get.toNamed(Approute.forgetpassword);
+  }
+   hidandviewpassword(){
+   typepaworrdtext=typepaworrdtext==true? false:true;
+   update();
   }
 }

@@ -2,7 +2,6 @@
 
 //راح نخلي التطبيق يفتح بلغة الجهاز واذا راد يغير اللغه يكدر يغيرها من مكان محدد\
 
-import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -34,7 +33,7 @@ String?  curntlang= myServices.sharedPreferences.getString("lang");
       appTheme=themeArabic;
     }else if(curntlang=="en"){
 
- mylang=const Locale("ar");
+ mylang=const Locale("en");
   appTheme=themeEnglish;
     }else{
 

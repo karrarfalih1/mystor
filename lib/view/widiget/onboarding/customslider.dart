@@ -48,7 +48,7 @@ class CustomSliderOnBoarding extends GetView<OnboardingControllerImp>{
                       textAlign: TextAlign.center,
 
                      
-                      style:TextStyle(fontSize: 16,color: AppColor.grey)
+                      style:const TextStyle(fontSize: 16,color: AppColor.grey)
                     ),
                   )
                 ]);

@@ -19,20 +19,20 @@ class Test extends GetView<LocaleController>{
 
    
    return Scaffold(
-body: Container(
+body: SizedBox(
  // color: Colors.amber,
   width: double.infinity,
   child: ListView(
     scrollDirection:Axis.vertical ,
     children: [
    const SizedBox(height: 300,),
-   Text("karrar"),
+   const Text("karrar"),
 OtpTextField(
   focusedBorderColor: AppColor.maincolor,
 borderWidth: 2.5,
   fieldWidth: 45,
         numberOfFields: 5,
-        borderColor: Color(0xFF512DA8),
+        borderColor: const Color(0xFF512DA8),
         //set to true to show as box or false to show as dash
         showFieldAsBox: true, 
         //runs when a code is typed in
@@ -45,13 +45,13 @@ borderWidth: 2.5,
                 context: context,
                 builder: (context){
                 return AlertDialog(
-                    title: Text("Verification Code"),
+                    title: const Text("Verification Code"),
                     content: Text('Code entered is $verificationCode'),
                 );
                 }
             );
         }, // end onSubmit
-    ), Text("karrar"),
+    ), const Text("karrar"),
   ],),
 )
    );

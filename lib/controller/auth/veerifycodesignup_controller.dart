@@ -22,11 +22,5 @@ class VerifyCodeSignUp_ControllerImp extends VerifyCodeSignUp_Controller{
   goToSuccessSingUp() {
    Get.offNamed(Approute.successSignup);
   }
-@override
-  void onInit() {
-
-  
-    super.onInit();
-  }
 
 }

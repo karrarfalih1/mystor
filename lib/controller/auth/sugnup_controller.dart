@@ -1,14 +1,15 @@
  
  import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_connect/http/src/utils/utils.dart';
 import 'package:store313/core/constantk/routesname.dart';
-import 'package:store313/core/functionsk/validinput.dart';
 
 abstract class SignUp_Controller extends  GetxController{
   signup();
   //عند الضغط عليها راح ياخذني لثفحة  انشاسء الحساب
   goToSignIn();
   goToCheckEmail();
+  hidandviewpassword();
 }
 class SignUp_ControllerImp extends SignUp_Controller{
 GlobalKey<FormState> formstateSignUp=GlobalKey<FormState>();
@@ -16,7 +17,8 @@ GlobalKey<FormState> formstateSignUp=GlobalKey<FormState>();
  late TextEditingController password_controller;
  late TextEditingController username_controller;
  late TextEditingController phone_controller;
- 
+ bool typepaworrdtext=true;
+
 
   @override
   signup() {
@@ -43,7 +45,7 @@ GlobalKey<FormState> formstateSignUp=GlobalKey<FormState>();
    email_controller.dispose();
    password_controller.dispose();
     username_controller.dispose();
-  phone_controller.dispose();
+
     super.dispose();
   }
   
@@ -61,4 +63,9 @@ GlobalKey<FormState> formstateSignUp=GlobalKey<FormState>();
    }
    
   }
+   hidandviewpassword(){
+   typepaworrdtext=typepaworrdtext==true? false:true;
+   update();
+  }
+  
 }

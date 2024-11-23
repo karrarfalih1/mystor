@@ -17,6 +17,6 @@ class TextSignUpAndSignIn extends StatelessWidget {
   InkWell(
     onTap:onTap ,
 
-    child: Text(title,style: TextStyle(color: AppColor.maincolor,fontWeight: FontWeight.bold),),)] );
+    child: Text(title,style: const TextStyle(color: AppColor.maincolor,fontWeight: FontWeight.bold),),)] );
   }
 }

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:store313/binding.dart';
 
 import 'package:store313/core/localizationk/translation.dart';
 import 'package:store313/core/servicesk/services.dart';
@@ -32,10 +33,11 @@ debugShowCheckedModeBanner: false,
       locale: controllerlang.mylang,
       theme: controllerlang.appTheme,
       title: 'Flutter Demo',     
-    //  home:Test(),
-     home:Languagek(),
-    // home: Login(),
-      routes: routes,
+   
+    
+     getPages: routes
+      //من اجل اليزي بوت حتى لا اضطر لاستدعائها في كل صفحة 
+     // initialBinding: MyBinding(),
     );
   }
 }
