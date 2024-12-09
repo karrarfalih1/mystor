@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/binding.dart';
+import 'package:store313/bindings/initbinding.dart';
 
 import 'package:store313/core/localizationk/translation.dart';
 import 'package:store313/core/servicesk/services.dart';
@@ -32,7 +33,8 @@ class MyApp extends StatelessWidget {
 debugShowCheckedModeBanner: false,
       locale: controllerlang.mylang,
       theme: controllerlang.appTheme,
-      title: 'Flutter Demo',     
+      title: 'Flutter Demo',   
+      initialBinding: Initbindings(),  
    
     
      getPages: routes

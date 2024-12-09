@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:image_pickers/image_pickers.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/middleware/mymiddleware.dart';
+import 'package:store313/test_view.dart';
 import 'package:store313/view/screen/auth/forget/forgetpassword.dart';
 import 'package:store313/view/screen/auth/login.dart';
 import 'package:store313/view/screen/auth/forget/resetpassword.dart';
@@ -16,10 +17,13 @@ import 'package:store313/view/screen/onboarding.dart';
 
 
 List<GetPage<dynamic>>? routes=[
+
+  //test
+  GetPage(name: "/", page: ()=>TestView()),
   //Auth
-   GetPage(name: "/", page: ()=>const Languagek(),middlewares: [
-    Mymiddleware()
-   ]),
+   //GetPage(name: "/", page: ()=>const Languagek(),middlewares: [ Mymiddleware() ]),
+   
+  
  GetPage(name: Approute.login, page: ()=>const Login()),
  GetPage(name: Approute.signup, page: ()=>const SignUp()),
  GetPage(name: Approute.forgetpassword, page: ()=>const ForgetPassword()),
