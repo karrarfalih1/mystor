@@ -5,6 +5,8 @@ loading,
 success,
 failure,
 serverfailure,
+serverException,
 offlinefailure,
+
 
 }

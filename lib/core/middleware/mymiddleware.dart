@@ -8,6 +8,7 @@ import 'package:store313/core/servicesk/services.dart';
 
 class Mymiddleware extends GetMiddleware{
 //تحديد الاولويات 
+  @override
   int? priority = 0;
 MyServices myServices=Get.find();
   @override
@@ -17,6 +18,7 @@ MyServices myServices=Get.find();
       // اذا كان الشخص شاف الاون بوردنغ فكبل روح لصفحة تسجيل الدخول
       return const RouteSettings(name: Approute.login);
     }
+    return null;
   }
 
 }

@@ -2,7 +2,6 @@
 //هذه الصفحة  لنتاكد ان  الايميل  موجود فعلا في قاعدة البيانات   ثم ننقله للتحقق  من البريد الالكتروني  
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/auth/forgetpassword_controller.dart';
 import 'package:store313/controller/auth/resetpassword_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/view/widiget/auth/costomtestfeld.dart';

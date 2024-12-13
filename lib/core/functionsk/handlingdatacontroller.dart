@@ -1,6 +1,5 @@
 
 
-import 'package:image_picker/image_picker.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 
 handleingData(response){

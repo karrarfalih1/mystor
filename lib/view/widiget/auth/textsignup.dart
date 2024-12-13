@@ -1,6 +1,5 @@
 
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:store313/core/constantk/color.dart';
 
 class TextSignUpAndSignIn extends StatelessWidget {

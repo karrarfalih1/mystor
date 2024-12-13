@@ -2,9 +2,12 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:store313/controller/auth/sugnup_controller.dart';
+import 'package:store313/core/classk/statusRequest.dart';
 
 import 'package:store313/core/constantk/color.dart';
+import 'package:store313/core/constantk/imagesasset.dart';
 import 'package:store313/core/functionsk/alertexitapp.dart';
 import 'package:store313/core/functionsk/validinput.dart';
 import 'package:store313/view/widiget/auth/costomtestfeld.dart';
@@ -30,6 +33,7 @@ body: WillPopScope(
   onWillPop: alertExitApp
   ,
   child: GetBuilder<SignUp_ControllerImp>(builder: (controller)=>
+  controller.statusRequest==StatusRequest.loading?Center(child: Lottie.asset(AppImagesasset.Loading),):
 Container(
    color: Colors.white,
   //color: Colors.red,
@@ -96,7 +100,7 @@ Container(
         //   mycontroller: ,
         ),
        CustomButtomAuth(textbuttom: "Sign Up",onPressed: (){
-        controller.goToCheckEmail();
+        controller.signup();
        },),
       const SizedBox(height: 30,),
     TextSignUpAndSignIn(

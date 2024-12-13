@@ -2,9 +2,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:store313/controller/auth/veerifycodesignup_controller.dart';
-import 'package:store313/controller/auth/verifycode_controller.dart';
+import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/color.dart';
+import 'package:store313/core/constantk/imagesasset.dart';
 import 'package:store313/view/widiget/auth/customsubtitleauth.dart';
 import 'package:store313/view/widiget/auth/customtexttitleaout.dart';
 
@@ -14,14 +16,19 @@ class VerifyCodeSignUp extends StatelessWidget{
   Widget build(BuildContext context) {
 
 //نحقن الكونترولر الخاص بها
- VerifyCodeSignUp_ControllerImp controller= Get.put(VerifyCodeSignUp_ControllerImp());
+ //VerifyCodeSignUp_ControllerImp controller= Get.put(VerifyCodeSignUp_ControllerImp());
+  Get.lazyPut(()=>VerifyCodeSignUp_ControllerImp());
     return SafeArea(child:   Scaffold(
       appBar: AppBar(
         //لجعلالعنوان في المنتصف
         centerTitle: true,
        backgroundColor: Colors.white,
         title: Text("Verification Code",style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: AppColor.grey),),),
-body: Container(
+body: GetBuilder<VerifyCodeSignUp_ControllerImp>(builder:(controller)=>
+controller.statusRequest==StatusRequest.loading?
+Center(child: Lottie.asset(AppImagesasset.Loading),)
+:
+Container(
    color: Colors.white,
   //color: Colors.red,
   padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
@@ -50,7 +57,7 @@ borderWidth: 2.5,
         },
         //runs when every textfield is filled
         onSubmit: (String verificationCode){
-      controller.goToSuccessSingUp();
+      controller.goToSuccessSingUp(verificationCode);
          
             showDialog(
                 context: context,
@@ -68,6 +75,7 @@ borderWidth: 2.5,
     ],
 
   ),)
+)
     ));
     
   

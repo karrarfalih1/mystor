@@ -7,10 +7,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/auth/successresetpassword_coontroller.dart';
 import 'package:store313/core/constantk/color.dart';
-import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/localizationk/changelocal.dart';
 import 'package:store313/view/widiget/auth/custombuttomauth.dart';
-import 'package:store313/view/widiget/langouage/custombuttomlang.dart';
 
 class Success_Reset_Password extends GetView<LocaleController>{
   const Success_Reset_Password({super.key});

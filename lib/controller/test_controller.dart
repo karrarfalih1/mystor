@@ -1,6 +1,5 @@
 
 import 'package:get/get.dart';
-import 'package:store313/core/classk/crud.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/functionsk/handlingdatacontroller.dart';
 import 'package:store313/data/datasource/remote/test_data.dart';
@@ -13,7 +12,7 @@ class TestController extends GetxController{
 
   late StatusRequest statusRequest;
 // عملنا دالة لجلب المعلومات
-  Future getData() async{
+  getData() async{
     //نعطي قيمة ابتدائية وهي اللودنغ
     statusRequest=StatusRequest.loading;
 //لجلب المعلومات
@@ -24,7 +23,12 @@ class TestController extends GetxController{
 
 //القيمة الفوك متوقع ترجعلي ثلالث اشياء  الاولى نجاح  والثانية خطا بالانترنيت والثالثة خطا بالاتصال
 if(StatusRequest.success==statusRequest){
-  data.addAll(response['data']);
+  if(response['status']=='success'){
+   data.addAll(response['data']);
+  }else{
+    statusRequest=StatusRequest.failure;
+  }
+ 
 }
 update();
   }

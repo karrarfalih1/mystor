@@ -10,7 +10,7 @@ class Crud {
 
 
   Future<Either<StatusRequest,Map>> postData(String linkurl, Map data)async{
-try{
+
       //يتحقق اذا اكو اتصال بالانترنيت او لاي
     if(await checkInternet()){
       // ادخال لنك الصفحة الي اريد اوصل الها والبيانات 
@@ -18,6 +18,7 @@ try{
       //اذا وجد الصفحة وتم الاتصال بنجاح
       if(response.statusCode==200|| response.statusCode==201){
         Map responsebody =jsonDecode(response.body);
+        print(responsebody);
         return Right(responsebody);
 
       }else{
@@ -27,13 +28,10 @@ try{
 
     }else{
       return const Left(StatusRequest.offlinefailure);
-    }
-
-
-}catch(_){
-  return const Left(StatusRequest.serverfailure);
-
 }
+
+
+
 
   }
-}
+  }

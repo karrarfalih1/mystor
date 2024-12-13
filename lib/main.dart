@@ -1,13 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/binding.dart';
 import 'package:store313/bindings/initbinding.dart';
-
 import 'package:store313/core/localizationk/translation.dart';
 import 'package:store313/core/servicesk/services.dart';
 import 'package:store313/routes.dart';
-import 'package:store313/view/screen/language.dart';
-
 import 'core/localizationk/changelocal.dart';
 
 void main()async {

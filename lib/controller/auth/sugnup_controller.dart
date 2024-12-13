@@ -1,8 +1,11 @@
  
- import 'package:flutter/material.dart';
+
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_connect/http/src/utils/utils.dart';
+import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/routesname.dart';
+import 'package:store313/core/functionsk/handlingdatacontroller.dart';
+import 'package:store313/data/datasource/remote/auth/signup.dart';
 
 abstract class SignUp_Controller extends  GetxController{
   signup();
@@ -16,23 +19,55 @@ GlobalKey<FormState> formstateSignUp=GlobalKey<FormState>();
  late TextEditingController email_controller;
  late TextEditingController password_controller;
  late TextEditingController username_controller;
- late TextEditingController phone_controller;
+  late TextEditingController phone_controller;
+   StatusRequest?  statusRequest;
  bool typepaworrdtext=true;
 
-
+ // ignore: prefer_typing_uninitialized_variables
+ SignUpData signUpData= SignUpData(Get.find());
+ List data=[];
   @override
-  signup() {
+  signup() async{
+    if(formstateSignUp.currentState!.validate()){
+       
+    //نعطي قيمة ابتدائية وهي اللودنغ
+    statusRequest=StatusRequest.loading;
+    update();
+
+//لجلب المعلومات
+//الكيت داتا ترجعلنا اما خطا معين اما المصفوفة الي بيها البيانات
+    var response=await signUpData.postdata(
+      username_controller.text,email_controller.text,phone_controller.text,password_controller.text
+    );
+
+    statusRequest=handleingData(response);
+
+//القيمة الفوك متوقع ترجعلي ثلالث اشياء  الاولى نجاح  والثانية خطا بالانترنيت والثالثة خطا بالاتصال
+if(StatusRequest.success==statusRequest){
+  if(response['status']=='success'){
+ //  data.addAll(response['data']);
+     Get.offNamed(Approute.verifyCodeSignUp,arguments: {
+      "email":email_controller.text
+     });
+  }else{
+    Get.defaultDialog(title: "Warning",middleText: "الايميل او الرقم موجود بالفعل");
+    statusRequest=StatusRequest.failure;
+  }
+ 
+}
+update();
+    }
     
   }
   
   @override
   goToSignIn() {
     
-   Get.offAllNamed(Approute.login);
+   Get.offNamed(Approute.login);
   }
 @override
   void onInit() {
-
+   
    email_controller =TextEditingController();
    password_controller=TextEditingController();
    username_controller=TextEditingController();
@@ -63,7 +98,8 @@ GlobalKey<FormState> formstateSignUp=GlobalKey<FormState>();
    }
    
   }
-   hidandviewpassword(){
+   @override
+  hidandviewpassword(){
    typepaworrdtext=typepaworrdtext==true? false:true;
    update();
   }

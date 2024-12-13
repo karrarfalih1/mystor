@@ -5,10 +5,12 @@ import 'package:store313/core/functionsk/checkinernet.dart';
 
 
 void main(){
-  runApp( test());
+  runApp( const test());
 }
 
 class test extends StatefulWidget{
+  const test({super.key});
+
   @override
   State<StatefulWidget> createState() => teststate();
 
@@ -22,7 +24,8 @@ initaldata()async{
    print("------------------------------$res");
 }
 
-void initState(){
+@override
+  void initState(){
   initaldata();
  
     super.initState();
@@ -33,7 +36,7 @@ void initState(){
   Widget build(BuildContext context) {
     return MaterialApp(home:
  Scaffold(
-      appBar: AppBar(title: Text("karrar"),),
+      appBar: AppBar(title: const Text("karrar"),),
 
     )
     );
