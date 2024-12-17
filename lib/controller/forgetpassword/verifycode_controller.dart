@@ -1,21 +1,21 @@
  //في هذه الصفحة نحن نفحص الايميل فقط 
 import 'package:get/get.dart';
+import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/functionsk/handlingdatacontroller.dart';
+import 'package:store313/data/datasource/remote/forgetpassword/vrfiycodeforget.dart';
 
-import '../../core/classk/statusRequest.dart';
-import '../../data/datasource/remote/auth/verfiycodesignup.dart';
-
-abstract class VerifyCodeSignUp_Controller extends  GetxController{
+abstract class VerifyCode_Controller extends  GetxController{
   checkCode();
   //عند الضغط عليها راح ياخذني لثفحة  انشاسء الحساب
-  goToSuccessSingUp(String verfiycode);
+  GoToResetPassword(String verfiycode);
 }
-class VerifyCodeSignUp_ControllerImp extends VerifyCodeSignUp_Controller{
-Verfiycodesignup verfiycodesignup =Verfiycodesignup(Get.find());
+class VerifyCode_ControllerImp extends VerifyCode_Controller{
+  Vrfiycodeforget vrfiycodeforget =Vrfiycodeforget(Get.find());
  String? verfiycode;
-StatusRequest statusRequest=StatusRequest.none;
- String?email;
+ String? email;
+StatusRequest  statusRequest=StatusRequest.none;
+ 
 
   @override
   checkCode() {
@@ -23,7 +23,7 @@ StatusRequest statusRequest=StatusRequest.none;
   }
   
   @override
-  goToSuccessSingUp(verfiycode)async {
+  GoToResetPassword(verfiycode) async {
  
        
     //نعطي قيمة ابتدائية وهي اللودنغ
@@ -32,8 +32,9 @@ StatusRequest statusRequest=StatusRequest.none;
 
 //لجلب المعلومات
 //الكيت داتا ترجعلنا اما خطا معين اما المصفوفة الي بيها البيانات
-    var response=await verfiycodesignup.postData(
-     email!,verfiycode
+    var response=await vrfiycodeforget.postdata(
+      email!,verfiycode
+    
     );
 
     statusRequest=handleingData(response);
@@ -42,7 +43,7 @@ StatusRequest statusRequest=StatusRequest.none;
 if(StatusRequest.success==statusRequest){
   if(response['status']=='success'){
  //  data.addAll(response['data']);
- Get.offNamed(Approute.successSignup);
+ Get.offNamed(Approute.resetpassword ,arguments: {"email":email});
   }else{
     Get.defaultDialog(
       title:"Warning",
@@ -50,14 +51,12 @@ if(StatusRequest.success==statusRequest){
     );
     statusRequest=StatusRequest.failure;
   }
- 
 }
 update();
   }
-
-@override
+  @override
   void onInit() {
-    email=Get.arguments['email'];
+     email=Get.arguments['email'];
     // TODO: implement onInit
     super.onInit();
   }

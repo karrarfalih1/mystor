@@ -1,6 +1,7 @@
 //كلاس لحالات الركوست
 
 enum StatusRequest{
+  none,
 loading,
 success,
 failure,

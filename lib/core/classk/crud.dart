@@ -16,7 +16,15 @@ class Crud {
       // ادخال لنك الصفحة الي اريد اوصل الها والبيانات 
       var response=await http.post(Uri.parse(linkurl),body: data);
       //اذا وجد الصفحة وتم الاتصال بنجاح
+      if(response.statusCode==403){
+        print("33333333333333333333333333333333333333333333333333333333333333333333333333");
+      }
+      if(response.statusCode==404){
+         print("4444444444444444444444444444444444444444444444444444444444444444444444444444444444444");
+      }
       if(response.statusCode==200|| response.statusCode==201){
+               print("---------------------------");
+        print(response);
         Map responsebody =jsonDecode(response.body);
         print(responsebody);
         return Right(responsebody);

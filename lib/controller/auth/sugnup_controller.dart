@@ -20,7 +20,7 @@ GlobalKey<FormState> formstateSignUp=GlobalKey<FormState>();
  late TextEditingController password_controller;
  late TextEditingController username_controller;
   late TextEditingController phone_controller;
-   StatusRequest?  statusRequest;
+   StatusRequest?  statusRequest=StatusRequest.none;
  bool typepaworrdtext=true;
 
  // ignore: prefer_typing_uninitialized_variables

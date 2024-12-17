@@ -1,5 +1,7 @@
  
- import 'package:flutter/material.dart';
+ import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/routesname.dart';
@@ -18,7 +20,7 @@ class LoginControllerImp extends LoginController{
 GlobalKey<FormState> formstatesignin=GlobalKey<FormState>();
  late TextEditingController email_controller;
  late TextEditingController password_controller;
- StatusRequest? statusRequest;
+ StatusRequest? statusRequest=StatusRequest.none;
  late bool typepaworrdtext=true;
   @override
   login() async{ 
@@ -38,9 +40,9 @@ GlobalKey<FormState> formstatesignin=GlobalKey<FormState>();
 //القيمة الفوك متوقع ترجعلي ثلالث اشياء  الاولى نجاح  والثانية خطا بالانترنيت والثالثة خطا بالاتصال
 if(StatusRequest.success==statusRequest){
   if(response['status']=='success'){
-    Get.toNamed(Approute.onboarding);
+    Get.toNamed(Approute.homepage);
   }else{
-   
+   Get.defaultDialog(title: "خطا",middleText: "الايميل او الرمز غير صحيح");
   }
  
 }
@@ -54,6 +56,11 @@ update();
   }
 @override
   void onInit() {
+    print("------------------------------------");
+    FirebaseMessaging.instance.getToken().then((value){
+      print(value);
+      String? token=value;
+    });
    email_controller =TextEditingController();
    password_controller=TextEditingController();
     super.onInit();

@@ -2,8 +2,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/auth/verifycode_controller.dart';
+import 'package:lottie/lottie.dart';
+import 'package:store313/controller/forgetpassword/verifycode_controller.dart';
+import 'package:store313/core/classk/handlingdataview.dart';
+import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/color.dart';
+import 'package:store313/core/constantk/imagesasset.dart';
 import 'package:store313/view/widiget/auth/customsubtitleauth.dart';
 import 'package:store313/view/widiget/auth/customtexttitleaout.dart';
 
@@ -20,7 +24,9 @@ class VerfiyCode extends StatelessWidget{
         centerTitle: true,
        backgroundColor: Colors.white,
         title: Text("Verification Code",style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: AppColor.grey),),),
-body: Container(
+body: GetBuilder<VerifyCode_ControllerImp>(builder: (controller)=>
+ HandlingDataView(statusRequest: controller.statusRequest!, widget: 
+Container(
    color: Colors.white,
   //color: Colors.red,
   padding: const EdgeInsets.symmetric(vertical: 15,horizontal: 30),
@@ -49,24 +55,14 @@ borderWidth: 2.5,
         },
         //runs when every textfield is filled
         onSubmit: (String verificationCode){
-      controller.GoToResetPassword();
-         
-            showDialog(
-                context: context,
-                builder: (context){
-
-                return AlertDialog(
-                    title:const Text("Verification Code"),
-                    content: Text('Code entered is $verificationCode'),
-                );
-                }
-            );
+      controller.GoToResetPassword(verificationCode);
+ 
         }, // end onSubmit
     ),
 
     ],
 
-  ),)
+  ),)))
     ));
     
   

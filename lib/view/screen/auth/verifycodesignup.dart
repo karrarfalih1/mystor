@@ -4,6 +4,7 @@ import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:store313/controller/auth/veerifycodesignup_controller.dart';
+import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/imagesasset.dart';
@@ -25,9 +26,8 @@ class VerifyCodeSignUp extends StatelessWidget{
        backgroundColor: Colors.white,
         title: Text("Verification Code",style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: AppColor.grey),),),
 body: GetBuilder<VerifyCodeSignUp_ControllerImp>(builder:(controller)=>
-controller.statusRequest==StatusRequest.loading?
-Center(child: Lottie.asset(AppImagesasset.Loading),)
-:
+
+HandlingDataView(statusRequest: controller.statusRequest!, widget: 
 Container(
    color: Colors.white,
   //color: Colors.red,
@@ -58,23 +58,13 @@ borderWidth: 2.5,
         //runs when every textfield is filled
         onSubmit: (String verificationCode){
       controller.goToSuccessSingUp(verificationCode);
-         
-            showDialog(
-                context: context,
-                builder: (context){
-
-                return AlertDialog(
-                    title:const Text("Verification Code"),
-                    content: Text('Code entered is $verificationCode'),
-                );
-                }
-            );
+       
         }, // end onSubmit
     ),
 
     ],
 
-  ),)
+  ),))
 )
     ));
     

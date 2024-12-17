@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:store313/controller/auth/sugnup_controller.dart';
+import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 
 import 'package:store313/core/constantk/color.dart';
@@ -33,7 +34,7 @@ body: WillPopScope(
   onWillPop: alertExitApp
   ,
   child: GetBuilder<SignUp_ControllerImp>(builder: (controller)=>
-  controller.statusRequest==StatusRequest.loading?Center(child: Lottie.asset(AppImagesasset.Loading),):
+HandlingDataView(statusRequest: controller.statusRequest!, widget: 
 Container(
    color: Colors.white,
   //color: Colors.red,
@@ -111,7 +112,7 @@ Container(
       ],
     
     ),
-  ),)), )
+  ),))), )
 
 
     ));

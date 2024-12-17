@@ -11,4 +11,5 @@ class Approute{
           static const String successSignup ="/successsignup";
          
           static const String verifyCodeSignUp="/verifyCodeSignUp";
+          static const String homepage="/homepage";
 }
