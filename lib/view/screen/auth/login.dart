@@ -1,12 +1,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:store313/controller/auth/login_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
-import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/color.dart';
-import 'package:store313/core/constantk/imagesasset.dart';
 import 'package:store313/core/functionsk/alertexitapp.dart';
 import 'package:store313/core/functionsk/validinput.dart';
 import 'package:store313/view/widiget/auth/costomtestfeld.dart';

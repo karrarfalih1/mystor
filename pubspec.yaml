@@ -68,7 +68,8 @@ dependencies:
   dropdown_search: ^6.0.1
   badges: ^3.1.2
   # Icon 
-  # flutter_svg: ^1.0.3
+  
+  flutter_svg: ^2.0.16
   font_awesome_flutter: ^10.8.0
   fluttericon: ^2.0.0
   dartz: ^0.10.1

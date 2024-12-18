@@ -28,7 +28,7 @@ late PageController pageControllerk;
 
      if(currentPage == onBordingList.length){
       //راح استفاد منها حتى اعرف اذا الشخص شاف الاون بوردنغ لو لا
-      myServices.sharedPreferences.setString("onboarding", "1");
+      myServices.sharedPreferences.setString("step", "1");
       Get.offAllNamed(Approute.login);
 print("00000000000000000000000");
     }else{ pageControllerk.animateToPage(currentPage,duration: const Duration(milliseconds: 90),curve: Curves.easeInOut);}

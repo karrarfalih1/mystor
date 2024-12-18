@@ -14,7 +14,12 @@ MyServices myServices=Get.find();
   @override
   //هنا نعمل عمليات المقارنه 
   RouteSettings? redirect(String? route) {
-    if(myServices.sharedPreferences.getString("onboarding")=="1"){
+    
+    if(myServices.sharedPreferences.getString("step")=="2"){
+      // اذا كان الشخص شاف الاون بوردنغ فكبل روح لصفحة تسجيل الدخول
+      return const RouteSettings(name: Approute.homepage);
+    }
+    if(myServices.sharedPreferences.getString("step")=="1"){
       // اذا كان الشخص شاف الاون بوردنغ فكبل روح لصفحة تسجيل الدخول
       return const RouteSettings(name: Approute.login);
     }

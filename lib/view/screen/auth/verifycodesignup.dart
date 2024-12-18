@@ -2,12 +2,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_otp_text_field/flutter_otp_text_field.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
 import 'package:store313/controller/auth/veerifycodesignup_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
-import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/color.dart';
-import 'package:store313/core/constantk/imagesasset.dart';
 import 'package:store313/view/widiget/auth/customsubtitleauth.dart';
 import 'package:store313/view/widiget/auth/customtexttitleaout.dart';
 
@@ -27,7 +24,7 @@ class VerifyCodeSignUp extends StatelessWidget{
         title: Text("Verification Code",style: Theme.of(context).textTheme.headlineSmall!.copyWith(color: AppColor.grey),),),
 body: GetBuilder<VerifyCodeSignUp_ControllerImp>(builder:(controller)=>
 
-HandlingDataView(statusRequest: controller.statusRequest!, widget: 
+HandlingDataView(statusRequest: controller.statusRequest, widget: 
 Container(
    color: Colors.white,
   //color: Colors.red,

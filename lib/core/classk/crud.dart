@@ -29,8 +29,12 @@ class Crud {
         print(responsebody);
         return Right(responsebody);
 
-      }else{
+      }else if(response.statusCode==404){
         return const Left(StatusRequest.serverfailure);
+      }else{
+        print("0000000000000");
+        print(response);
+        return const Left(StatusRequest.none);
       }
 
 

@@ -1,11 +1,11 @@
  
- import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/functionsk/handlingdatacontroller.dart';
+import 'package:store313/core/servicesk/services.dart';
 import 'package:store313/data/datasource/remote/auth/login.dart';
 
 abstract class LoginController extends  GetxController{
@@ -22,6 +22,8 @@ GlobalKey<FormState> formstatesignin=GlobalKey<FormState>();
  late TextEditingController password_controller;
  StatusRequest? statusRequest=StatusRequest.none;
  late bool typepaworrdtext=true;
+
+ MyServices myservices=Get.find();
   @override
   login() async{ 
      if(formstatesignin.currentState!.validate()){
@@ -40,6 +42,12 @@ GlobalKey<FormState> formstatesignin=GlobalKey<FormState>();
 //القيمة الفوك متوقع ترجعلي ثلالث اشياء  الاولى نجاح  والثانية خطا بالانترنيت والثالثة خطا بالاتصال
 if(StatusRequest.success==statusRequest){
   if(response['status']=='success'){
+    myservices.sharedPreferences.setString("id", response['data']['users_id'].toString());
+     myservices.sharedPreferences.setString("username", response['data']['users_name']);
+      myservices.sharedPreferences.setString("email", response['data']['users_email']);
+       myservices.sharedPreferences.setString("phone", response['data']['users_phone']);
+       //نستفاد منها بالاولةية عند بداية تسجيل الدخول
+       myservices.sharedPreferences.setString("step","2");
     Get.toNamed(Approute.homepage);
   }else{
    Get.defaultDialog(title: "خطا",middleText: "الايميل او الرمز غير صحيح");
