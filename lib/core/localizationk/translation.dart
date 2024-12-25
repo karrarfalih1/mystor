@@ -13,16 +13,16 @@ class MyTranslation extends Translations{
        "1":" اختر اللغة",
        "welcome":"اهلا بعودتك",
        "welcome2":"قم بالتسجيل باستخدام بريدك الإلكتروني وكلمة المرور أو تابع عبر وسائل التواصل الاجتماعي ",
-       "5":"لدينا 100 ألف منتج، اختر منتجك من اختر اللغة\n التجارة الإلكترونية"
+       "5":"لدينا 100 ألف منتج، اختر منتجك من اختر اللغة\n التجارة الإلكترونية",
+        "6":"البحث عن المنتجات"
    },
 
    "en":{
     "1":"Choose Language",
      "welcome":"Welcome Back",
      "welcome2":"Sing in with your email and pasword or continue eith social media",
-     "5":"We have a 100k product, Chosse \n Your Product From Our\n E_comerce Shap"
-
-
+     "5":"We have a 100k product, Chosse \n Your Product From Our\n E_comerce Shap",
+     "6":"Find Product"
    }
 
   };

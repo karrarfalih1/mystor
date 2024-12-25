@@ -20,7 +20,7 @@ ThemeData(
 
 ThemeData  themeArabic=
 ThemeData(
-   brightness: Brightness.dark,
+  // brightness: Brightness.dark,
  
         //للتحكم في نوع الخط 9
         fontFamily: "Cairo",

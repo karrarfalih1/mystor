@@ -8,38 +8,39 @@ import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/localizationk/changelocal.dart';
 import 'package:store313/linkapi.dart';
-import 'package:store313/view/widiget/home/castomappbar.dart';
+import 'package:store313/view/widiget/castomappbar.dart';
 import 'package:store313/view/widiget/home/categoreshomewidiget.dart';
 import 'package:store313/view/widiget/home/cuostomitemslisthome.dart';
 import 'package:store313/view/widiget/home/customcardhome.dart';
 import 'package:store313/view/widiget/home/customtitlehome.dart';
 
-class homepage extends GetView<LocaleController> {
-  const homepage({super.key});
+class Homepage extends GetView<LocaleController> {
+  const Homepage({super.key});
 
   @override
   Widget build(BuildContext context) {
 Get.put(HomeControllerImp());
 
-    return Scaffold(
-        body: GetBuilder<HomeControllerImp>(builder: (controller)=>
+    return GetBuilder<HomeControllerImp>(builder: (controller)=>
         HandlingDataView(statusRequest:controller.statusRequest, widget: 
         Container(
           padding: const EdgeInsets.symmetric(horizontal: 15),
       child: ListView(
         children: [
-           CustomAppBar(title: 'Find Product', onPressednotifcation: () {  }, onPressedSearsh: () {  },),
+           CustomAppBar(title:"6".tr ,onPressednotifcation: () {  }, onPressedSearsh: () {  },),
            const Customcardhome(titlecard: 'A winer suprise', subtitlecard: 'Cashback20%',),
-           ListCategorieshome(),
-           const  SizedBox(height: 20,),
-           Customtitlehome(title: 'Product for you'),
-           const  SizedBox(height: 20,),
-           CustomListItemsHome(),
-            Customtitlehome(title: 'Offer'),
-           const  SizedBox(height: 20,),
-           CustomListItemsHome()
+            const Customtitlehome(title: 'Categores'),
+       
+            const ListCategorieshome(),
+         
+           const Customtitlehome(title: 'Product for you'),
+         
+           const CustomListItemsHome(),
+           const Customtitlehome(title: 'Offer'),
+          
+           const CustomListItemsHome()
         ],
       ),
-    ))));
+    )));
   }
 }

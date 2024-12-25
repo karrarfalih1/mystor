@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:store313/controller/home_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 
-class Customcardhome extends StatelessWidget {
+class Customcardhome extends GetView<HomeControllerImp> {
   final String titlecard;
    final String subtitlecard;
+   
   const Customcardhome({super.key, required this.titlecard,required this.subtitlecard});
   @override
   Widget build(BuildContext context) {
-    return  Container(
+    return GetBuilder<HomeControllerImp>(builder: (controller)=>
+      Container(
             margin: const EdgeInsets.symmetric(vertical: 15),
             child: Stack(
               
@@ -21,13 +25,14 @@ class Customcardhome extends StatelessWidget {
                   height: 150,
                       child:  ListTile(
                    
-                  title: Text(titlecard,style: TextStyle(color: Colors.white,fontSize: 20,fontWeight:FontWeight.bold),),
-                   subtitle: Text(subtitlecard,style: TextStyle(color: Colors.white,fontSize: 30),)
+                  title: Text(titlecard,style: const TextStyle(color: Colors.white,fontSize: 20,fontWeight:FontWeight.bold),),
+                   subtitle: Text(subtitlecard,style: const TextStyle(color: Colors.white,fontSize: 30),)
                 ),
                 ),
                   Positioned(
                     top: -20,
-                    right: -40,
+                    right:controller.lang=="en"?-40:null,
+                    left:controller.lang=="ar"?-40:null,
                     child: Container(
 
                       height: 160,
@@ -40,6 +45,6 @@ class Customcardhome extends StatelessWidget {
                   ),
               ],
             ),
-          );
+          ));
   }
 }

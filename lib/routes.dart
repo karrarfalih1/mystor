@@ -10,7 +10,9 @@ import 'package:store313/view/screen/auth/forget/success_reset_password.dart';
 import 'package:store313/view/screen/auth/success_signup.dart';
 import 'package:store313/view/screen/auth/forget/verifycode.dart';
 import 'package:store313/view/screen/auth/verifycodesignup.dart';
-import 'package:store313/view/screen/home.dart';
+import 'package:store313/view/screen/homescreen.dart';
+import 'package:store313/view/screen/items.dart';
+import 'package:store313/view/screen/itemsdetels.dart';
 import 'package:store313/view/screen/language.dart';
 import 'package:store313/view/screen/onboarding.dart';
 
@@ -18,7 +20,7 @@ import 'package:store313/view/screen/onboarding.dart';
 List<GetPage<dynamic>>? routes=[
 
   //test
-  //GetPage(name: "/", page: ()=>const TestView()),
+  //GetPage(name: "/", page: ()=>const ItemsDetels()),
   //Auth
   GetPage(name: "/", page: ()=>const Languagek(),middlewares: [ Mymiddleware() ]),
    
@@ -34,7 +36,9 @@ List<GetPage<dynamic>>? routes=[
  //onboarding
  GetPage(name: Approute.onboarding, page: ()=>const OnBoarding()),
  //home;
- GetPage(name: Approute.homepage, page: ()=>const homepage()),
+ GetPage(name: Approute.homepage, page: ()=>const HomeScreen()),
+ GetPage(name: Approute.items, page: ()=>const ItemsHome()),
+  GetPage(name: Approute.ItemsDetels, page: ()=>const ItemsDetels()),
 
 
 ];

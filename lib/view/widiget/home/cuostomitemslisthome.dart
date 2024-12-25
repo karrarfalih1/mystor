@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 import 'package:store313/controller/home_controller.dart';
 import 'package:store313/data/model/itemsmodel.dart';
 import 'package:store313/linkapi.dart';
-
+import 'package:cached_network_image/cached_network_image.dart';
 class CustomListItemsHome extends GetView<HomeControllerImp> {
 
   const CustomListItemsHome({super.key,});
@@ -39,7 +39,7 @@ class Items extends StatelessWidget{
 
                   padding:const EdgeInsets.symmetric(horizontal: 10),
                  
-                child:Image.network("${Applink.imagesitems}/${itemsModel.itemsImage}",height: 150,width: 150,fit: BoxFit.fill,) ,
+                child:CachedNetworkImage(imageUrl:"${Applink.imagesitems}/${itemsModel.itemsImage}",height: 150,width: 150,fit: BoxFit.fill,) ,
                 ),
                 Container(
 
@@ -51,7 +51,7 @@ class Items extends StatelessWidget{
                   height: 150,width: 170,),
                    Positioned(
                     left: 10,
-                    child: Text("${itemsModel.itemsName}",style: TextStyle(color: Colors.white),))
+                    child: Text("${itemsModel.itemsName}",style: const TextStyle(color: Colors.white),))
                 ],);
   }
 

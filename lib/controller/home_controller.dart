@@ -1,27 +1,30 @@
  //في هذه الصفحة نحن نفحص الايميل فقط 
- import 'package:dartz/dartz.dart';
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/core/classk/statusRequest.dart';
+import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/functionsk/handlingdatacontroller.dart';
 import 'package:store313/core/servicesk/services.dart';
-import 'package:store313/data/datasource/remote/homedata.dart';
+import 'package:store313/data/datasource/remote/app/homedata.dart';
 MyServices myservices=Get.find();
 abstract class HomeController extends  GetxController{
   initialData();
   getdata();
+  goToItems(List categories,int selectedCat,String categoryid);
 }
 class HomeControllerImp extends HomeController{
   //TextEditingController myname=TextEditingController();
-  HomeData homedata=HomeData(Get.find());
+HomeData homedata=HomeData(Get.find());
 String? username;
 List categories=[];
 List items=[];
+MyServices myServices=Get.find();
+String? lang;
 StatusRequest statusRequest=StatusRequest.none;
 @override
   initialData(){
   getdata();
   username=myservices.sharedPreferences.getString("username");
+  lang=myServices.sharedPreferences.getString("lang");
 }
 @override
   void onInit() {
@@ -54,5 +57,16 @@ if(StatusRequest.success==statusRequest){
  
 }
 update();
+  }
+  
+  @override
+  goToItems( categories , selectedCat, categoryid) {
+    Get.toNamed(Approute.items,arguments: {
+       'categories':categories,
+       "selectedCat":selectedCat,
+       "categoryid":categoryid,
+    });
+print("cata-------------------cata");
+print(categoryid);
   }
 }
