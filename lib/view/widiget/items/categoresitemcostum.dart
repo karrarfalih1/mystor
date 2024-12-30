@@ -1,12 +1,9 @@
 
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/home_controller.dart';
 import 'package:store313/controller/items_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/data/model/categoriesmodel.dart';
-import 'package:store313/linkapi.dart';
 
 class ListCategoriesItems extends GetView<ItemsControllerImp> {
 

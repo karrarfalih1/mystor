@@ -15,6 +15,7 @@ class ItemsdetelsControllerImp extends ItemsdetelsController {
   late ItemsModel itemsModel;
   String? lang;
   initialData() {
+      print("----------------------itemsoDetelscontroller");
     lang = myServices.sharedPreferences.getString("lang");
     print("-----------------lang----------------");
     print(lang);

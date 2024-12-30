@@ -2,6 +2,7 @@
 import 'package:get/get.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/middleware/mymiddleware.dart';
+import 'package:store313/test_view.dart';
 import 'package:store313/view/screen/auth/forget/forgetpassword.dart';
 import 'package:store313/view/screen/auth/login.dart';
 import 'package:store313/view/screen/auth/forget/resetpassword.dart';
@@ -10,6 +11,7 @@ import 'package:store313/view/screen/auth/forget/success_reset_password.dart';
 import 'package:store313/view/screen/auth/success_signup.dart';
 import 'package:store313/view/screen/auth/forget/verifycode.dart';
 import 'package:store313/view/screen/auth/verifycodesignup.dart';
+import 'package:store313/view/screen/favorite.dart';
 import 'package:store313/view/screen/homescreen.dart';
 import 'package:store313/view/screen/items.dart';
 import 'package:store313/view/screen/itemsdetels.dart';
@@ -20,11 +22,10 @@ import 'package:store313/view/screen/onboarding.dart';
 List<GetPage<dynamic>>? routes=[
 
   //test
-  //GetPage(name: "/", page: ()=>const ItemsDetels()),
+  //GetPage(name: "/", page: ()=> TimerScreen()),
   //Auth
-  GetPage(name: "/", page: ()=>const Languagek(),middlewares: [ Mymiddleware() ]),
-   
-  
+ GetPage(name: "/", page: ()=>const Languagek(),middlewares: [ Mymiddleware() ]),
+ 
  GetPage(name: Approute.login, page: ()=>const Login()),
  GetPage(name: Approute.signup, page: ()=>const SignUp()),
  GetPage(name: Approute.forgetpassword, page: ()=>const ForgetPassword()),
@@ -39,6 +40,7 @@ List<GetPage<dynamic>>? routes=[
  GetPage(name: Approute.homepage, page: ()=>const HomeScreen()),
  GetPage(name: Approute.items, page: ()=>const ItemsHome()),
   GetPage(name: Approute.ItemsDetels, page: ()=>const ItemsDetels()),
+    GetPage(name: Approute.favorite, page: ()=>const Favorite()),
 
 
 ];

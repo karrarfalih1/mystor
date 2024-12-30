@@ -22,12 +22,14 @@ String? lang;
 StatusRequest statusRequest=StatusRequest.none;
 @override
   initialData(){
+      print("----------------------homtecontroller");
   getdata();
   username=myservices.sharedPreferences.getString("username");
   lang=myServices.sharedPreferences.getString("lang");
 }
 @override
   void onInit() {
+  
 initialData();
   
     super.onInit();
@@ -49,7 +51,7 @@ if(StatusRequest.success==statusRequest){
   if(response['status']=='success'){
    categories.addAll(response['categories']);
    items.addAll(response['items']);
-              print(items)   ;      
+  
   
   }else{
     statusRequest=StatusRequest.failure;
@@ -67,6 +69,5 @@ update();
        "categoryid":categoryid,
     });
 print("cata-------------------cata");
-print(categoryid);
   }
 }

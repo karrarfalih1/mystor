@@ -31,13 +31,11 @@ Get.put(HomeControllerImp());
            const Customcardhome(titlecard: 'A winer suprise', subtitlecard: 'Cashback20%',),
             const Customtitlehome(title: 'Categores'),
        
-            const ListCategorieshome(),
+             ListCategorieshome(),
          
            const Customtitlehome(title: 'Product for you'),
-         
            const CustomListItemsHome(),
            const Customtitlehome(title: 'Offer'),
-          
            const CustomListItemsHome()
         ],
       ),

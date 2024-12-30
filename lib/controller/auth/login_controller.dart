@@ -7,6 +7,7 @@ import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/functionsk/handlingdatacontroller.dart';
 import 'package:store313/core/servicesk/services.dart';
 import 'package:store313/data/datasource/remote/auth/login.dart';
+import 'package:store313/linkapi.dart';
 
 abstract class LoginController extends  GetxController{
   login();
@@ -42,6 +43,8 @@ GlobalKey<FormState> formstatesignin=GlobalKey<FormState>();
 //القيمة الفوك متوقع ترجعلي ثلالث اشياء  الاولى نجاح  والثانية خطا بالانترنيت والثالثة خطا بالاتصال
 if(StatusRequest.success==statusRequest){
   if(response['status']=='success'){
+
+    if(response['data']['users_approve'].toString()=='1'){
     myservices.sharedPreferences.setString("id", response['data']['users_id'].toString());
      myservices.sharedPreferences.setString("username", response['data']['users_name']);
       myservices.sharedPreferences.setString("email", response['data']['users_email']);
@@ -49,6 +52,14 @@ if(StatusRequest.success==statusRequest){
        //نستفاد منها بالاولةية عند بداية تسجيل الدخول
        myservices.sharedPreferences.setString("step","2");
     Get.toNamed(Approute.homepage);
+    }else{
+
+      print("11111111111111here-----------");
+      Get.offAllNamed(Approute.verifyCodeSignUp,arguments: {
+     'email':response['data']['users_email']
+});
+    }
+   
   }else{
    Get.defaultDialog(title: "خطا",middleText: "الايميل او الرمز غير صحيح");
   }

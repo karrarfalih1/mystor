@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:store313/controller/favorite_controller.dart';
 import 'package:store313/controller/items_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/data/model/itemsmodel.dart';
@@ -13,6 +14,7 @@ class ItemsHome extends StatelessWidget {
   @override
   Widget build(BuildContext context){
    Get.put(ItemsControllerImp());
+   FavoriteControllerImp controllerfav=Get.put(FavoriteControllerImp());
     return Scaffold(
     body: Container(
       padding:const EdgeInsets.all(15),
@@ -30,7 +32,9 @@ class ItemsHome extends StatelessWidget {
       physics: const NeverScrollableScrollPhysics(), 
         gridDelegate:const SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 2,childAspectRatio: 0.6), 
       itemBuilder:(BuildContext context,index){
-        return  GridViewItemsCostum(itemsModel: ItemsModel.fromJson(controller.data[index]),);
+controllerfav.isFavorite[controller.data[index]['items_id']]=controller.data[index]['favorite'];
+        return  GridViewItemsCostum(itemsModel: ItemsModel.fromJson(controller.data[index]), 
+        fav: controller.data[index]["favorite"].toString(),);
       })
         ,
       

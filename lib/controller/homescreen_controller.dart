@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:store313/view/screen/favorite.dart';
 import 'package:store313/view/screen/home.dart';
 
 abstract class HomeScreenController extends GetxController{
@@ -11,19 +12,15 @@ class HomeScreenControllerImp extends HomeScreenController{
 int curentpage=0;
 
 List<IconData> infoBootumAppBar=[
-Icons.home,
-Icons.favorite,
-Icons.person,
-Icons.settings
+Icons.home_outlined,
+Icons.favorite_outline,
+Icons.person_outline,
+Icons.settings_outlined
 
 ];
   List<Widget> listwidget=[
 const Homepage(),
-const Column(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-Center(child: Text("pagetwo"),)
-],),
+const Favorite(),
 
 const Column(
   mainAxisAlignment: MainAxisAlignment.center,

@@ -7,9 +7,10 @@ class ItemsData{
 
   ItemsData(this.crud);
 
-  postdata(String selectCat)async{
+  postdata(String selectCat,userid)async{
     var response=await crud.postData(Applink.items,{
-     "selectCat":selectCat
+     "selectCat":selectCat,
+     "userid":userid
     });
 
   return response.fold((l)=>l,(r)=>r);

@@ -14,8 +14,8 @@ class VerifyCodeSignUp extends StatelessWidget{
   Widget build(BuildContext context) {
 
 //نحقن الكونترولر الخاص بها
- //VerifyCodeSignUp_ControllerImp controller= Get.put(VerifyCodeSignUp_ControllerImp());
-  Get.lazyPut(()=>VerifyCodeSignUp_ControllerImp());
+ VerifyCodeSignUp_ControllerImp controller= Get.put(VerifyCodeSignUp_ControllerImp());
+  //Get.lazyPut(()=>VerifyCodeSignUp_ControllerImp());
     return SafeArea(child:   Scaffold(
       appBar: AppBar(
         //لجعلالعنوان في المنتصف
@@ -58,8 +58,30 @@ borderWidth: 2.5,
        
         }, // end onSubmit
     ),
+    SizedBox(height: 30,),
+ 
+      SizedBox(height: 10,),
+    //  controller.remainingTime.value >0?
+  
+            SizedBox(height: 20),
+            controller.remainingTime.value ==0?
+            Container(child:InkWell(
+              child: Center(child: Text("Resnd Code",style: TextStyle(fontSize: 15),)),
+              onTap:(){
+                controller.startTimer();
+                controller.recode();
+
+            },),):   Obx(() => Center(
+       child: Text(
+                    " ${controller.remainingTime.value} ",
+                    style: TextStyle(fontSize: 20,fontFamily: "snas"),
+ 
+                  ),
+     )),
+            
 
     ],
+    
 
   ),))
 )

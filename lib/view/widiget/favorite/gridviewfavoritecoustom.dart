@@ -1,24 +1,22 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/favorite_controller.dart';
-import 'package:store313/controller/home_controller.dart';
-import 'package:store313/controller/items_controller.dart';
+import 'package:store313/controller/favorite_screen_controller.dart';
 import 'package:store313/core/constantk/color.dart';
-import 'package:store313/data/model/itemsmodel.dart';
+import 'package:store313/data/model/favoritemodel.dart';
 import 'package:store313/linkapi.dart';
 
-class GridViewItemsCostum extends GetView<ItemsControllerImp> {
-  final ItemsModel itemsModel;
- 
-  final String? fav;
-    const GridViewItemsCostum({super.key, required this.itemsModel,required this.fav});
+class Gridviewfavoritecoustom extends GetView<FavoriteScreenControllerImp> {
+  final FavoriteModel favoriteModel;
+  final void Function()? onpressedfavorite;
+    const Gridviewfavoritecoustom({super.key, this.onpressedfavorite, required this.favoriteModel});
   @override
   Widget build(BuildContext context) {
-  
-       return InkWell(
+    //  FavoriteControllerImp controller =Get.put(FavoriteControllerImp());
+       return 
+        InkWell(
         onTap: () {
-          controller.goToItemsDeletes(itemsModel);
+        //  controller.goToItemsDeletes(itemsModel);
         },
         child: Card(
           child: Padding(
@@ -28,15 +26,15 @@ class GridViewItemsCostum extends GetView<ItemsControllerImp> {
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
             Hero(
-              tag:"${itemsModel.itemsId!}image",
+              tag:"${favoriteModel.itemsId!}image",
               child: CachedNetworkImage(
                 height: 150,
                 width: double.infinity,
                 fit: BoxFit.cover,
-                imageUrl:"${Applink.imagesitems}/${itemsModel.itemsImage}"),
+                imageUrl:"${Applink.imagesitems}/${favoriteModel.itemsImage}"),
             ),
           
-            Text('${itemsModel.itemsName}',style: const TextStyle(fontSize: 15,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
+            Text('${favoriteModel.itemsName}',style: const TextStyle(fontSize: 15,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
             const SizedBox(height: 10,),
             Container(
             alignment: Alignment.bottomCenter ,
@@ -57,39 +55,28 @@ class GridViewItemsCostum extends GetView<ItemsControllerImp> {
              const Spacer(),
              Row(children: [
                const SizedBox(width: 5,),
-              Text("${itemsModel.itemsPrice}\$",style: const TextStyle(color: AppColor.maincolor,fontFamily: "sans",fontWeight: FontWeight.bold),),
+              Text("${favoriteModel.itemsPrice}\$",style: const TextStyle(color: AppColor.maincolor,fontFamily: "sans",fontWeight: FontWeight.bold),),
               const Spacer(),
-           GetBuilder<FavoriteControllerImp>(builder: (controller)=>
+             
            IconButton(
                 color: AppColor.maincolor,
                 iconSize: 30,
                 onPressed:(){
-
-                  if(controller.isFavorite[itemsModel.itemsId]==1){
-                    controller.setFavorite(itemsModel.itemsId, 0);
-                    controller.deletFav( itemsModel.itemsId.toString());
-                  }else{
-                       controller.setFavorite(itemsModel.itemsId,1);
-                        controller.addFav( itemsModel.itemsId.toString());
-                  }
-                  
+ controller.deletFavs(favoriteModel.favoriteId.toString());
+              
                 }
-               , icon: Icon( controller.isFavorite[itemsModel.itemsId]==0? Icons.favorite_outline: Icons.favorite
-              
-               ),),),
+               , icon:const Icon( Icons.delete_outline_outlined
+               ),),
               const SizedBox(width: 5,),
-              
 
              ],)
 
             ],),
           
-          ),
-
-
-        ),
+          ), ),
 
       );
+    
       
   }
 }

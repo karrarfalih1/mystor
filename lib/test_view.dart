@@ -1,32 +1,32 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/test_controller.dart';
-import 'package:store313/core/classk/handlingdataview.dart';
 
-class  TestView extends StatelessWidget {
-  const TestView({super.key});
-
+class TimerScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-Get.put(TestController());
-  return MaterialApp(
+    final TimerController controller = Get.put(TimerController());
 
-home:  Scaffold(
-  appBar: AppBar(title:const Text("test"),),
-  body:GetBuilder<TestController>(builder: (controller){
-    return
-HandlingDataView(statusRequest: controller.statusRequest,
-widget: ListView.builder(
-      itemCount: controller.data.length,
-      itemBuilder: (context,indext){
-       return Text("${controller.data}");
-      }),);
+    return Scaffold(
+      appBar: AppBar(title: Text("Timer Example")),
+      body: Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Obx(() => Text(
+                  "Remaining Time: ${controller.remainingTime.value} seconds",
+                  style: TextStyle(fontSize: 24),
+                )),
+            SizedBox(height: 20),
+            ElevatedButton(
+              onPressed: () {
+                controller.startTimer(); // بدء العداد
+              },
+              child: Text("Start Timer"),
+            ),
+          ],
+        ),
+      ),
+    );
   }
-  )
-),
-  );
-  }
-
 }

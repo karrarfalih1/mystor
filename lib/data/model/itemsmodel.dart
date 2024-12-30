@@ -1,5 +1,6 @@
 class ItemsModel {
   int? itemsId;
+  int? favorite;
   String? itemsName;
   String? itemsNameAr;
   String? itemsDesc;
@@ -19,6 +20,7 @@ class ItemsModel {
 
   ItemsModel(
       {this.itemsId,
+      this.favorite,
       this.itemsName,
       this.itemsNameAr,
       this.itemsDesc,
@@ -38,6 +40,7 @@ class ItemsModel {
 
   ItemsModel.fromJson(Map<String, dynamic> json) {
     itemsId = json['items_id'];
+   favorite=json['favorite'];
     itemsName = json['items_name'];
     itemsNameAr = json['items_name_ar'];
     itemsDesc = json['items_desc'];
@@ -59,6 +62,7 @@ class ItemsModel {
   Map<String, dynamic> toJson() {
     final Map<String, dynamic> data = <String, dynamic>{};
     data['items_id'] = itemsId;
+    data['favorite'] = favorite;
     data['items_name'] = itemsName;
     data['items_name_ar'] = itemsNameAr;
     data['items_desc'] = itemsDesc;

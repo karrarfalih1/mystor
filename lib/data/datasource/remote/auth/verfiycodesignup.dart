@@ -14,4 +14,11 @@ class Verfiycodesignup{
     });
    return response.fold((l)=>l,(r)=>r);
   }
+  recode(String email)async{
+    var response=await crud.postData(Applink.reverfiycode, {
+   "email":email,
+    });
+   return response.fold((l)=>l,(r)=>r);
+  }
+
 }
