@@ -17,6 +17,7 @@ import 'package:store313/view/screen/items.dart';
 import 'package:store313/view/screen/itemsdetels.dart';
 import 'package:store313/view/screen/language.dart';
 import 'package:store313/view/screen/onboarding.dart';
+import 'package:store313/view/screen/setting.dart';
 
 
 List<GetPage<dynamic>>? routes=[
@@ -41,6 +42,7 @@ List<GetPage<dynamic>>? routes=[
  GetPage(name: Approute.items, page: ()=>const ItemsHome()),
   GetPage(name: Approute.ItemsDetels, page: ()=>const ItemsDetels()),
     GetPage(name: Approute.favorite, page: ()=>const Favorite()),
+     GetPage(name: Approute.setting, page: ()=>const Setting()),
 
 
 ];

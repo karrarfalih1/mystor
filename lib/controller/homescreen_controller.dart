@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/view/screen/favorite.dart';
 import 'package:store313/view/screen/home.dart';
+import 'package:store313/view/screen/setting.dart';
 
 abstract class HomeScreenController extends GetxController{
 changePage(int curentpag);
@@ -28,11 +29,7 @@ const Column(
 Center(child: Text("pagethree"),)
 ],),
 
-const Column(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-Center(child: Text("pagefore"),)
-],),
+Setting()
   ];
   @override
   changePage(int i) {

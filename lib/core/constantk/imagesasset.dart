@@ -10,4 +10,5 @@ static const String Logo="assets/images/logoauth2.png";
  static const String Loading="assets/lottie/loading1.json";
  static const String wifi="assets/lottie/wifilost.json";
  static const String card="assets/lottie/card.json";
+  static const String profil="assets/images/profile.jpg";
 }
