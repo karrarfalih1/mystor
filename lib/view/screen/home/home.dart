@@ -3,7 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/home_controller.dart';
+import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/localizationk/changelocal.dart';

@@ -1,8 +1,8 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/favorite_controller.dart';
-import 'package:store313/controller/home_controller.dart';
+import 'package:store313/controller/home/favorite_controller.dart';
+import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/controller/items_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/data/model/itemsmodel.dart';

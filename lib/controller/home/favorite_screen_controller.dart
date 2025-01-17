@@ -1,7 +1,7 @@
 
 
 import 'package:get/get.dart';
-import 'package:store313/controller/home_controller.dart';
+import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/functionsk/handlingdatacontroller.dart';
 import 'package:store313/core/servicesk/services.dart';

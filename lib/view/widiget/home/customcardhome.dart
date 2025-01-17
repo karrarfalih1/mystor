@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/home_controller.dart';
+import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 
 class Customcardhome extends GetView<HomeControllerImp> {

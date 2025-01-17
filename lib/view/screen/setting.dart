@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:store313/binding.dart';
+import 'package:store313/controller/home/setting_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/imagesasset.dart';
 
@@ -9,6 +10,7 @@ class Setting extends StatelessWidget{
   const Setting({Key?key });
   @override
   Widget build(BuildContext context) {
+    SettingControllerImp controller=Get.put(SettingControllerImp());
    return Container(
    
 child:ListView(children: [
@@ -63,7 +65,9 @@ ListTile(
 trailing: Icon(Icons.phone_callback_outlined),),
 
 ListTile(
-  onTap: (){},
+  onTap: (){
+    controller.logout();
+  },
   title: Text("Logout"),
 trailing: Icon(Icons.logout),),
 ],)

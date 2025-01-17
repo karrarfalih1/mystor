@@ -1,7 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/favorite_screen_controller.dart';
+import 'package:store313/controller/home/favorite_screen_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/data/model/favoritemodel.dart';
 import 'package:store313/linkapi.dart';

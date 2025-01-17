@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/home_controller.dart';
+import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/data/model/itemsmodel.dart';
 import 'package:store313/linkapi.dart';
 import 'package:cached_network_image/cached_network_image.dart';

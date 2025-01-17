@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/view/screen/favorite.dart';
-import 'package:store313/view/screen/home.dart';
+import 'package:store313/core/constantk/routesname.dart';
+import 'package:store313/view/screen/home/favorite.dart';
+import 'package:store313/view/screen/home/home.dart';
 import 'package:store313/view/screen/setting.dart';
 
 abstract class HomeScreenController extends GetxController{
 changePage(int curentpag);
 
-
+ gotocart();
 }
 class HomeScreenControllerImp extends HomeScreenController{
 int curentpage=0;
@@ -44,6 +45,9 @@ Setting()
   void onInit() {
     // TODO: implement onInit
     super.onInit();
+  }
+  gotocart(){
+    Get.toNamed(Approute.cart);
   }
 
 
