@@ -30,5 +30,10 @@ static const deletfromFavorite ="$server/favorite/deletfromfav.php";
 static const String imagestatic="https://karar.io/ecommerce1/upload";
 static const String imagescatigores="$imagestatic/categories";
 static const String imagesitems="$imagestatic/items";
+///////////cart/////////////
+static const String cartadd="$server/cart/add.php";
+static const String cartdelet="$server/cart/delet.php";
+static const String cartview="$server/cart/viewcart.php";
 
+static const String cartgetcount="$server/cart/getcountitem.php";
 }
