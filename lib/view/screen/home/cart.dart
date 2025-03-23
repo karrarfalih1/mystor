@@ -1,4 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:store313/controller/cart_controller.dart';
+import 'package:store313/core/classk/handlingdataview.dart';
+import 'package:store313/data/model/cartmodel.dart';
 import 'package:store313/view/widiget/cart/appbarcart.dart';
 import 'package:store313/view/widiget/cart/appnubberofflist.dart';
 import 'package:store313/view/widiget/cart/custombottomnavigationpar.dart';
@@ -9,34 +14,52 @@ class Cart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      bottomNavigationBar: const Custombottomnavigationpar(
+    Get.put(CartController());
+    return
+    
+    GetBuilder<CartController>(builder: (controller)=>
+    HandlingDataView(statusRequest: controller.statusRequest, widget: 
+     Scaffold(
+      bottomNavigationBar:  Custombottomnavigationpar(
         totalprice: '2100',
-        price: '1900',
+        price: '${controller.totalpriceitems}',
         shapping: '200',
       ),
       body: Container(
         padding: const EdgeInsets.all(10),
         child: ListView(
-          children: const [
-            Appbarcart(),
-            SizedBox(
+          children:  [
+            const Appbarcart(),
+            const SizedBox(
               height: 10,
             ),
             Appnubberofflist(
-              title: 'YOu Have 2 items in your list',
+              title: 'You Have ${controller.totalitems} items in your list',
             ),
-            SizedBox(
-              height: 10,
+            const SizedBox(
+            height: 10,
             ),
-            Customordercart(
-              title: ' macbook m 3',
-              price: '1500',
-              count: '1',
-            )
+            ...List.generate(controller.data.length,(index)=>
+             Customordercart(
+              imagpahth:'${controller.data[index].itemsImage}',
+              title: '${controller.data[index].itemsName}',
+              price: '${controller.data[index].itemsprice}',
+              count: '${controller.data[index].countitems}',
+               ondelet: () async{ 
+                
+              await    controller.delet(controller.data[index].itemsId);
+                  controller.refreshpage();
+                }, 
+               onAdd: () async{ 
+              await  controller.add(controller.data[index].itemsId);
+                controller.refreshpage();
+                },
+            ))
           ],
         ),
       ),
+    ))
+    
     );
   }
 }

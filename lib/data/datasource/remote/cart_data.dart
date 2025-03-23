@@ -29,5 +29,11 @@ deletcart(userid,itemsid)async{
     });
    return response.fold((l)=>l,(r)=>r);
   }
-
+  viewcart(userid)async{
+    var response=await crud.postData(Applink.cartview, {
+      "usersid":userid,
+     
+    });
+   return response.fold((l)=>l,(r)=>r);
+  }
 }

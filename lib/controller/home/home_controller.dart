@@ -49,8 +49,8 @@ initialData();
 //القيمة الفوك متوقع ترجعلي ثلالث اشياء  الاولى نجاح  والثانية خطا بالانترنيت والثالثة خطا بالاتصال
 if(StatusRequest.success==statusRequest){
   if(response['status']=='success'){
-   categories.addAll(response['categories']);
-   items.addAll(response['items']);
+   categories.addAll(response['categories']['data']);
+   items.addAll(response['items']['data']);
   
   
   }else{

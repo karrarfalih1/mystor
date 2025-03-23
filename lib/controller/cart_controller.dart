@@ -7,16 +7,33 @@ import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/functionsk/handlingdatacontroller.dart';
 import 'package:store313/core/servicesk/services.dart';
 import 'package:store313/data/datasource/remote/cart_data.dart';
+import 'package:store313/data/model/cartmodel.dart';
 
 class CartController extends GetxController{
   
 CartData cartdata=CartData(Get.find());
 MyServices myServices =Get.find();
+List<CartModil> data=[];
+double totalpriceitems=0.0;
 
+int totalitems=0;
 StatusRequest statusRequest=StatusRequest.none;
 
-    add(itemsid)async {
 
+resVarcart(){
+  totalitems=0;
+  totalpriceitems=0.0;
+  
+}
+refreshpage(){
+  resVarcart();
+  viewcart();
+
+}
+ 
+    add(itemsid)async {
+statusRequest=StatusRequest.loading;
+update();
    var response=await cartdata.addcart(
     
    myServices.sharedPreferences.getString('id') ,"$itemsid");
@@ -78,5 +95,35 @@ StatusRequest statusRequest=StatusRequest.none;
    }
    update();
   }
- 
+  
+    viewcart()async {
+      data.clear();
+ statusRequest=StatusRequest.loading;
+ update();
+   var response=await cartdata.viewcart(
+    
+   myServices.sharedPreferences.getString('id') );
+   statusRequest=handleingData(response);
+   if(StatusRequest.success==statusRequest){
+    if(response['status']=='success'){
+      if(response['data']['status']=='success'){
+    List dataresponse=response['data']['data'];
+      Map dataresponsecount=response['countprice'] ;
+         data.addAll(dataresponse.map((e)=>CartModil.fromJson(e)));
+     totalitems=int.parse(dataresponsecount['totalcount'].toString());
+      totalpriceitems= double.parse( dataresponsecount['totalprice'].toString());
+      }
+     
+ }else{
+      statusRequest=StatusRequest.failure;
+    }
+   }
+   update();
+  }
+@override
+  void onInit() {
+      viewcart();
+  
+    super.onInit();
+  }
 }
