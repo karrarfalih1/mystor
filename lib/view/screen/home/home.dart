@@ -1,12 +1,13 @@
 // اول صفحة ومن خلالها احدد اللغة
 
+import 'package:cached_network_image/cached_network_image.dart';
+import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
-import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/localizationk/changelocal.dart';
+import 'package:store313/data/model/itemsmodel.dart';
 import 'package:store313/linkapi.dart';
 import 'package:store313/view/widiget/castomappbar.dart';
 import 'package:store313/view/widiget/home/categoreshomewidiget.dart';
@@ -19,26 +20,82 @@ class Homepage extends GetView<LocaleController> {
 
   @override
   Widget build(BuildContext context) {
-Get.put(HomeControllerImp());
+    Get.put(HomeControllerImp());
 
-    return GetBuilder<HomeControllerImp>(builder: (controller)=>
-        HandlingDataView(statusRequest:controller.statusRequest, widget: 
-        Container(
-          padding: const EdgeInsets.symmetric(horizontal: 15),
-      child: ListView(
-        children: [
-           CustomAppBar(title:"6".tr ,onPressednotifcation: () {  }, onPressedSearsh: () {  },),
-           const Customcardhome(titlecard: 'A winer suprise', subtitlecard: 'Cashback20%',),
-            const Customtitlehome(title: 'Categores'),
-       
-             ListCategorieshome(),
-         
-           const Customtitlehome(title: 'Product for you'),
-           const CustomListItemsHome(),
-           const Customtitlehome(title: 'Offer'),
-           const CustomListItemsHome()
-        ],
-      ),
-    )));
+    return GetBuilder<HomeControllerImp>(
+        builder: (controller) =>  Container(
+              padding: const EdgeInsets.symmetric(horizontal: 15),
+              child: ListView(
+                children: [
+                       CustomAppBar(
+                        mycontroller: controller.search! ,
+                        onChanged: (val){
+                          controller.checksearch(val);
+                        },
+                        title:"6".tr ,  onPressedSearsh: () { controller.onsearchItems(); },onPressednotifcation: () {  },),
+              HandlingDataView(
+            statusRequest: controller.statusRequest,
+            widget:
+    controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch!):const 
+    Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+               Customcardhome(
+                    titlecard: 'A winer suprise',
+                    subtitlecard: 'Cashback20%',
+                  ),
+                    Customtitlehome(title: 'Categores'),
+                  ListCategorieshome(),
+                   Customtitlehome(title: 'Product for you'),
+                   CustomListItemsHome(),
+                   Customtitlehome(title: 'Offer'),
+                   CustomListItemsHome()
+         ],))
+                ],
+              ),
+            ));
   }
+}
+
+
+class ListItemsSearch extends GetView<HomeControllerImp>{
+  final List<ItemsModel> modelitemssearch;
+  const ListItemsSearch({super.key, required this.modelitemssearch});
+
+
+  @override
+  Widget build(BuildContext context) {
+  return ListView.builder(
+    itemCount: modelitemssearch.length,
+    physics:const NeverScrollableScrollPhysics(),
+    shrinkWrap: true,
+    itemBuilder: (context,index){
+      return InkWell(
+        onTap: (){
+        controller.goToItemsDeletes(modelitemssearch[index]);  
+        },
+        child: Container(
+          child: Card(
+            child: Container(
+              padding:const EdgeInsets.all(10),
+              child: Row(children: [
+                Expanded(child:CachedNetworkImage(imageUrl: "${Applink.imagesitems}/${modelitemssearch[index].itemsImage}",fit:BoxFit.cover,height: 100,)),
+            Expanded(
+        flex: 2,
+        child:
+        ListTile(title:Text("${ modelitemssearch[index].itemsName}"),
+        subtitle:Text("${ modelitemssearch[index].categoriesName}") ,
+        ),
+        
+         )
+              ],),
+            ),
+          ),
+        ),
+      );
+    }
+
+  );
+  }
+
 }

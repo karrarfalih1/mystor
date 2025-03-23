@@ -1,5 +1,6 @@
 
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/classk/statusRequest.dart';
@@ -8,7 +9,7 @@ import 'package:store313/core/servicesk/services.dart';
 import 'package:store313/data/datasource/remote/favorite/favorite_screen_data.dart';
 import 'package:store313/data/model/favoritemodel.dart';
 
-abstract class FavoriteScreenController extends GetxController{
+abstract class FavoriteScreenController extends MixSearchController{
 
 initialData();
 getFav(String useridf);
@@ -27,6 +28,7 @@ class FavoriteScreenControllerImp extends FavoriteScreenController{
 String? userid;
 
 initialData(){
+    search=TextEditingController();
   userid=  myservices.sharedPreferences.getString("id");
 getFav(userid.toString());
 }

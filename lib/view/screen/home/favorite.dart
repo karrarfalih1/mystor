@@ -5,6 +5,7 @@ import 'package:get/get.dart';
 import 'package:store313/controller/home/favorite_screen_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/data/model/favoritemodel.dart';
+import 'package:store313/view/screen/home/home.dart';
 import 'package:store313/view/widiget/castomappbar.dart';
 import 'package:store313/view/widiget/favorite/gridviewfavoritecoustom.dart';
 class Favorite extends StatelessWidget{
@@ -21,10 +22,16 @@ class Favorite extends StatelessWidget{
       child:     GetBuilder<FavoriteScreenControllerImp>(builder: (controller)=>
       ListView(
         children: [
-               CustomAppBar(title:"6".tr ,onPressednotifcation: () {  }, onPressedSearsh: () {  },),
+          CustomAppBar(
+                        mycontroller: controller.search! ,
+                        onChanged: (val){
+                          controller.checksearch(val);
+                        },
+                        title:"6".tr ,  onPressedSearsh: () { controller.onsearchItems(); },onPressednotifcation: () {  },),
                SizedBox(height: 10,),
 
       HandlingDataView(statusRequest:controller.statusRequest, widget: 
+        controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch!):
      GridView.builder(
        itemCount: controller.data.length,
         //نستعملها من يكون عدنا اكثر من لست وحد ببطن الثانية

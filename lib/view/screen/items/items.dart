@@ -5,6 +5,7 @@ import 'package:store313/controller/home/favorite_controller.dart';
 import 'package:store313/controller/items_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/data/model/itemsmodel.dart';
+import 'package:store313/view/screen/home/home.dart';
 import 'package:store313/view/widiget/castomappbar.dart';
 import 'package:store313/view/widiget/items/categoresitemcostum.dart';
 import 'package:store313/view/widiget/items/gridviewitemssostum.dart';
@@ -20,12 +21,18 @@ class ItemsHome extends StatelessWidget {
       padding:const EdgeInsets.all(15),
       child:GetBuilder<ItemsControllerImp>(builder: (controller)=>
      ListView(children: [
-        CustomAppBar(title: 'Search ', onPressednotifcation: () {  }, onPressedSearsh: () {  },),
+     CustomAppBar(
+                        mycontroller: controller.search! ,
+                        onChanged: (val){
+                          controller.checksearch(val);
+                        },
+                        title:"6".tr ,  onPressedSearsh: () { controller.onsearchItems(); },onPressednotifcation: () {  },),
         const SizedBox(height: 15,),
         
         const ListCategoriesItems(),
           HandlingDataView(statusRequest:controller.statusRequest, widget: 
-        GridView.builder(
+          controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch!):
+                 GridView.builder(
         itemCount: controller.data.length,
         //نستعملها من يكون عدنا اكثر من لست وحد ببطن الثانية
       shrinkWrap: true, 
@@ -38,6 +45,7 @@ controllerfav.isFavorite[
         return  GridViewItemsCostum(itemsModel: ItemsModel.fromJson(controller.data[index]), 
         fav: controller.data[index]["favorite"].toString(),);
       })
+ 
         ,
       
  

@@ -1,4 +1,5 @@
 
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/classk/statusRequest.dart';
@@ -8,7 +9,7 @@ import 'package:store313/core/servicesk/services.dart';
 import 'package:store313/data/datasource/remote/app/itemsdata.dart';
 import 'package:store313/data/model/itemsmodel.dart';
 
-abstract class ItemsController extends GetxController{
+abstract class ItemsController extends  MixSearchController{
 intialData();
 changeCat(int selectedCatfromItemScreen, String catidfromsamescreen);
 getItems(String categoriesid,userid );
@@ -26,6 +27,7 @@ int? selectedCat;
 String? categoriesid;
   @override
   intialData() {
+     search=TextEditingController();
   userid=myservices.sharedPreferences.getString("id")!;
     categories=Get.arguments['categories'];
     selectedCat=Get.arguments['selectedCat'];

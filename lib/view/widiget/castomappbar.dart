@@ -5,7 +5,9 @@ class CustomAppBar extends StatelessWidget {
   final String title;
   final void Function()? onPressednotifcation;
   final void Function()? onPressedSearsh;
-  const CustomAppBar({super.key, required this.title,required this.onPressednotifcation,required this.onPressedSearsh});
+  final void Function(String)? onChanged;
+  final TextEditingController mycontroller;
+  const CustomAppBar({super.key, required this.title,required this.onPressednotifcation,required this.onPressedSearsh,required this.onChanged, required this.mycontroller});
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -15,6 +17,8 @@ class CustomAppBar extends StatelessWidget {
               children: [
                 Expanded(
                     child: TextFormField(
+                      controller: mycontroller,
+                      onChanged: onChanged,
                   decoration: InputDecoration(
                       hintText: title,
                       hintStyle: const TextStyle(color: Colors.grey),

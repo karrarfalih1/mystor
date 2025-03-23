@@ -18,7 +18,10 @@ static const checkemail ="$server/forgetpassword/checkemail.php";
 static const verfiycodeforget ="$server/forgetpassword/verfiycodeforget.php";
 //====================home=====================//
 static const home="$server/home.php";
+
 static const items="$server/items/items.php";
+
+static const search="$server/items/search.php";
 ///////////////favorite//////////////////
 
 static const addFavorite ="$server/favorite/add.php";
