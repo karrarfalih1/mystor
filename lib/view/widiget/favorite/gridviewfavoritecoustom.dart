@@ -6,6 +6,7 @@ import 'package:store313/core/constantk/color.dart';
 import 'package:store313/data/model/favoritemodel.dart';
 import 'package:store313/linkapi.dart';
 
+import 'dart:math' as math;
 class Gridviewfavoritecoustom extends GetView<FavoriteScreenControllerImp> {
   final FavoriteModel favoriteModel;
   final void Function()? onpressedfavorite;
@@ -54,9 +55,35 @@ class Gridviewfavoritecoustom extends GetView<FavoriteScreenControllerImp> {
             ),
              const Spacer(),
              Row(children: [
-               const SizedBox(width: 5,),
-              Text("${favoriteModel.itemsPrice}\$",style: const TextStyle(color: AppColor.maincolor,fontFamily: "sans",fontWeight: FontWeight.bold),),
-              const Spacer(),
+        Column(
+                    children: [
+                     
+                          Text("${favoriteModel.itemsPrice}\$",style: const TextStyle(color: AppColor.maincolor,fontFamily: "sans",fontWeight: FontWeight.bold),),
+                 
+                        if("${favoriteModel.itemsDiscount}" !="0")               Stack(
+                           children: [
+                            Text("${ int.parse(favoriteModel.itemsPrice.toString())  -int.parse(favoriteModel.itemsPrice.toString()) *int.parse(favoriteModel.itemsDiscount.toString()) /100 }\$",
+                            style: const TextStyle(color: AppColor.grey,fontFamily: "sans",fontWeight: FontWeight.bold),),
+           
+          
+            Positioned(
+              top: 7,
+              child: Transform.rotate(
+              angle: -15 * (math.pi / 180), // تحويل 15 درجة إلى راديان
+              child: Container(
+                width: 40,
+                height: 2,
+                color: AppColor.maincolor,
+                child:const Center(child: Text("مائل", style: TextStyle(color: Colors.white))),
+              ),
+                         // تحويل 15 درجة إلى راديان
+                     ),
+            )  ,      
+                           ],
+                         ),
+                       
+                      ],
+                  ),   const Spacer(),
              
            IconButton(
                 color: AppColor.maincolor,

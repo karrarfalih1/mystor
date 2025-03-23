@@ -57,7 +57,7 @@ class ItemsDetels extends StatelessWidget {
                      
                        controller.remove();
                     },
-                    price: '${controller.itemsModel.itemsPrice}',
+                    price: '${controller.itemsModel.itemspricediscount}',
                     count: '${controller.countitems}',
                   ),
                   const SizedBox(

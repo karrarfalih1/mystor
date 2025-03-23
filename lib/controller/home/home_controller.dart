@@ -93,6 +93,7 @@ List<ItemsModel> listdatasearch=[];
 StatusRequest statusRequest=StatusRequest.none;
 checksearch(val){
 if(val==""){
+  statusRequest=StatusRequest.none;
   isSearch=false;
 }
 update();

@@ -28,7 +28,7 @@ class Favorite extends StatelessWidget{
                           controller.checksearch(val);
                         },
                         title:"6".tr ,  onPressedSearsh: () { controller.onsearchItems(); },onPressednotifcation: () {  },),
-               SizedBox(height: 10,),
+              const SizedBox(height: 10,),
 
       HandlingDataView(statusRequest:controller.statusRequest, widget: 
         controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch!):

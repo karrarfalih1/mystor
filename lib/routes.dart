@@ -2,7 +2,6 @@
 import 'package:get/get.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/middleware/mymiddleware.dart';
-import 'package:store313/test_view.dart';
 import 'package:store313/view/screen/auth/forget/forgetpassword.dart';
 import 'package:store313/view/screen/auth/login.dart';
 import 'package:store313/view/screen/auth/forget/resetpassword.dart';
