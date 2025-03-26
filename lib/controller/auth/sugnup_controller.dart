@@ -1,5 +1,7 @@
  
 
+// ignore_for_file: non_constant_identifier_names
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/core/classk/statusRequest.dart';
@@ -14,6 +16,7 @@ abstract class SignUp_Controller extends  GetxController{
   goToCheckEmail();
   hidandviewpassword();
 }
+// ignore: camel_case_types
 class SignUp_ControllerImp extends SignUp_Controller{
 GlobalKey<FormState> formstateSignUp=GlobalKey<FormState>();
  late TextEditingController email_controller;

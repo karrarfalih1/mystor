@@ -1,7 +1,9 @@
-
 import 'package:get/get.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/middleware/mymiddleware.dart';
+import 'package:store313/view/address/add.dart';
+import 'package:store313/view/address/edit.dart';
+import 'package:store313/view/address/view.dart';
 import 'package:store313/view/screen/auth/forget/forgetpassword.dart';
 import 'package:store313/view/screen/auth/login.dart';
 import 'package:store313/view/screen/auth/forget/resetpassword.dart';
@@ -19,33 +21,37 @@ import 'package:store313/view/screen/language.dart';
 import 'package:store313/view/screen/onboarding.dart';
 import 'package:store313/view/screen/setting.dart';
 
-
-List<GetPage<dynamic>>? routes=[
-
+List<GetPage<dynamic>>? routes = [
   //test
   //GetPage(name: "/", page: ()=> TimerScreen()),
   //Auth
- GetPage(name: "/", page: ()=>const Languagek(),middlewares: [ Mymiddleware() ]),
- 
- GetPage(name: Approute.login, page: ()=>const Login()),
- GetPage(name: Approute.signup, page: ()=>const SignUp()),
- GetPage(name: Approute.forgetpassword, page: ()=>const ForgetPassword()),
- GetPage(name: Approute.verfiycode, page: ()=>const VerfiyCode()),
- GetPage(name: Approute.resetpassword, page: ()=>const ResetPassword()),
- GetPage(name: Approute.successResetPassword, page: ()=>const Success_Reset_Password()),
- GetPage(name: Approute.successSignup, page: ()=>const Success_SignUp()),
- GetPage(name: Approute.verifyCodeSignUp, page: ()=>const VerifyCodeSignUp()),
- //onboarding
- GetPage(name: Approute.onboarding, page: ()=>const OnBoarding()),
- //home;
- GetPage(name: Approute.homepage, page: ()=>const HomeScreen()),
- GetPage(name: Approute.items, page: ()=>const ItemsHome()),
-  GetPage(name: Approute.ItemsDetels, page: ()=>const ItemsDetels()),
-    GetPage(name: Approute.favorite, page: ()=>const Favorite()),
-     GetPage(name: Approute.setting, page: ()=>const Setting()),
-      GetPage(name: Approute.cart, page: ()=>const Cart()),
-     //   GetPage(name: Approute.cart, page: ()=>const Cart()),
+  GetPage(
+      name: "/", page: () => const Languagek(), middlewares: [Mymiddleware()]),
 
+  GetPage(name: Approute.login, page: () => const Login()),
+  GetPage(name: Approute.signup, page: () => const SignUp()),
+  GetPage(name: Approute.forgetpassword, page: () => const ForgetPassword()),
+  GetPage(name: Approute.verfiycode, page: () => const VerfiyCode()),
+  GetPage(name: Approute.resetpassword, page: () => const ResetPassword()),
+  GetPage(
+      name: Approute.successResetPassword,
+      page: () => const Success_Reset_Password()),
+  GetPage(name: Approute.successSignup, page: () => const Success_SignUp()),
+  GetPage(
+      name: Approute.verifyCodeSignUp, page: () => const VerifyCodeSignUp()),
+  //onboarding
+  GetPage(name: Approute.onboarding, page: () => const OnBoarding()),
+  //home;
+  GetPage(name: Approute.homepage, page: () => const HomeScreen()),
+  GetPage(name: Approute.items, page: () => const ItemsHome()),
+  GetPage(name: Approute.itemsDetels, page: () => const ItemsDetels()),
+  GetPage(name: Approute.favorite, page: () => const Favorite()),
+  GetPage(name: Approute.setting, page: () => const Setting()),
+  GetPage(name: Approute.cart, page: () => const Cart()),
+  //   GetPage(name: Approute.cart, page: ()=>const Cart()),
 
+/////////////Address
+  GetPage(name: Approute.addressview, page: () => const AddressView()),
+  GetPage(name: Approute.addressedit, page: () => const AddressEdit()),
+  GetPage(name: Approute.addressadd, page: () => const AddressAdd()),
 ];
-

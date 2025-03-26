@@ -10,7 +10,7 @@ import 'package:store313/data/datasource/remote/cart_data.dart';
 import 'package:store313/data/model/cartmodel.dart';
 
 class CartController extends GetxController{
-  
+  TextEditingController? coupon;
 CartData cartdata=CartData(Get.find());
 MyServices myServices =Get.find();
 List<CartModil> data=[];
@@ -122,6 +122,7 @@ update();
   }
 @override
   void onInit() {
+    coupon=TextEditingController();
       viewcart();
   
     super.onInit();

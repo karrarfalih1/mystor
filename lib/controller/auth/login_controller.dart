@@ -7,7 +7,6 @@ import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/functionsk/handlingdatacontroller.dart';
 import 'package:store313/core/servicesk/services.dart';
 import 'package:store313/data/datasource/remote/auth/login.dart';
-import 'package:store313/linkapi.dart';
 
 abstract class LoginController extends  GetxController{
   login();

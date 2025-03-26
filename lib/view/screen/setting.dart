@@ -5,6 +5,7 @@ import 'package:store313/binding.dart';
 import 'package:store313/controller/home/setting_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/imagesasset.dart';
+import 'package:store313/core/constantk/routesname.dart';
 
 class Setting extends StatelessWidget{
   const Setting({Key?key });
@@ -27,13 +28,13 @@ child:ListView(children: [
       
       bottom: -40,
       child:Container(
-        padding: EdgeInsets.all(7),
+        padding: const EdgeInsets.all(7),
         decoration: BoxDecoration(
           
      color: Colors.white,
           borderRadius: BorderRadius.circular(100)
         ),
-        child: CircleAvatar(
+        child: const CircleAvatar(
 
           radius: 40,
           backgroundColor: Colors.white,
@@ -42,34 +43,36 @@ child:ListView(children: [
       ))
   ],
 ),
-SizedBox(height: 100,),
+const SizedBox(height: 100,),
 
 ListTile(
   onTap: (){},
-  title: Text("Disable Notifications"),
-trailing: Icon(Icons.notifications_outlined),),
+  title: const Text("Disable Notifications"),
+trailing: const Icon(Icons.notifications_outlined),),
+
+ListTile(
+  onTap: (){
+    Get.toNamed(Approute.addressview);
+  },
+  title: const Text("Address"),
+trailing: const Icon(Icons.location_on_outlined),),
 
 ListTile(
   onTap: (){},
-  title: Text("Address"),
-trailing: Icon(Icons.location_on_outlined),),
+  title: const Text("About Us"),
+trailing: const Icon(Icons.help_outline_rounded),),
 
 ListTile(
   onTap: (){},
-  title: Text("About Us"),
-trailing: Icon(Icons.help_outline_rounded),),
-
-ListTile(
-  onTap: (){},
-  title: Text("Contact Us"),
-trailing: Icon(Icons.phone_callback_outlined),),
+  title: const Text("Contact Us"),
+trailing: const Icon(Icons.phone_callback_outlined),),
 
 ListTile(
   onTap: (){
     controller.logout();
   },
-  title: Text("Logout"),
-trailing: Icon(Icons.logout),),
+  title: const Text("Logout"),
+trailing: const Icon(Icons.logout),),
 ],)
    );
   }

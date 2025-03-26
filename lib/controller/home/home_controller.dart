@@ -78,7 +78,7 @@ print("cata-------------------cata");
 
 
     goToItemsDeletes(itemsModel) {
-    Get.toNamed(Approute.ItemsDetels,arguments:{"itemsModel":itemsModel});
+    Get.toNamed(Approute.itemsDetels,arguments:{"itemsModel":itemsModel});
   }
 }
 

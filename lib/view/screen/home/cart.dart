@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:store313/controller/cart_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
-import 'package:store313/data/model/cartmodel.dart';
 import 'package:store313/view/widiget/cart/appbarcart.dart';
 import 'package:store313/view/widiget/cart/appnubberofflist.dart';
 import 'package:store313/view/widiget/cart/custombottomnavigationpar.dart';
@@ -23,7 +21,7 @@ class Cart extends StatelessWidget {
       bottomNavigationBar:  Custombottomnavigationpar(
         totalprice: '2100',
         price: '${controller.totalpriceitems}',
-        shapping: '200',
+        discount: '10%', textcntroller: controller.coupon!,
       ),
       body: Container(
         padding: const EdgeInsets.all(10),

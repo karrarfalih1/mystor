@@ -39,4 +39,13 @@ static const String cartdelet="$server/cart/delet.php";
 static const String cartview="$server/cart/view.php";
 
 static const String cartgetcount="$server/cart/getcountitem.php";
+/////////////address/////////////////////
+
+static const String addressview="$server/address/view.php";
+
+static const String addressedit="$server/address/edit.php";
+
+static const String addressadd="$server/address/add.php";
+
+static const String addressdelet="$server/address/delet.php";
 }

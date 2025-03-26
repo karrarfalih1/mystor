@@ -1,12 +1,19 @@
 
 import 'package:flutter/material.dart';
+import 'package:store313/core/constantk/color.dart';
 //الخاص باللغة الانكليزية 
 ThemeData themeEnglish=
 ThemeData(
  brightness: Brightness.light,
         //للتحكم في نوع الخط 9
         fontFamily: "playfairDisplay",
-        textTheme:const TextTheme(
+        appBarTheme:const AppBarTheme(
+           color: AppColor.maincolor
+        ),
+        floatingActionButtonTheme:const FloatingActionButtonThemeData(
+        backgroundColor: AppColor.maincolor
+        ),
+          textTheme:const TextTheme(
           headlineSmall:   TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 20), 
                         headlineMedium:   TextStyle(
@@ -24,6 +31,12 @@ ThemeData(
  
         //للتحكم في نوع الخط 9
         fontFamily: "Cairo",
+             appBarTheme:const AppBarTheme(
+           color: AppColor.maincolor
+        ),
+                floatingActionButtonTheme:const FloatingActionButtonThemeData(
+        backgroundColor: AppColor.maincolor
+        ),
         textTheme:const TextTheme(
           headlineSmall:   TextStyle(
                         fontWeight: FontWeight.bold, fontSize: 20), 
