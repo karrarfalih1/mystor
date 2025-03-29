@@ -17,7 +17,7 @@ class Custombouttomcoupon extends StatelessWidget {
       child: MaterialButton(
        textColor: Colors.white,
         minWidth: double.infinity,
-        color: Colors.blue,
+       
         onPressed:onPressedk,
         child: Text(
           title,

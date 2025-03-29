@@ -48,4 +48,8 @@ static const String addressedit="$server/address/edit.php";
 static const String addressadd="$server/address/add.php";
 
 static const String addressdelet="$server/address/delet.php";
+
+////////////coupon/////////
+
+static const String checkcoupon="$server/coupon/checkcoupon.php";
 }

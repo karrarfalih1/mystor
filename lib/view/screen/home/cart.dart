@@ -12,20 +12,28 @@ class Cart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(CartController());
+Get.put(CartController());
     return
     
-    GetBuilder<CartController>(builder: (controller)=>
-    HandlingDataView(statusRequest: controller.statusRequest, widget: 
+
      Scaffold(
-      bottomNavigationBar:  Custombottomnavigationpar(
-        totalprice: '2100',
+      bottomNavigationBar: 
+      GetBuilder<CartController>(builder: (controller)=>
+       Custombottomnavigationpar(
+        totalprice: '${controller.getTotalPrice()}',
         price: '${controller.totalpriceitems}',
-        discount: '10%', textcntroller: controller.coupon!,
-      ),
-      body: Container(
+        discount: '${controller.discountcoupon}%', textcntroller: controller.coupon!, shipping: '200',
+        onPressed: (){
+           controller. checkcoupon();
+        },
+      )),
+      body:
+         
+       Container(
         padding: const EdgeInsets.all(10),
-        child: ListView(
+        child: GetBuilder<CartController>(builder: (controller)=>
+    HandlingDataView(statusRequest: controller.statusRequest, widget: 
+         ListView(
           children:  [
             const Appbarcart(),
             const SizedBox(

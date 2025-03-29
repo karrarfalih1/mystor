@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:store313/controller/cart_controller.dart';
+import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/view/widiget/cart/buttomorder.dart';
 import 'package:store313/view/widiget/cart/custombouttomcoupon.dart';
 
-class Custombottomnavigationpar extends StatelessWidget {
+class Custombottomnavigationpar extends GetView<CartController> {
   final String totalprice;
   final String price;
   final String discount;
+    final String shipping;
   final TextEditingController textcntroller;
   final void Function()? onPressed;
   const Custombottomnavigationpar(
       {super.key,
+      required this.shipping,
       required this.totalprice,
       required this.price,
       required this.discount,
@@ -18,10 +23,12 @@ class Custombottomnavigationpar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      child: Column(
+    return 
+     Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+      GetBuilder<CartController>(builder: (controller)=>
+      controller.couponname ==null?
           Container(
             margin: const EdgeInsets.symmetric(horizontal: 10),
             
@@ -43,7 +50,7 @@ class Custombottomnavigationpar extends StatelessWidget {
               
                 child:  Custombouttomcoupon(title: "apply",onPressedk: onPressed,))
            
-          ],),),
+          ],),):Text("Coupon  ${controller.couponname}",style:const TextStyle(color: AppColor.maincolor,fontWeight: FontWeight.bold),),),
      Container(
       margin:const EdgeInsets.all(10),
        padding:const EdgeInsets.all(10),
@@ -90,6 +97,25 @@ class Custombottomnavigationpar extends StatelessWidget {
               ),
             ],
           ),
+                  Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: const Text(
+                  "shipping",
+                  style: TextStyle(fontSize: 18),
+                ),
+              ),
+              Container(
+                padding: const EdgeInsets.symmetric(horizontal: 16),
+                child: Text(
+                  shipping,
+                  style: const TextStyle(fontSize: 18, fontFamily: "snas"),
+                ),
+              ),
+            ],
+          ),
           const Padding(
               padding: EdgeInsets.symmetric(horizontal: 10), child: Divider()),
           Row(
@@ -127,6 +153,9 @@ class Custombottomnavigationpar extends StatelessWidget {
      ),
        const Custombuttomcart(title: 'Place Order'),
         ],
-      ),
-    );
-  }}
+      )
+    ;
+    }
+    
+ 
+  }

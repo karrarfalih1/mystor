@@ -8,8 +8,12 @@ import 'package:store313/core/functionsk/handlingdatacontroller.dart';
 import 'package:store313/core/servicesk/services.dart';
 import 'package:store313/data/datasource/remote/cart_data.dart';
 import 'package:store313/data/model/cartmodel.dart';
+import 'package:store313/data/model/couponmodel.dart';
 
 class CartController extends GetxController{
+  couponModel? couponmodel;
+  int discountcoupon=0;
+   String? couponname;
   TextEditingController? coupon;
 CartData cartdata=CartData(Get.find());
 MyServices myServices =Get.find();
@@ -86,16 +90,40 @@ update();
     int countcart=0;
     if(response['status']=='success'){
     countcart=int.parse(response['data'].toString());
-    print("-----------------------------------");
-    print("$countcart");
+   if(countcart==0){
+     statusRequest=StatusRequest.failure;
+   }
     return countcart;
+
     }else{
       statusRequest=StatusRequest.failure;
     }
    }
    update();
   }
-  
+    checkcoupon()async{
+     var response=await cartdata.checkcoupon(
+    coupon!.text
+   );
+   statusRequest=handleingData(response);
+   if(StatusRequest.success==statusRequest){
+
+    if(response['status']=='success'){
+    Map<String,dynamic> coupondata=response['data'];
+    couponmodel=couponModel.fromJson(coupondata);
+  discountcoupon=int.parse(couponmodel!.couponDiscount!.toString());
+  couponname=couponmodel!.couponName!;
+    }else{
+      couponname=null;
+       discountcoupon=0;
+   //   statusRequest=StatusRequest.failure;
+    }
+   }
+   update();
+  }
+  getTotalPrice(){
+    return (totalpriceitems - totalpriceitems * discountcoupon/100);
+  }
     viewcart()async {
       data.clear();
  statusRequest=StatusRequest.loading;
@@ -109,6 +137,7 @@ update();
       if(response['data']['status']=='success'){
     List dataresponse=response['data']['data'];
       Map dataresponsecount=response['countprice'] ;
+      
          data.addAll(dataresponse.map((e)=>CartModil.fromJson(e)));
      totalitems=int.parse(dataresponsecount['totalcount'].toString());
       totalpriceitems= double.parse( dataresponsecount['totalprice'].toString());

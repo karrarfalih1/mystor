@@ -36,4 +36,11 @@ deletcart(userid,itemsid)async{
     });
    return response.fold((l)=>l,(r)=>r);
   }
+    checkcoupon(coupon)async{
+    var response=await crud.postData(Applink.checkcoupon, {
+      "coupon":coupon,
+     
+    });
+   return response.fold((l)=>l,(r)=>r);
+  }
 }
