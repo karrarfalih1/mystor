@@ -12,6 +12,7 @@ import 'package:store313/view/screen/auth/forget/success_reset_password.dart';
 import 'package:store313/view/screen/auth/success_signup.dart';
 import 'package:store313/view/screen/auth/forget/verifycode.dart';
 import 'package:store313/view/screen/auth/verifycodesignup.dart';
+import 'package:store313/view/screen/checkout.dart';
 import 'package:store313/view/screen/home/cart.dart';
 import 'package:store313/view/screen/home/favorite.dart';
 import 'package:store313/view/screen/home/homescreen.dart';
@@ -48,7 +49,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: Approute.favorite, page: () => const Favorite()),
   GetPage(name: Approute.setting, page: () => const Setting()),
   GetPage(name: Approute.cart, page: () => const Cart()),
-  //   GetPage(name: Approute.cart, page: ()=>const Cart()),
+  GetPage(name: Approute.checkout, page: ()=>const Checkout()),
 
 /////////////Address
   GetPage(name: Approute.addressview, page: () => const AddressView()),

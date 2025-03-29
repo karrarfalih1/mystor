@@ -8,14 +8,18 @@ class Custombuttomcart extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      decoration: BoxDecoration(
+         color: AppColor.maincolor,
+   
+        borderRadius: BorderRadius.circular(10)
+      ),
    //   padding:const EdgeInsets.symmetric(horizontal: 20,vertical: 5),
-       color: AppColor.maincolor,
-      margin: const EdgeInsets.symmetric(horizontal: 35,vertical: 10),
+         margin: const EdgeInsets.symmetric(horizontal: 35,vertical: 10),
       width: double.infinity,
       child: MaterialButton(
        textColor: Colors.white,
         minWidth: double.infinity,
-        color: Colors.blue,
+     
         onPressed:onPressedk,
         child: Text(
           title,

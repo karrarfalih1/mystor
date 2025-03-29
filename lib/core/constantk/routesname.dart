@@ -14,8 +14,10 @@ class Approute {
   static const String favorite = "/favorite";
   static const String setting = "/seting";
   static const String cart = "/cart";
+    static const String checkout = "/checkout";
   ////////////address
   static const String addressadd = "/addressadd";
   static const String addressview = "/addresview";
   static const String addressedit = "/addressedit";
+
 }

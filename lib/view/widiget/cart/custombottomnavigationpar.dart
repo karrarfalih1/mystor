@@ -12,14 +12,17 @@ class Custombottomnavigationpar extends GetView<CartController> {
   final String discount;
     final String shipping;
   final TextEditingController textcntroller;
-  final void Function()? onPressed;
+  final void Function()? onAddcoupone;
+    final void Function()? onpressedOrder;
   const Custombottomnavigationpar(
+
       {super.key,
+      required this.onpressedOrder,
       required this.shipping,
       required this.totalprice,
       required this.price,
       required this.discount,
-       required this.textcntroller, this.onPressed});
+       required this.textcntroller, this.onAddcoupone});
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +51,7 @@ class Custombottomnavigationpar extends GetView<CartController> {
               const SizedBox(width: 10,),
                Expanded(
               
-                child:  Custombouttomcoupon(title: "apply",onPressedk: onPressed,))
+                child:  Custombouttomcoupon(title: "apply",onPressedk: onAddcoupone,))
            
           ],),):Text("Coupon  ${controller.couponname}",style:const TextStyle(color: AppColor.maincolor,fontWeight: FontWeight.bold),),),
      Container(
@@ -151,11 +154,9 @@ class Custombottomnavigationpar extends GetView<CartController> {
         
       ],),
      ),
-       const Custombuttomcart(title: 'Place Order'),
+        Custombuttomcart(title: 'Place Order',onPressedk:onpressedOrder,),
         ],
       )
     ;
     }
-    
- 
-  }
+}
