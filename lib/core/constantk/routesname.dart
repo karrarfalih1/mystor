@@ -19,5 +19,6 @@ class Approute {
   static const String addressadd = "/addressadd";
   static const String addressview = "/addresview";
   static const String addressedit = "/addressedit";
-
+///////////ordders
+ static const String pending = "/pending";
 }

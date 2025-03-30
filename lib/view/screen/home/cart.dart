@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/cart_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
-import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/view/widiget/cart/appnubberofflist.dart';
 import 'package:store313/view/widiget/cart/custombottomnavigationpar.dart';
 import 'package:store313/view/widiget/cart/customordercart.dart';
@@ -17,7 +16,7 @@ class Cart extends StatelessWidget {
         bottomNavigationBar: GetBuilder<CartController>(
             builder: (controller) => Custombottomnavigationpar(
               onpressedOrder: () {
-                Get.toNamed(Approute.checkout);
+               controller.goToCheckOutScreen();
               },
                   totalprice: '${controller.getTotalPrice()}',
                   price: '${controller.totalpriceitems}',

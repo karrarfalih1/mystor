@@ -1,7 +1,6 @@
 // اول صفحة ومن خلالها احدد اللغة
 
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:dartz/dartz.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/home/home_controller.dart';
@@ -36,7 +35,7 @@ class Homepage extends GetView<LocaleController> {
               HandlingDataView(
             statusRequest: controller.statusRequest,
             widget:
-    controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch!):const 
+    controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch):const 
     Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
@@ -74,7 +73,7 @@ class ListItemsSearch extends GetView<HomeControllerImp>{
         onTap: (){
         controller.goToItemsDeletes(modelitemssearch[index]);  
         },
-        child: Container(
+        child: SizedBox(
           child: Card(
             child: Container(
               padding:const EdgeInsets.all(10),

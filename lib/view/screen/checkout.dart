@@ -15,11 +15,11 @@ class Checkout extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Get.put(CheckoutController());
+   CheckoutController controller=  Get.put(CheckoutController());
     return Scaffold(
         bottomNavigationBar: Custombuttomcart(
           title: ' Checkout',
-          onPressedk: () {},
+          onPressedk: () {controller.checkout();},
         ),
         appBar: AppBar(
           title: const Text(" Checkout"),
@@ -41,17 +41,17 @@ class Checkout extends StatelessWidget {
                         Cardpaymentmethod(
                           title: 'Cach',
                           ontap: () {
-                            controller.choosePaymentMethod("cach");
+                            controller.choosePaymentMethod("0");
                           },
                           isActive:
-                              controller.paymentMethod == "cach" ? true : false,
+                              controller.paymentMethod == "0" ? true : false,
                         ),
                         Cardpaymentmethod(
                           title: "Payment cart",
                           ontap: () {
-                            controller.choosePaymentMethod("payment");
+                            controller.choosePaymentMethod("1");
                           },
-                          isActive: controller.paymentMethod == "payment"
+                          isActive: controller.paymentMethod == "1"
                               ? true
                               : false,
                         ),
@@ -73,16 +73,16 @@ class Checkout extends StatelessWidget {
                           children: [
                             Carddeliverytype(
                               title: 'Delvery',
-                              isActive: controller.deloveryType=="delvery"?true:false,
+                              isActive: controller.deloveryType=="0"?true:false,
                               image: AppImagesasset.OnBoardingImageTwo,
-                               ontap: () { controller.chosseDeliveryType("delvery") ;},
+                               ontap: () { controller.chosseDeliveryType("0") ;},
                             ),
                             Carddeliverytype(
                               ontap: (){
-                                controller.chosseDeliveryType("recive");
+                                controller.chosseDeliveryType("1");
                               },
                               title: 'Recive',
-                           isActive:    controller.deloveryType=="recive"?true:false,
+                           isActive:    controller.deloveryType=="1"?true:false,
                               image: AppImagesasset.OnBoardingImageThree,
                             )
                           ],
@@ -91,7 +91,7 @@ class Checkout extends StatelessWidget {
                           height: 10,
                         ),
                       // ignore: prefer_const_constructors
-                      if(controller.deloveryType=="delvery")
+                      if(controller.deloveryType=="0")//delevery
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children : [

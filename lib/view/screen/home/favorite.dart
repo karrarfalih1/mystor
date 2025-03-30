@@ -31,7 +31,7 @@ class Favorite extends StatelessWidget{
               const SizedBox(height: 10,),
 
       HandlingDataView(statusRequest:controller.statusRequest, widget: 
-        controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch!):
+        controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch):
      GridView.builder(
        itemCount: controller.data.length,
         //نستعملها من يكون عدنا اكثر من لست وحد ببطن الثانية

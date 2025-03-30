@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/color.dart';
+import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/functionsk/handlingdatacontroller.dart';
 import 'package:store313/core/servicesk/services.dart';
 import 'package:store313/data/datasource/remote/cart_data.dart';
@@ -14,6 +15,7 @@ class CartController extends GetxController{
   couponModel? couponmodel;
   int discountcoupon=0;
    String? couponname;
+   String couponid="0";
   TextEditingController? coupon;
 CartData cartdata=CartData(Get.find());
 MyServices myServices =Get.find();
@@ -113,7 +115,11 @@ update();
     couponmodel=couponModel.fromJson(coupondata);
   discountcoupon=int.parse(couponmodel!.couponDiscount!.toString());
   couponname=couponmodel!.couponName!;
+  couponid=couponmodel!.couponId.toString();
+    Get.snackbar("نجاح", " تم تفعيل الكوبون");
     }else{
+      Get.snackbar("خطا", "الكوبون غير صالح");
+        couponid="0";
       couponname=null;
        discountcoupon=0;
    //   statusRequest=StatusRequest.failure;
@@ -149,6 +155,17 @@ update();
    }
    update();
   }
+goToCheckOutScreen(){
+  if(data.isEmpty){ Get.snackbar("تنبيه", "السلة فارعة");}else{
+  Get.offNamed(Approute.checkout,arguments: {
+    "couponid":couponid,
+    "totalprice":totalpriceitems.toString(),
+     "discountcoupon":discountcoupon.toString()
+  });
+  }
+
+}
+
 @override
   void onInit() {
     coupon=TextEditingController();

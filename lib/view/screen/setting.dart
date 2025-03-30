@@ -48,7 +48,7 @@ const SizedBox(height: 100,),
 ListTile(
   onTap: (){},
   title: const Text("Disable Notifications"),
-trailing: const Icon(Icons.notifications_outlined),),
+trailing: Switch(value: true, onChanged: (val){}),),
 
 ListTile(
   onTap: (){
@@ -57,6 +57,18 @@ ListTile(
   title: const Text("Address"),
 trailing: const Icon(Icons.location_on_outlined),),
 
+ListTile(
+  onTap: (){
+    Get.toNamed(Approute.pending);
+  },
+  title: const Text("Ordder"),
+trailing: const Icon(Icons.card_travel),),
+ListTile(
+  onTap: (){
+    Get.toNamed(Approute.addressview);
+  },
+  title: const Text("Archive"),
+trailing: const Icon(Icons.folder_copy_outlined),),
 ListTile(
   onTap: (){},
   title: const Text("About Us"),
