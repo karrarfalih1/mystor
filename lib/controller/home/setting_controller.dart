@@ -1,4 +1,6 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:get/get.dart';
+import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/servicesk/services.dart';
 
@@ -10,10 +12,13 @@ MyServices myServices =Get.find();
   
   @override
   void onInit() {
-    // TODO: implement onInit
+   
     super.onInit();
   }
-  void logout (){
+  void logout ()async{
+     String? userid=myservices.sharedPreferences.getString("id");
+    await   FirebaseMessaging.instance.unsubscribeFromTopic("users");
+     await     FirebaseMessaging.instance.unsubscribeFromTopic("users${userid}");
 myServices.sharedPreferences.clear();
 Get.offAllNamed(Approute.login);
   }

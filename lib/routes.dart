@@ -19,6 +19,7 @@ import 'package:store313/view/screen/home/homescreen.dart';
 import 'package:store313/view/screen/items/items.dart';
 import 'package:store313/view/screen/items/itemsdetels.dart';
 import 'package:store313/view/screen/language.dart';
+import 'package:store313/view/screen/notification.dart';
 import 'package:store313/view/screen/onboarding.dart';
 import 'package:store313/view/screen/orders/pending.dart';
 import 'package:store313/view/screen/setting.dart';
@@ -51,6 +52,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: Approute.setting, page: () => const Setting()),
   GetPage(name: Approute.cart, page: () => const Cart()),
   GetPage(name: Approute.checkout, page: ()=>const Checkout()),
+   GetPage(name: Approute.notification, page: ()=>const Notification()),
 
 /////////////Address
   GetPage(name: Approute.addressview, page: () => const AddressView()),

@@ -22,6 +22,7 @@ class FavoriteScreenControllerImp extends FavoriteScreenController{
   MyServices myServices=Get.find();
 
   FavoriteScreenData favoriteScreenData =FavoriteScreenData(Get.find());
+  
     StatusRequest statusRequest=StatusRequest.none;
   
   List<FavoriteModel> data=[];

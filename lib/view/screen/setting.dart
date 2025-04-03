@@ -1,7 +1,9 @@
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:store313/binding.dart';
+import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/controller/home/setting_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/imagesasset.dart';
@@ -81,6 +83,7 @@ trailing: const Icon(Icons.phone_callback_outlined),),
 
 ListTile(
   onTap: (){
+   
     controller.logout();
   },
   title: const Text("Logout"),

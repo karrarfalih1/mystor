@@ -63,7 +63,9 @@ String printOrderStatus(String val){
     }
     update();
   }
-
+refreshpage(){
+  getpending();
+}
   @override
   void onInit() {
     getpending();

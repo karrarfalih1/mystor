@@ -1,4 +1,5 @@
  //في هذه الصفحة نحن نفحص الايميل فقط 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/core/classk/statusRequest.dart';
@@ -15,30 +16,37 @@ abstract class HomeController extends  MixSearchController{
 }
 class HomeControllerImp extends HomeController{
   //TextEditingController myname=TextEditingController();
-HomeData homedata=HomeData(Get.find());
+@override
+  // ignore: overridden_fields
+  HomeData homedata=HomeData(Get.find());
 String? username;
 List categories=[];
 List items=[];
 MyServices myServices=Get.find();
 String? lang;
 
-StatusRequest statusRequest=StatusRequest.none;
+@override
+  // ignore: overridden_fields
+  StatusRequest statusRequest=StatusRequest.none;
 
-
+goToNotification(){
+  Get.toNamed(Approute.notification);
+}
 
 @override
   initialData(){
-      print("----------------------homtecontroller");
+     
   getdata();
   username=myservices.sharedPreferences.getString("username");
   lang=myServices.sharedPreferences.getString("lang");
 }
 @override
   void onInit() {
+    FirebaseMessaging.instance.subscribeToTopic("users");
 initialData();
    search=TextEditingController();
     super.onInit();
-  }
+  } 
 
   
   @override

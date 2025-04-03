@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:get/get.dart';
 import 'package:store313/core/constantk/apptheme.dart';
+import 'package:store313/core/functionsk/fcmconfig.dart';
 import 'package:store313/core/servicesk/services.dart';
 
 class LocaleController extends GetxController{
@@ -50,6 +51,8 @@ requestPerLocation()async{
 }
 @override
   void onInit() {
+     requestPermissionNotification();
+    fcmconfig();
     requestPerLocation();
 String?  curntlang= myServices.sharedPreferences.getString("lang");
     if(curntlang=="ar"){

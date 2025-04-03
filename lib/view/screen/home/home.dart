@@ -31,7 +31,9 @@ class Homepage extends GetView<LocaleController> {
                         onChanged: (val){
                           controller.checksearch(val);
                         },
-                        title:"6".tr ,  onPressedSearsh: () { controller.onsearchItems(); },onPressednotifcation: () {  },),
+                        title:"6".tr ,  onPressedSearsh: () { controller.onsearchItems(); },onPressednotifcation: () {
+                          controller.goToNotification();
+                          },),
               HandlingDataView(
             statusRequest: controller.statusRequest,
             widget:
