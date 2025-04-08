@@ -20,6 +20,7 @@ import 'package:store313/view/screen/items/itemsdetels.dart';
 import 'package:store313/view/screen/language.dart';
 import 'package:store313/view/screen/notification.dart';
 import 'package:store313/view/screen/onboarding.dart';
+import 'package:store313/view/screen/orders/archive.dart';
 import 'package:store313/view/screen/orders/deltelsorder.dart';
 import 'package:store313/view/screen/orders/pending.dart';
 import 'package:store313/view/screen/setting.dart';
@@ -58,7 +59,7 @@ List<GetPage<dynamic>>? routes = [
   GetPage(name: Approute.addressview, page: () => const AddressView()),
   GetPage(name: Approute.addressadd, page: () => const AddressAdd()),
   ///////////////ordders
-   GetPage(name: Approute.pending, page: () => const Pending())
-   ,
+   GetPage(name: Approute.pending, page: () => const Pending()),
     GetPage(name: Approute.deltelsorder, page: () => const  Deltelsorder()),
+      GetPage(name: Approute.archive, page: () => const Archive()),
 ];

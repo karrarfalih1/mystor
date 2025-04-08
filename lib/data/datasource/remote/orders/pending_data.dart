@@ -14,4 +14,13 @@ class PendingData {
 
    return response.fold((l)=>l,(r)=>r);
   }
+
+    deletorder(orderid)async{
+    var response=await crud.postData(Applink.ordersdelet, {
+      "orderid":orderid
+    });
+
+   return response.fold((l)=>l,(r)=>r);
+  }
+  
 }

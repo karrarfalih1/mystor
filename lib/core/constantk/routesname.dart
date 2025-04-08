@@ -25,4 +25,5 @@ class Approute {
  static const String pending = "/pending";
  
  static const String deltelsorder = "/deltelsorder";
+ static const String archive = "/archive";
 }

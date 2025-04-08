@@ -53,15 +53,35 @@ String printOrderStatus(String val){
     statusRequest = handleingData(response);
     if (StatusRequest.success == statusRequest) {
       if (response['status'] == 'success') {
-        if (response['status'] == 'success') {
+       
           List dataresponse = response['data'];
           data.addAll(dataresponse.map((e) => PendtingModel.fromJson(e)));
           
 
-        Get.snackbar("true", "true");
-        }
+          
       } else {
         statusRequest = StatusRequest.failure;
+      }
+    }
+    update();
+  }
+  
+  orderdelet(String orderdelet, ) async {
+ statusRequest = StatusRequest.loading;
+ update();
+     var response =
+        await pendingData.deletorder(orderdelet);
+     
+    statusRequest = handleingData(response);
+    if (StatusRequest.success == statusRequest) {
+      if (response['status'] == 'success') {
+       
+       refreshpage();
+          Get.snackbar("تنبيه", "تم حذف المنتج بنجاح");
+             
+      } else {
+    statusRequest = StatusRequest.failure;
+          Get.snackbar("فشل", " حدث خطا ما لم يتم حذف المنتج" );
       }
     }
     update();

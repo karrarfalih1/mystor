@@ -3,15 +3,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:store313/controller/orders/pending_controller.dart';
+import 'package:store313/controller/orders/archiveorder_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/data/model/pendingmodel.dart';
 
-class CardOrderList extends GetView<PendingController>{
+class  Archiveorderlist extends GetView<ArchiveorderController>{
 
    final PendtingModel pendtingModel;
-const   CardOrderList({super.key,required this.pendtingModel});
+const  Archiveorderlist({super.key,required this.pendtingModel});
 
   @override
   Widget build(BuildContext context) {
@@ -45,13 +45,9 @@ const   CardOrderList({super.key,required this.pendtingModel});
       
               ],)
                  ,  const Spacer(),
-                 if(pendtingModel.ordersStatus.toString()=="0")
-             MaterialButton(
-  color: AppColor.maincolorm1,
-  onPressed:(){
-controller.orderdelet(pendtingModel.ordersId.toString());
-  },child:const Text("Delet"),)  
-,const SizedBox(width: 5,),
+             
+   
+const SizedBox(width: 5,),
 MaterialButton(
   color: AppColor.maincolorm1,
   onPressed:(){

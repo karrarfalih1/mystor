@@ -45,5 +45,9 @@ class Applink {
   
   static const String vieworders = "$server/orders/vieworders.php";
   
+  static const String ordersdelet = "$server/orders/delet.php";
+  
   static const String ordersdetels = "$server/orders/detels.php";
+  
+  static const String ordersarchive = "$server/orders/archive.php";
 }

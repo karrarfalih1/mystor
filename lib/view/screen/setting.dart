@@ -67,7 +67,7 @@ ListTile(
 trailing: const Icon(Icons.card_travel),),
 ListTile(
   onTap: (){
-    Get.toNamed(Approute.addressview);
+    Get.toNamed(Approute.archive);
   },
   title: const Text("Archive"),
 trailing: const Icon(Icons.folder_copy_outlined),),
