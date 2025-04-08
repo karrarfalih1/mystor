@@ -12,13 +12,15 @@ StatusRequest statusRequest =StatusRequest.none;
   NotifayData notifayData =  NotifayData(Get.find());
   List data=[];
     getdata()async{
+data.clear();
     //نعطي قيمة ابتدائية وهي اللودنغ
     statusRequest=StatusRequest.loading;
+    update();
 //لجلب المعلومات
 //الكيت داتا ترجعلنا اما خطا معين اما المصفوفة الي بيها البيانات
     var response=await notifayData.getntefy(
       myservices.sharedPreferences.getString("id")!
-    );
+    ); 
 
     statusRequest=handleingData(response);
 
@@ -36,7 +38,7 @@ update();
   @override
   void onInit() {
      getdata();
-    // TODO: implement onInit
     super.onInit();
+
   }
 }

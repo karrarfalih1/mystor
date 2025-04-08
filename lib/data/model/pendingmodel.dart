@@ -10,6 +10,13 @@ class PendtingModel {
   int? ordersTotalprice;
   int? ordersCoupon;
   String? ordersDatetime;
+  int? addressId;
+  int? addressUsersid;
+  String? addressCity;
+  String? addressStreet;
+  double? addressLat;
+  double? addressLong;
+  String? addressName; 
 
   PendtingModel(
       {this.ordersId,
@@ -22,7 +29,14 @@ class PendtingModel {
       this.ordersPrice,
       this.ordersTotalprice,
       this.ordersCoupon,
-      this.ordersDatetime});
+      this.ordersDatetime,
+      this.addressId,
+      this.addressUsersid,
+      this.addressCity,
+      this.addressStreet,
+      this.addressLat,
+      this.addressLong,
+      this.addressName});
 
   PendtingModel.fromJson(Map<String, dynamic> json) {
     ordersId = json['orders_id'];
@@ -36,6 +50,13 @@ class PendtingModel {
     ordersTotalprice = json['orders_totalprice'];
     ordersCoupon = json['orders_coupon'];
     ordersDatetime = json['orders_datetime'];
+    addressId = json['address_id'];
+    addressUsersid = json['address_usersid'];
+    addressCity = json['address_city'];
+    addressStreet = json['address_street'];
+    addressLat = json['address_lat'];
+    addressLong = json['address_long'];
+    addressName = json['address_name'];
   }
 
   Map<String, dynamic> toJson() {
@@ -51,6 +72,13 @@ class PendtingModel {
     data['orders_totalprice'] = this.ordersTotalprice;
     data['orders_coupon'] = this.ordersCoupon;
     data['orders_datetime'] = this.ordersDatetime;
+    data['address_id'] = this.addressId;
+    data['address_usersid'] = this.addressUsersid;
+    data['address_city'] = this.addressCity;
+    data['address_street'] = this.addressStreet;
+    data['address_lat'] = this.addressLat;
+    data['address_long'] = this.addressLong;
+    data['address_name'] = this.addressName;
     return data;
   }
 }

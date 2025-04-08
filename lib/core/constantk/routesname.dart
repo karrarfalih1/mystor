@@ -23,4 +23,6 @@ class Approute {
   static const String addressedit = "/addressedit";
 ///////////ordders
  static const String pending = "/pending";
+ 
+ static const String deltelsorder = "/deltelsorder";
 }

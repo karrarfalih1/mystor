@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/home/orders/pending_controller.dart';
+import 'package:store313/controller/orders/pending_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/view/widiget/orders/cardorderlist.dart';
 

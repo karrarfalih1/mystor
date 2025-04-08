@@ -1,10 +1,11 @@
 
 
 import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/src/simple/get_view.dart';
+import 'package:get/get.dart';
 import 'package:jiffy/jiffy.dart';
-import 'package:store313/controller/home/orders/pending_controller.dart';
+import 'package:store313/controller/orders/pending_controller.dart';
 import 'package:store313/core/constantk/color.dart';
+import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/data/model/pendingmodel.dart';
 
 class CardOrderList extends GetView<PendingController>{
@@ -43,7 +44,12 @@ const   CardOrderList({super.key,required this.pendtingModel});
 
 MaterialButton(
   color: AppColor.maincolorm1,
-  onPressed:(){},child:const Text("Detels"),)      ],)
+  onPressed:(){
+    Get.toNamed(Approute.deltelsorder,arguments: {
+      "pendtingModel":pendtingModel
+    });
+
+  },child:const Text("Detels"),)      ],)
 
         ],),
       ),);

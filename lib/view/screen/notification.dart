@@ -23,7 +23,7 @@ class Notification extends StatelessWidget
         Container(
          
          
-          padding:const EdgeInsets.symmetric(vertical: 5,horizontal: 10),
+          padding:const EdgeInsets.symmetric(vertical: 3,horizontal: 10),
         child: Card(child: ListTile(title: Text("${controller.data[index]['notification_title']}"),
         subtitle: Text("${controller.data[index]['notification_bady']}",style: TextStyle(fontSize: 12),),
         trailing:   Container(

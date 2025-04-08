@@ -23,10 +23,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
    LocaleController controllerlang= Get.put(LocaleController());
     return GetMaterialApp(
-//من اجل تعدد اللغات
+     //من اجل تعدد اللغات
       translations: MyTranslation(),
       //لاخفاء الشريط الاحمر
-debugShowCheckedModeBanner: false,
+      debugShowCheckedModeBanner: false,
       locale: controllerlang.mylang,
       theme: controllerlang.appTheme,
       title: 'Flutter Demo',   
@@ -35,7 +35,7 @@ debugShowCheckedModeBanner: false,
     
      getPages: routes
       //من اجل اليزي بوت حتى لا اضطر لاستدعائها في كل صفحة 
-     // initialBinding: MyBinding(),
+      // initialBinding: MyBinding(),
     );
   }
-}
+  }
