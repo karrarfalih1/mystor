@@ -50,4 +50,7 @@ class Applink {
   static const String ordersdetels = "$server/orders/detels.php";
   
   static const String ordersarchive = "$server/orders/archive.php";
+  /////////////offers
+  
+  static const String offers = "$server/offers.php";
 }

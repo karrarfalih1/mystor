@@ -8,7 +8,7 @@ import 'package:store313/controller/home/setting_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/imagesasset.dart';
 import 'package:store313/core/constantk/routesname.dart';
-
+import 'package:url_launcher/url_launcher.dart';
 class Setting extends StatelessWidget{
   const Setting({Key?key });
   @override
@@ -77,11 +77,13 @@ ListTile(
 trailing: const Icon(Icons.help_outline_rounded),),
 
 ListTile(
-  onTap: (){},
+  onTap: (){
+    launchUrl(Uri.parse("tel:07817132039"));
+  },
   title: const Text("Contact Us"),
 trailing: const Icon(Icons.phone_callback_outlined),),
 
-ListTile(
+  ListTile(
   onTap: (){
    
     controller.logout();

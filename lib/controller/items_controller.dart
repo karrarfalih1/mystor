@@ -45,6 +45,7 @@ String? categoriesid;
   
   @override
   changeCat(selectedCatfromItemScreen,catidfromsamescreen) {
+    
    selectedCat=selectedCatfromItemScreen;
   categoriesid=catidfromsamescreen;
   print("----------------8");

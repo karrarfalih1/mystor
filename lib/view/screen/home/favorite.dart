@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/home/favorite_screen_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
-import 'package:store313/data/model/favoritemodel.dart';
 import 'package:store313/view/screen/home/home.dart';
 import 'package:store313/view/widiget/castomappbar.dart';
 import 'package:store313/view/widiget/favorite/gridviewfavoritecoustom.dart';

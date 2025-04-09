@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/view/screen/home/favorite.dart';
 import 'package:store313/view/screen/home/home.dart';
+import 'package:store313/view/screen/home/offerview.dart';
 import 'package:store313/view/screen/setting.dart';
 
 abstract class HomeScreenController extends GetxController{
@@ -24,19 +25,14 @@ Icons.settings_outlined
 const Homepage(),
 const Favorite(),
 
-const Column(
-  mainAxisAlignment: MainAxisAlignment.center,
-  children: [
-Center(child: Text("pagethree"),)
-],),
+const Offerview(),
 
-Setting()
+const Setting()
   ];
   @override
   changePage(int i) {
     curentpage=i;
-    print("----------------iiiiiiiiiiiiiiiiiii");
-    print(i);
+ 
     update();
    
   }

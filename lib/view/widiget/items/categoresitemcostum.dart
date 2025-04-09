@@ -20,7 +20,9 @@ class ListCategoriesItems extends GetView<ItemsControllerImp> {
               child: ListView.separated(
                 separatorBuilder: (BuildContext context, int index){
                 return const SizedBox(width: 20,); },
+
               itemCount: controller.categories.length,
+              
               scrollDirection: Axis.horizontal,
    
               itemBuilder:(context,int index){

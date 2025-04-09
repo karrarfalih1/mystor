@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:store313/controller/home/favorite_controller.dart';
 import 'package:store313/controller/items_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
@@ -31,7 +30,7 @@ class ItemsHome extends StatelessWidget {
         
         const ListCategoriesItems(),
           HandlingDataView(statusRequest:controller.statusRequest, widget: 
-          controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch!):
+          controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch):
                  GridView.builder(
         itemCount: controller.data.length,
         //نستعملها من يكون عدنا اكثر من لست وحد ببطن الثانية
