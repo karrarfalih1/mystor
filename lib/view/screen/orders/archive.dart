@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 import 'package:store313/controller/orders/archiveorder_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/view/widiget/orders/archiveorderlist.dart';
-import 'package:store313/view/widiget/orders/cardorderlist.dart';
 
 class Archive extends StatelessWidget{
   const Archive({super.key});

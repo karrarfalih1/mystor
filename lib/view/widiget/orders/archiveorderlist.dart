@@ -7,6 +7,7 @@ import 'package:store313/controller/orders/archiveorder_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/data/model/pendingmodel.dart';
+import 'package:store313/view/widiget/orders/ratingdialog.dart';
 
 class  Archiveorderlist extends GetView<ArchiveorderController>{
 
@@ -48,14 +49,26 @@ const  Archiveorderlist({super.key,required this.pendtingModel});
              
    
 const SizedBox(width: 5,),
-MaterialButton(
+Row(children: [
+  if(pendtingModel.ordersRating==0)
+  
+  MaterialButton(
+  color: AppColor.maincolorm1,
+  onPressed:(){
+ controller.selectranting=0;
+ratingDialog(context,pendtingModel.ordersId);
+  },child:const Text("Rating"),) ,
+ const SizedBox(width: 5,),
+  MaterialButton(
   color: AppColor.maincolorm1,
   onPressed:(){
     Get.toNamed(Approute.deltelsorder,arguments: {
       "pendtingModel":pendtingModel
     });
 
-  },child:const Text("Detels"),)      ],)
+  },child:const Text("Detels"),)  
+],)
+    ],)
 
         ],),
       ),);

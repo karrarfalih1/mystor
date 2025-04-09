@@ -8,7 +8,7 @@ import 'package:store313/data/model/pendingmodel.dart';
 class ArchiveorderController extends GetxController{
 StatusRequest statusRequest=StatusRequest.none;
 OrderarchiveData  orderarchiveData =OrderarchiveData(Get.find());
-
+ int? selectranting=0 ;
 List<PendtingModel> data=[];
 String printPaymentMethod(String val){
   if(val=="0"){
@@ -26,7 +26,6 @@ String printtypeorder(String val){
   return "Recive";
   }
   
-
 }
 String printOrderStatus(String val){
   if(val=="0"){
@@ -48,16 +47,38 @@ String printOrderStatus(String val){
   }
 
 getdata()async{
+ 
   statusRequest=StatusRequest.loading;
   update();
   var response=await orderarchiveData.getData(myservices.sharedPreferences.getString("id"));
    statusRequest=handleingData(response);
    if(StatusRequest.success==statusRequest){
      if(response['status']=="success"){
+       data.clear();
       List listdata=response['data'];
      data.addAll(listdata.map((e)=>PendtingModel.fromJson(e)));
      }
      
+   }else{
+      statusRequest=StatusRequest.failure;
+   }
+   update();
+}
+
+snedrating(orderid,rating,ratingnote)async{
+  statusRequest=StatusRequest.loading;
+  update();
+  var response=await orderarchiveData.ratingdata(
+ orderid.toString(),
+  ratingnote.toString(),
+ rating.toString(),
+
+  );
+   statusRequest=handleingData(response);
+   if(StatusRequest.success==statusRequest){
+     if(response['status']=="success"){
+      getdata();
+     }
    }else{
       statusRequest=StatusRequest.failure;
    }

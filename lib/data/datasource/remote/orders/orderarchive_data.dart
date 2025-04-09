@@ -10,4 +10,12 @@ class OrderarchiveData {
     });
    return response.fold((l)=>l,(r)=>r);
   }
+    ratingdata(orderid,ratingnote,rating)async{
+    var response=await crud.postData(Applink.rating, {
+      "ordersid":orderid,
+      "ratingnote":ratingnote,
+      "rating":rating
+    });
+   return response.fold((l)=>l,(r)=>r);
+  }
 }

@@ -9,6 +9,8 @@ class PendtingModel {
   int? ordersPrice;
   int? ordersTotalprice;
   int? ordersCoupon;
+  int? ordersRating;
+  String? ordersNoterating;
   String? ordersDatetime;
   int? addressId;
   int? addressUsersid;
@@ -16,7 +18,7 @@ class PendtingModel {
   String? addressStreet;
   double? addressLat;
   double? addressLong;
-  String? addressName; 
+  String? addressName;
 
   PendtingModel(
       {this.ordersId,
@@ -29,6 +31,8 @@ class PendtingModel {
       this.ordersPrice,
       this.ordersTotalprice,
       this.ordersCoupon,
+      this.ordersRating,
+      this.ordersNoterating,
       this.ordersDatetime,
       this.addressId,
       this.addressUsersid,
@@ -49,6 +53,8 @@ class PendtingModel {
     ordersPrice = json['orders_price'];
     ordersTotalprice = json['orders_totalprice'];
     ordersCoupon = json['orders_coupon'];
+    ordersRating = json['orders_rating'];
+    ordersNoterating = json['orders_noterating'];
     ordersDatetime = json['orders_datetime'];
     addressId = json['address_id'];
     addressUsersid = json['address_usersid'];
@@ -71,6 +77,8 @@ class PendtingModel {
     data['orders_price'] = this.ordersPrice;
     data['orders_totalprice'] = this.ordersTotalprice;
     data['orders_coupon'] = this.ordersCoupon;
+    data['orders_rating'] = this.ordersRating;
+    data['orders_noterating'] = this.ordersNoterating;
     data['orders_datetime'] = this.ordersDatetime;
     data['address_id'] = this.addressId;
     data['address_usersid'] = this.addressUsersid;
