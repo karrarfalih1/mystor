@@ -11,7 +11,7 @@ class CustomListItemsHome extends GetView<HomeControllerImp> {
   Widget build(BuildContext context) {
     return     SizedBox(
         
-            height: 160,
+            height: 140,
             child: ListView.builder(
               scrollDirection: Axis.horizontal,
               itemCount: controller.items.length,
@@ -25,34 +25,39 @@ class CustomListItemsHome extends GetView<HomeControllerImp> {
 }
 
 
-class Items extends StatelessWidget{
+class Items extends GetView<HomeControllerImp>{
   final ItemsModel itemsModel;
   const Items({super.key, required this.itemsModel });
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [Container(
-                  decoration: BoxDecoration(
-                    // color: AppColor.maincolorm1,
-                    borderRadius: BorderRadius.circular(20)
+    return InkWell(
+      onTap: (){
+        controller.goToItemsDeletes(itemsModel);
+      },
+      child: Stack(children: [Container(
+                    decoration: BoxDecoration(
+                      // color: AppColor.maincolorm1,
+                      borderRadius: BorderRadius.circular(20)
+                    ),
+                    margin:const EdgeInsets.symmetric(horizontal: 10),
+      
+                    padding:const EdgeInsets.symmetric(horizontal: 10),
+                   
+                  child:CachedNetworkImage(imageUrl:"${Applink.imagesitems}/${itemsModel.itemsImage}",height: 150,width: 150,fit: BoxFit.cover,) ,
                   ),
-                  margin:const EdgeInsets.symmetric(horizontal: 10),
-
-                  padding:const EdgeInsets.symmetric(horizontal: 10),
-                 
-                child:CachedNetworkImage(imageUrl:"${Applink.imagesitems}/${itemsModel.itemsImage}",height: 150,width: 150,fit: BoxFit.fill,) ,
-                ),
-                Container(
-
-                  decoration: BoxDecoration(
-                    color: Colors.black.withOpacity(0.4),
-                    borderRadius: BorderRadius.circular(20)
-                  ),
-                  
-                  height: 150,width: 170,),
-                   Positioned(
-                    left: 10,
-                    child: Text("${itemsModel.itemsName}",style: const TextStyle(color: Colors.white),))
-                ],);
+                  Container(
+      
+                    decoration: BoxDecoration(
+                      color: Colors.black.withOpacity(0.4),
+                      borderRadius: BorderRadius.circular(20)
+                    ),
+                    
+                    height: 150,width: 170,),
+                     Positioned(
+                      left: 10,
+                      child: Text("${itemsModel.itemsName}",style: const TextStyle(color: Colors.white),))
+                  ],),
+    );
   }
 
 }

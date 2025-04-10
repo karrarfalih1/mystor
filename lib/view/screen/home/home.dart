@@ -37,20 +37,18 @@ class Homepage extends GetView<LocaleController> {
               HandlingDataView(
             statusRequest: controller.statusRequest,
             widget:
-    controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch):const 
-    Column(
+    controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch):Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
                Customcardhome(
-                    titlecard: 'A winer suprise',
-                    subtitlecard: 'Cashback20%',
+                    titlecard:controller.settings.isEmpty? '': '${controller.settings[0]['settings_title']}',
+                    subtitlecard:controller.settings.isEmpty? '':   '${controller.settings[0]['settings_body']}',
                   ),
-                    Customtitlehome(title: 'Categores'),
-                  ListCategorieshome(),
-                   Customtitlehome(title: 'Product for you'),
-                   CustomListItemsHome(),
-                   Customtitlehome(title: 'Offer'),
-                   CustomListItemsHome()
+                    const Customtitlehome(title: 'Categores'),
+                  const ListCategorieshome(),
+                   const Customtitlehome(title: 'Top Seling'),
+                   const CustomListItemsHome(),
+              
          ],))
                 ],
               ),

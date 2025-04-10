@@ -44,20 +44,20 @@ if(StatusRequest.success==statusRequest){
   if(response['status']=='success'){
 
     if(response['data']['users_approve'].toString()=='1'){
-    myservices.sharedPreferences.setString("id", response['data']['users_id'].toString());
-    String? userid=myservices.sharedPreferences.getString("id");
-     myservices.sharedPreferences.setString("username", response['data']['users_name']);
-      myservices.sharedPreferences.setString("email", response['data']['users_email']);
+      myservices.sharedPreferences.setString("id", response['data']['users_id'].toString());
+       String? userid=myservices.sharedPreferences.getString("id");
+       myservices.sharedPreferences.setString("username", response['data']['users_name']);
+       myservices.sharedPreferences.setString("email", response['data']['users_email']);
        myservices.sharedPreferences.setString("phone", response['data']['users_phone']);
        //نستفاد منها بالاولةية عند بداية تسجيل الدخول
        myservices.sharedPreferences.setString("step","2");
        
       await FirebaseMessaging.instance.subscribeToTopic("users");
-      await    FirebaseMessaging.instance.subscribeToTopic("users${userid}");
+      await  FirebaseMessaging.instance.subscribeToTopic("users${userid}");
     Get.toNamed(Approute.homepage);
     }else{
 
-      print("11111111111111here-----------");
+     
       Get.offAllNamed(Approute.verifyCodeSignUp,arguments: {
      'email':response['data']['users_email']
 });

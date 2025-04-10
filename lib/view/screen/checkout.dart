@@ -102,7 +102,7 @@ class Checkout extends StatelessWidget {
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
                         ),
-                         const SizedBox(
+                          const SizedBox(
                           height: 10,
                         ),
                         ...List.generate(controller.dataaddress.length,
@@ -114,8 +114,18 @@ class Checkout extends StatelessWidget {
                           title: '${controller.dataaddress[index].addressName}',
                           isActive:controller.addressid== "${controller.dataaddress[index].addressId}"?true:false,
                           subtitle: '${controller.dataaddress[index].addressCity} / ${controller.dataaddress[index].addressStreet}',
-                        ),)
-                        
+                        ),),
+                        InkWell(
+                        onTap: (){
+                           controller.goToAddAddress();
+                        },
+                          child: const SizedBox(
+                            height: 65,
+                            child: Card(
+                              
+                              child:Center(child: Text("Add Address",style: TextStyle(color: AppColor.maincolorblue,fontWeight: FontWeight.bold),),),
+                          )),
+                        )
                       ],)
                       ],
                     ),

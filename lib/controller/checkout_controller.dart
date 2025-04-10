@@ -58,7 +58,9 @@ class CheckoutController extends GetxController {
     update();
   }
 
-
+goToAddAddress(){
+  Get.offNamed(Approute.addressadd);
+}
   checkout()async {
     if(paymentMethod ==null) return Get.snackbar("تنبيه", "عليك اختيار طريقة الدفع ");
     if(deloveryType==null) return Get.snackbar("تنبيه", "عليك اختيار طريقة الاستلام ");

@@ -21,6 +21,7 @@ class HomeControllerImp extends HomeController{
   HomeData homedata=HomeData(Get.find());
 String? username;
 List categories=[];
+List settings=[];
 List items=[];
 MyServices myServices=Get.find();
 String? lang;
@@ -53,6 +54,7 @@ initialData();
   getdata()async{
     //نعطي قيمة ابتدائية وهي اللودنغ
     statusRequest=StatusRequest.loading;
+    update();
 //لجلب المعلومات
 //الكيت داتا ترجعلنا اما خطا معين اما المصفوفة الي بيها البيانات
     var response=await homedata.postdata();
@@ -64,7 +66,7 @@ if(StatusRequest.success==statusRequest){
   if(response['status']=='success'){
    categories.addAll(response['categories']['data']);
    items.addAll(response['items']['data']);
-  
+  settings.addAll(response['settings']['data']);
   
   }else{
     statusRequest=StatusRequest.failure;
