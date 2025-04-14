@@ -3,7 +3,9 @@ import 'package:get/get.dart';
 import 'package:store313/controller/home/homescreen_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 
+// ignore: must_be_immutable
 class Bootumappbarcastom extends GetView<HomeScreenControllerImp> {
+  
   bool active=false;
   final IconData icon;
   final void Function()? onPressed;
