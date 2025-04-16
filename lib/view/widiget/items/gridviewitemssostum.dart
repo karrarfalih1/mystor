@@ -64,7 +64,7 @@ class GridViewItemsCostum extends GetView<ItemsControllerImp> {
                   Column(
                     children: [
                     
-                      Text("${itemsModel.itemspricediscount}\$",style: const TextStyle(color: AppColor.maincolor,fontFamily: "sans",fontWeight: FontWeight.bold),),
+                      Text("${(itemsModel.itemspricediscount! as num ).toInt()}\$",style: const TextStyle(color: AppColor.maincolor,fontFamily: "sans",fontWeight: FontWeight.bold),),
                  
            if("${itemsModel.itemsDiscount}" !="0")               Stack(
                            children: [

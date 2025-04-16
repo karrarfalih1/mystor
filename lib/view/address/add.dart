@@ -19,6 +19,7 @@ AddaddressController controlleradd =Get.put(AddaddressController());
   bottomNavigationBar: Container(
     padding: const EdgeInsets.all(10),
     child: CustomButtomAuth(textbuttom: "اضافة موقعك ", onPressed: (){
+
       controlleradd.addmylocation(controllerpage.lat!,controllerpage.long!);
     })),
 appBar: AppBar(title: const Text("اضافة موقع"),),
@@ -37,6 +38,9 @@ GetBuilder<AddmapController>(builder: (controllerpage){
       markers: controllerpage.markers.toSet(),
      onTap: (latlong){
        controllerpage.addmarker(latlong);
+      controllerpage.lat=latlong.latitude.toString();
+      
+      controllerpage.long=latlong.longitude.toString();
      },
           mapType: MapType.normal,
           initialCameraPosition:controllerpage.kGooglePlex!,

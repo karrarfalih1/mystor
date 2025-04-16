@@ -16,6 +16,8 @@ class Applink {
   static const items = "$server/items/items.php";
   static const search = "$server/items/search.php";
   static const String notification= "$server/notification.php";
+  
+  static const  viewadvetisment= "$server/viewadvetisment.php";
   ///////////////favorite//////////////////
   static const addFavorite = "$server/favorite/add.php";
   static const deletFavorite = "$server/favorite/delet.php";

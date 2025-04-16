@@ -19,6 +19,7 @@ class AddmapController extends GetxController {
   addmarker(LatLng latlang) {
     markers.clear();
     markers.add(Marker(markerId: const MarkerId("1"), position: latlang));
+    
     update();
   }
 

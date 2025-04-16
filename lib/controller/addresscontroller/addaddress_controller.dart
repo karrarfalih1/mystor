@@ -14,12 +14,15 @@ class AddaddressController extends GetxController {
   TextEditingController? street;
   TextEditingController? name;
   TextEditingController? city;
+  String? mylat;
+  String? mylong;
 
   StatusRequest statusRequest = StatusRequest.none;
 
   addmylocation(String lat, String long) {
     if (formstateaddress.currentState!.validate()) {
       AddAddress(lat, long);
+      
     }
   }
 
