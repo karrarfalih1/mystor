@@ -1,5 +1,5 @@
 // اول صفحة ومن خلالها احدد اللغة
-
+//new git
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/home/favorite_screen_controller.dart';
@@ -13,8 +13,7 @@ class Favorite extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    
-  final controller= Get.lazyPut(()=> FavoriteScreenControllerImp(),fenix: true);
+ Get.lazyPut(()=> FavoriteScreenControllerImp(),fenix: true);
     return 
     Container(
       padding: EdgeInsets.all(10),
