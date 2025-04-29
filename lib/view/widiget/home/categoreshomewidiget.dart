@@ -54,14 +54,23 @@ class Categories extends GetView<HomeControllerImp>{
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
-                  color:  AppColor.maincolorm1
+                 // color:  AppColor.maincolorm1
+                 gradient: LinearGradient(colors:
+                 [    AppColor.maincolor,
+             
+                  AppColor.maincolorm1,
+                 ] 
+                 
+             
+
+                 )
                 ),
                 height: 70,
                 width: 70,
                 //ملاحضة نستعمل هذا النوع من الصور لاننا نستطيع التلاعب بالوانه 
                 child:SvgPicture.network("${Applink.imagescatigores}/${categoriesmodel.categoriesImage}",
                colorFilter:const ColorFilter.mode(
-            Colors.black,
+            Colors.white,
       
       BlendMode.srcIn, // طريقة المزج
         ),)),

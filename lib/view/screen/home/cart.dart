@@ -50,7 +50,7 @@ class Cart extends StatelessWidget {
                     ...List.generate(
                         controller.data.length,
                         (index) => Customordercart(
-                              imagpahth: '${controller.data[index].itemsImage}',
+                          imagpahth: '${controller.data[index].itemsImage}',
                               title: '${controller.data[index].itemsName}',
                               price: '${controller.data[index].itemsprice}',
                               count: '${controller.data[index].countitems}',

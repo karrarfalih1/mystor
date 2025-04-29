@@ -17,7 +17,7 @@ int curentpage=0;
 List<IconData> infoBootumAppBar=[
 Icons.home_outlined,
 Icons.favorite_outline,
-Icons.person_outline,
+Icons.local_offer_outlined,
 Icons.settings_outlined
 
 ];

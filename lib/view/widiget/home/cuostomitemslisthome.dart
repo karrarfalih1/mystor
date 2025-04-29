@@ -9,6 +9,7 @@ class CustomListItemsHome extends GetView<HomeControllerImp> {
   const CustomListItemsHome({super.key,});
   @override
   Widget build(BuildContext context) {
+    
     return     SizedBox(
         
             height: 140,
@@ -30,6 +31,7 @@ class Items extends GetView<HomeControllerImp>{
   const Items({super.key, required this.itemsModel });
   @override
   Widget build(BuildContext context) {
+    HomeControllerImp controller=Get.find();
     return InkWell(
       onTap: (){
         controller.goToItemsDeletes(itemsModel);
@@ -53,8 +55,13 @@ class Items extends GetView<HomeControllerImp>{
                     ),
                     
                     height: 150,width: 170,),
+                      controller.myServices.sharedPreferences.getString("lang")=="en"?
+                     
                      Positioned(
-                      left: 10,
+                  left: 15,
+                      child: Text("${itemsModel.itemsName}",style: const TextStyle(color: Colors.white),)):
+                        Positioned(
+                  right: 15,
                       child: Text("${itemsModel.itemsName}",style: const TextStyle(color: Colors.white),))
                   ],),
     );

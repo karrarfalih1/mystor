@@ -47,9 +47,9 @@ Get.put(AdevetismentController());
                     titlecard:controller.settings.isEmpty? '': '${controller.settings[0]['settings_title']}',
                     subtitlecard:controller.settings.isEmpty? '':   '${controller.settings[0]['settings_body']}',
                   ),*/
-                  ,  Customtitlehome(title: 'Categores'),
+                  ,  Customtitlehome(title: 'الاقسام'),
                   ListCategorieshome(),
-                   Customtitlehome(title: 'Top Seling'),
+                   Customtitlehome(title: 'الاكثر  مبيعا'),
                    CustomListItemsHome(),
               
          ],))
