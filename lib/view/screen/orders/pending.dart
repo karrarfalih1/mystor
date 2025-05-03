@@ -12,7 +12,7 @@ class Pending extends StatelessWidget{
     Get.put(PendingController());
    return Scaffold(
 
-    appBar:AppBar(title:const Text("Orders"),) ,
+    appBar:AppBar(title:const Text("الطلبات"),) ,
     body: Container(
       padding:const EdgeInsets.all(15),
       child:GetBuilder<PendingController>(builder: (controller)=>

@@ -37,32 +37,17 @@ class Gridviewfavoritecoustom extends GetView<FavoriteScreenControllerImp> {
           
             Text('${favoriteModel.itemsName}',style: const TextStyle(fontSize: 15,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
             const SizedBox(height: 10,),
-            Container(
-            alignment: Alignment.bottomCenter ,
-              height: 18,
-              child: Row(
-               
-                children: [
-                         
-                const Text("Rating 3.6",style: TextStyle(fontSize: 12),),
-                const Spacer(),
-                ...List.generate(
-              
-                  5, (index)=>const Icon(Icons.star,size: 12,)
-                  )
-              
-              ],),
-            ),
+     
              const Spacer(),
              Row(children: [
         Column(
                     children: [
                      
-                          Text("${favoriteModel.itemsPrice}\$",style: const TextStyle(color: AppColor.maincolor,fontFamily: "sans",fontWeight: FontWeight.bold),),
+                          Text("${favoriteModel.itemsPrice} IQD",style: const TextStyle(color: AppColor.maincolor,fontFamily: "sans",fontWeight: FontWeight.bold),),
                  
                         if("${favoriteModel.itemsDiscount}" !="0")               Stack(
                            children: [
-                            Text("${ int.parse(favoriteModel.itemsPrice.toString())  -int.parse(favoriteModel.itemsPrice.toString()) *int.parse(favoriteModel.itemsDiscount.toString()) /100 }\$",
+                            Text("${ int.parse(favoriteModel.itemsPrice.toString())  -int.parse(favoriteModel.itemsPrice.toString()) *int.parse(favoriteModel.itemsDiscount.toString()) /100 } IQD",
                             style: const TextStyle(color: AppColor.grey,fontFamily: "sans",fontWeight: FontWeight.bold),),
            
           

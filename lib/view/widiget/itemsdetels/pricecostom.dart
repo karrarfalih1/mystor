@@ -7,7 +7,7 @@ class Pricecostom extends StatelessWidget{
    final Function()? onpressedmains;
    final String? price;
    final String? count;
-  const Pricecostom({Key?key,required this.onpressedplus,required this.onpressedmains,required this.price,required this.count});
+  const Pricecostom({super.key,required this.onpressedplus,required this.onpressedmains,required this.price,required this.count});
   @override
   Widget build(BuildContext context) {
    return   Row(children: [
@@ -15,20 +15,20 @@ class Pricecostom extends StatelessWidget{
       Row(children: [
         IconButton(onPressed: onpressedmains, icon:const Icon(Icons.remove)),
         Container(
-          padding: EdgeInsets.symmetric(horizontal: 10),
+          padding:const EdgeInsets.symmetric(horizontal: 10),
           decoration: BoxDecoration(
             border: Border.all(
               color: Colors.black
             )
           ),
-          child: Text("$count",style:TextStyle(fontSize: 18,fontFamily: "sanse"))),
+          child: Text("$count",style:const TextStyle(fontSize: 18,fontFamily: "sanse"))),
          IconButton(onPressed: onpressedplus, icon:const Icon(Icons.add))
 
       ],),
-      Spacer(),
-      Text("${price}\$",style:TextStyle(color: AppColor.maincolor,fontSize: 18,fontFamily: "sanse"),)
+   const   Spacer(),
+      Text("${price} IQD",style:const TextStyle(color: AppColor.maincolor,fontSize: 18,fontFamily: "sanse"),)
 ,
-SizedBox(width: 10,)
+ const SizedBox(width: 10,)
     ],);
   }
 

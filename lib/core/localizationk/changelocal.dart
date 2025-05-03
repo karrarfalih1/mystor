@@ -51,6 +51,7 @@ requestPerLocation()async{
 }
 @override
   void onInit() {
+    
      requestPermissionNotification();
     fcmconfig();
     requestPerLocation();

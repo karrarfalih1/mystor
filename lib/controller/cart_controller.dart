@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/routesname.dart';
@@ -12,15 +13,16 @@ import 'package:store313/data/model/cartmodel.dart';
 import 'package:store313/data/model/couponmodel.dart';
 
 class CartController extends GetxController{
+ 
   couponModel? couponmodel;
   int discountcoupon=0;
    String? couponname;
    String couponid="0";
   TextEditingController? coupon;
-CartData cartdata=CartData(Get.find());
-MyServices myServices =Get.find();
-List<CartModil> data=[];
-double totalpriceitems=0.0;
+  CartData cartdata=CartData(Get.find());
+  MyServices myServices =Get.find();
+  List<CartModil> data=[];
+  double totalpriceitems=0.0;
 
 int totalitems=0;
 StatusRequest statusRequest=StatusRequest.none;
@@ -31,10 +33,13 @@ resVarcart(){
   totalpriceitems=0.0;
   
 }
-refreshpage(){
+refreshpage()async{
   resVarcart();
-  viewcart();
-
+ await viewcart();
+myServices.sharedPreferences.setString("retC",totalitems.toString());
+if(data.isNotEmpty){
+myservices.sharedPreferences.setString("retid", data[0].itemsCat.toString());
+}
 }
  
     add(itemsid)async {
@@ -46,6 +51,8 @@ update();
    statusRequest=handleingData(response);
    if(StatusRequest.success==statusRequest){
     if(response['status']=='success'){
+      int retcount =int.parse(myServices.sharedPreferences.getString("retC").toString())+1;
+      myServices.sharedPreferences.setString("retC",retcount.toString());
       Get.rawSnackbar(
             animationDuration: const Duration(milliseconds: 600),
         snackPosition: SnackPosition.TOP,
@@ -69,13 +76,18 @@ update();
    statusRequest=handleingData(response);
    if(StatusRequest.success==statusRequest){
     if(response['status']=='success'){
+
+      int retcount =int.parse(myServices.sharedPreferences.getString("retC").toString())-1;
+      myServices.sharedPreferences.setString("retC",retcount.toString());
+
+
       Get.rawSnackbar(
             animationDuration: const Duration(milliseconds: 600),
         snackPosition: SnackPosition.TOP,
         barBlur: 0.01,
         backgroundColor:  AppColor.maincolor,
         borderColor: AppColor.maincolor,
-        title: "اشعار", messageText:Text("تم حذف المنتج من السلة",style: const TextStyle(fontSize: 20,color: Colors.white),));
+        title: "اشعار", messageText:const Text("تم حذف المنتج من السلة",style:  TextStyle(fontSize: 20,color: Colors.white),));
     }else{
       statusRequest=StatusRequest.failure;
     }
@@ -145,8 +157,10 @@ update();
       Map dataresponsecount=response['countprice'] ;
       
          data.addAll(dataresponse.map((e)=>CartModil.fromJson(e)));
-     totalitems=int.parse(dataresponsecount['totalcount'].toString());
-      totalpriceitems= double.parse( dataresponsecount['totalprice'].toString());
+         totalitems=int.parse(dataresponsecount['totalcount'].toString());
+
+         totalpriceitems= double.parse( dataresponsecount['totalprice'].toString());
+      
       }
      
  }else{
@@ -169,8 +183,8 @@ goToCheckOutScreen(){
 @override
   void onInit() {
     coupon=TextEditingController();
-      viewcart();
-  
+    ///  viewcart();
+  refreshpage();
     super.onInit();
   }
 }

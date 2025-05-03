@@ -12,4 +12,7 @@ static const String Logo="assets/images/logoauth2.png";
  static const String card="assets/lottie/card.json";
   static const String profil="assets/images/profile.jpg";
    static const String sale="assets/images/sale.png";
+   static const String layBaik="assets/lottie/bike.json";
+   
+   static const String layBaik2="assets/lottie/bike2.json";
 }

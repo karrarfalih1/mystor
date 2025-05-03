@@ -1,4 +1,5 @@
 
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
@@ -18,7 +19,7 @@ class ListCategorieshome extends GetView<HomeControllerImp> {
 
    SizedBox(
              
-              height: 90,
+              height: 120,
               //من خلالها استطيع ان افصل بين عنصر وعنصر 
               child: ListView.separated(
                 separatorBuilder: (BuildContext context, int index){
@@ -50,7 +51,7 @@ class Categories extends GetView<HomeControllerImp>{
       child: Column(children: [
         
                 Container(
-                padding:const EdgeInsets.symmetric(horizontal: 10
+                padding:const EdgeInsets.symmetric(horizontal: 5,vertical: 5
                 ),
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
@@ -65,15 +66,13 @@ class Categories extends GetView<HomeControllerImp>{
 
                  )
                 ),
-                height: 70,
-                width: 70,
+                height: 90,
+                width: 90,
                 //ملاحضة نستعمل هذا النوع من الصور لاننا نستطيع التلاعب بالوانه 
-                child:SvgPicture.network("${Applink.imagescatigores}/${categoriesmodel.categoriesImage}",
-               colorFilter:const ColorFilter.mode(
-            Colors.white,
-      
-      BlendMode.srcIn, // طريقة المزج
-        ),)),
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(15),
+                  child: CachedNetworkImage(imageUrl: "${Applink.imagescatigores}/${categoriesmodel.categoriesImage}",fit:BoxFit.cover,height: 100,))
+     ,),
         Text("${translateDataBase(categoriesmodel.categoriesNameAr,categoriesmodel.categoriesName)}",style: const TextStyle(color: Colors.black),)
               ],),
     );

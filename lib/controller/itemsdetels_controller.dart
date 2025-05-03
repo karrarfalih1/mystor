@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:store313/controller/cart_controller.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/routesname.dart';
@@ -41,13 +40,18 @@ update();
    statusRequest=handleingData(response);
    if(StatusRequest.success==statusRequest){
     if(response['status']=='success'){
+
+      int retcount =int.parse(myServices.sharedPreferences.getString("retC").toString())+1;
+      myServices.sharedPreferences.setString("retC",retcount.toString());
+//await myServices.sharedPreferences.setString("retid", "0");
       Get.rawSnackbar(
             animationDuration: const Duration(milliseconds: 600),
         snackPosition: SnackPosition.TOP,
         barBlur: 0.01,
         backgroundColor:  AppColor.maincolor,
         borderColor: AppColor.maincolor,
-        title: "اشعار", messageText:Text("تم اضافة المنتج الى السلة",style: const TextStyle(fontSize: 20,color: Colors.white),));
+        title: "اشعار", messageText:const Text("تم اضافة المنتج الى السلة",style:  TextStyle(fontSize: 20,color: Colors.white),));
+
     }else{
       statusRequest=StatusRequest.failure;
     }
@@ -65,13 +69,18 @@ update();
    statusRequest=handleingData(response);
    if(StatusRequest.success==statusRequest){
     if(response['status']=='success'){
+      int retcount =int.parse(myServices.sharedPreferences.getString("retC").toString())-1;
+      myServices.sharedPreferences.setString("retC",retcount.toString());
+ //     List itemsdata=response['data'];
+//      print(itemsdata);
+      
       Get.rawSnackbar(
             animationDuration: const Duration(milliseconds: 600),
         snackPosition: SnackPosition.TOP,
         barBlur: 0.01,
         backgroundColor:  AppColor.maincolor,
         borderColor: AppColor.maincolor,
-        title: "اشعار", messageText:Text("تم حذف المنتج من السلة",style: const TextStyle(fontSize: 20,color: Colors.white),));
+        title: "اشعار", messageText: const Text("تم حذف المنتج من السلة",style:  TextStyle(fontSize: 20,color: Colors.white),));
     }else{
       statusRequest=StatusRequest.failure;
     }
@@ -81,14 +90,13 @@ update();
     getCountItems(String itemsid)async{
      var response=await cartdata.getcountcart(
     
-   myServices.sharedPreferences.getString('id') ,"$itemsid");
+   myServices.sharedPreferences.getString('id') ,itemsid);
    statusRequest=handleingData(response);
    if(StatusRequest.success==statusRequest){
     int countcart=0;
     if(response['status']=='success'){
     countcart=int.parse(response['data'].toString());
-    print("-----------------------------------");
-    print("$countcart");
+  
     return countcart;
     }else{
       statusRequest=StatusRequest.failure;

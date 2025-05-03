@@ -28,7 +28,7 @@ class Cart extends StatelessWidget {
                   },
                 )),
         appBar: AppBar(
-          title: const Text("My Cart"),
+          title: const Text("السلة"),
         ),
         body: Container(
             padding: const EdgeInsets.all(10),
@@ -42,7 +42,7 @@ class Cart extends StatelessWidget {
                     ),
                     Appnubberofflist(
                       title:
-                          'You Have ${controller.totalitems} items in your list',
+                          'انت لديك ${controller.totalitems} في السلة',
                     ),
                     const SizedBox(
                       height: 10,

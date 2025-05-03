@@ -21,10 +21,13 @@ Sliderdata sliderdata=Sliderdata(Get.find());
       }else{ 
         currenPage.value=0;
       }
+      if(pageController.hasClients){
       pageController.animateToPage(
         currenPage.value,
 
        duration: const Duration(milliseconds: 500), curve: Curves.easeInOut);
+      }
+
 
     });
   }
@@ -45,8 +48,14 @@ update();
   }
 @override
   void onInit() {
+     currenPage=0.obs;
     getSlider();
    
     super.onInit();
+  }
+  @override
+  void onClose() {
+    // TODO: implement onClose
+    super.onClose();
   }
 }

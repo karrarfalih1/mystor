@@ -1,20 +1,18 @@
-import 'package:firebase_messaging/firebase_messaging.dart';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
-import 'package:store313/binding.dart';
-import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/controller/home/setting_controller.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/imagesasset.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:url_launcher/url_launcher.dart';
 class Setting extends StatelessWidget{
-  const Setting({Key?key });
+
+  const Setting({super.key });
   @override
   Widget build(BuildContext context) {
     SettingControllerImp controller=Get.put(SettingControllerImp());
-   return Container(
+   return SizedBox(
    
 child:ListView(children: [
    Stack(
@@ -47,40 +45,37 @@ child:ListView(children: [
 ),
 const SizedBox(height: 100,),
 
-ListTile(
-  onTap: (){},
-  title: const Text("Disable Notifications"),
-trailing: Switch(value: true, onChanged: (val){}),),
+
 
 ListTile(
   onTap: (){
     Get.toNamed(Approute.addressview);
   },
-  title: const Text("Address"),
+  title: const Text("المواقع"),
 trailing: const Icon(Icons.location_on_outlined),),
 
 ListTile(
   onTap: (){
     Get.toNamed(Approute.pending);
   },
-  title: const Text("Ordder"),
+  title: const Text("الطلبات"),
 trailing: const Icon(Icons.card_travel),),
 ListTile(
   onTap: (){
     Get.toNamed(Approute.archive);
   },
-  title: const Text("Archive"),
+  title: const Text("الارشيف"),
 trailing: const Icon(Icons.folder_copy_outlined),),
 ListTile(
   onTap: (){},
-  title: const Text("About Us"),
+  title: const Text("حولنا"),
 trailing: const Icon(Icons.help_outline_rounded),),
 
 ListTile(
   onTap: (){
     launchUrl(Uri.parse("tel:07817132039"));
   },
-  title: const Text("Contact Us"),
+  title: const Text("تواصل  مع الدعم"),
 trailing: const Icon(Icons.phone_callback_outlined),),
 
   ListTile(
@@ -88,7 +83,7 @@ trailing: const Icon(Icons.phone_callback_outlined),),
    
     controller.logout();
   },
-  title: const Text("Logout"),
+  title: const Text("تسجيل خروج",style: TextStyle(color: Colors.red),),
 trailing: const Icon(Icons.logout),),
 ],)
    );

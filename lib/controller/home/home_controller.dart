@@ -2,6 +2,8 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:http/http.dart';
+import 'package:store313/controller/cart_controller.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/routesname.dart';
 import 'package:store313/core/functionsk/handlingdatacontroller.dart';
@@ -48,6 +50,11 @@ goToNotification(){
 initialData();
    search=TextEditingController();
     super.onInit();
+    if(myServices.sharedPreferences.getString("retC")==null){
+      CartController cartC=Get.put(CartController());
+      cartC.data.clear();
+      cartC.refreshpage();
+    }
   } 
 
   
@@ -66,7 +73,10 @@ initialData();
 if(StatusRequest.success==statusRequest){
   if(response['status']=='success'){
    categories.addAll(response['categories']['data']);
-   items.addAll(response['items']['data']);
+   if( response['items']['data'] !=null){
+ items.addAll(response['items']['data']);
+   }
+  
   settings.addAll(response['settings']['data']);
   
   }else{

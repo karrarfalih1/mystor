@@ -23,7 +23,7 @@ const   CardOrderList({super.key,required this.pendtingModel});
             Row(
               children: [
               
-                Text("Order Number : # ${pendtingModel.ordersId}",style:const TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
+                Text("رقم الطلب : # ${pendtingModel.ordersId}",style:const TextStyle(fontSize: 15,fontWeight: FontWeight.bold),),
             const Spacer(),
             Text(Jiffy.parse('${pendtingModel.ordersDatetime}').fromNow(),style:TextStyle(color: Colors.grey[650]),),
             const SizedBox(width: 5,)
@@ -32,15 +32,15 @@ const   CardOrderList({super.key,required this.pendtingModel});
            const Divider(
               height: 20,
             ),
-            Text("Order Type :${controller.printtypeorder(pendtingModel.ordersType.toString())}"),
-            Text("Order Price : ${pendtingModel.ordersPrice}"),
-            Text("Delivery Price : ${pendtingModel.ordersPricedelivery} "),
-            Text("Payment Method : ${controller.printPaymentMethod(pendtingModel.ordersPaymentmethod.toString())}"),
-             Text("Order Status : ${controller.printOrderStatus(pendtingModel.ordersStatus.toString())}"),
+            Text("نوع الطلب :${controller.printtypeorder(pendtingModel.ordersType.toString())}"),
+            Text("سعر الطلب : ${pendtingModel.ordersPrice}"),
+            Text("سعر التوصيل : ${pendtingModel.ordersPricedelivery} "),
+          //  Text("Payment Method : ${controller.printPaymentMethod(pendtingModel.ordersPaymentmethod.toString())}"),
+             Text("حالة الطلب : ${controller.printOrderStatus(pendtingModel.ordersStatus.toString())}"),
      const       Divider(height: 20,),
             Row(children: [
               Column(children: [
-                 const Text('Total Price :',style: const TextStyle(fontSize: 14,color: AppColor.maincolor),),
+                 const Text('السعر  الكلي :',style: const TextStyle(fontSize: 14,color: AppColor.maincolor),),
         Text('${pendtingModel.ordersTotalprice}',style: const TextStyle(fontSize: 14,color: AppColor.maincolor),),
       
               ],)

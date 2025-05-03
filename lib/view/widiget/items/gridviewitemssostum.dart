@@ -40,13 +40,13 @@ class GridViewItemsCostum extends GetView<ItemsControllerImp> {
               
                 Text('${itemsModel.itemsName}',style: const TextStyle(fontSize: 15,fontWeight: FontWeight.bold),textAlign: TextAlign.center,),
               //  const SizedBox(height: 10,),
-                Container(
+             /*   Container(
                 alignment: Alignment.bottomCenter ,
                   height: 18,
                   child: Row(
                    
                     children: [
-                             
+                              
                     const Text("Rating 3.6",style: TextStyle(fontSize: 12),),
                     const Spacer(),
                     ...List.generate(
@@ -55,7 +55,7 @@ class GridViewItemsCostum extends GetView<ItemsControllerImp> {
                       )
                   
                   ],),
-                ),
+                ),*/
              
           
                  const Spacer(),
@@ -64,11 +64,11 @@ class GridViewItemsCostum extends GetView<ItemsControllerImp> {
                   Column(
                     children: [
                     
-                      Text("${(itemsModel.itemspricediscount! as num ).toInt()}\$",style: const TextStyle(color: AppColor.maincolor,fontFamily: "sans",fontWeight: FontWeight.bold),),
+                      Text("${itemsModel.itemspricediscount  } IQD",style: const TextStyle(color: AppColor.maincolor,fontFamily: "sans",fontWeight: FontWeight.bold),),
                  
            if("${itemsModel.itemsDiscount}" !="0")               Stack(
-                           children: [
-                            Text("${itemsModel.itemsPrice}\$",
+                           children: [ 
+                            Text("${itemsModel.itemsPrice} IQD",
                             style: const TextStyle(color: AppColor.grey,fontFamily: "sans",fontWeight: FontWeight.bold),),
            
           

@@ -62,18 +62,19 @@ goToAddAddress(){
   Get.offNamed(Approute.addressadd);
 }
   checkout()async {
-    if(paymentMethod ==null) return Get.snackbar("تنبيه", "عليك اختيار طريقة الدفع ");
+   // if(paymentMethod ==null) return Get.snackbar("تنبيه", "عليك اختيار طريقة الدفع ");
     if(deloveryType==null) return Get.snackbar("تنبيه", "عليك اختيار طريقة الاستلام ");
     if(deloveryType=="0" && addressid==null) return Get.snackbar("تنبيه", "عليك اختيار موقعك الجغرافي ");
 
     statusRequest = StatusRequest.loading;
     update();
 Map data={
+  "orders_cat_id":myservices.sharedPreferences.getString("retid"),
 "usersid":myservices.sharedPreferences.getString("id"),
 "orders_address":addressid.toString(),
 "orderstype":deloveryType.toString(),
 "pricedelivery":"200",
-"paymentmethod":paymentMethod.toString(),
+"paymentmethod":"0",// paymentMethod.toString(),
 "orderspricee":totalprice,
 "couponid":couponid,
 "coupondiscount":coupondiscount.toString(),
@@ -83,6 +84,7 @@ Map data={
    statusRequest=handleingData(response);
    if(StatusRequest.success==statusRequest){
     if(response['status']=='success'){
+      await myservices.sharedPreferences.setString("retC","0");
       Get.offAllNamed(Approute.homepage);
          Get.rawSnackbar(
         barBlur: 0.01,

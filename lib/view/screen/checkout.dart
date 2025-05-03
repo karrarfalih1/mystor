@@ -8,7 +8,6 @@ import 'package:store313/core/constantk/imagesasset.dart';
 import 'package:store313/view/widiget/cart/buttomorder.dart';
 import 'package:store313/view/widiget/checkout/cardaddresscheckout.dart';
 import 'package:store313/view/widiget/checkout/carddeliverytype.dart';
-import 'package:store313/view/widiget/checkout/cardpaymentmethod.dart';
 
 class Checkout extends StatelessWidget {
   const Checkout({super.key});
@@ -18,11 +17,11 @@ class Checkout extends StatelessWidget {
    CheckoutController controller=  Get.put(CheckoutController());
     return Scaffold(
         bottomNavigationBar: Custombuttomcart(
-          title: ' Checkout',
+          title: ' اكمال الشراء',
           onPressedk: () {controller.checkout();},
         ),
         appBar: AppBar(
-          title: const Text(" Checkout"),
+          title: const Text(" الشراء"),
         ),
         body: GetBuilder<CheckoutController>(
             builder: (controller) => HandlingDataView(
@@ -31,6 +30,7 @@ class Checkout extends StatelessWidget {
                     padding: const EdgeInsets.all(20),
                     child: ListView(
                       children: [
+                        /*
                         const Text(
                           "Choose Payment Method",
                           style:  TextStyle(
@@ -54,17 +54,17 @@ class Checkout extends StatelessWidget {
                           isActive: controller.paymentMethod == "1"
                               ? true
                               : false,
-                        ),
+                        ),*/
                         const SizedBox(
                           height: 10,
                         ),
-                        const Text(
-                          "Choose Delivery Type",
+                      /*  const Text(
+                          "اختر طريقة الاستلام",
                           style: TextStyle(
                               color: AppColor.maincolor,
                               fontWeight: FontWeight.bold,
                               fontSize: 16),
-                        ),
+                        ),*/
                         const SizedBox(
                           height: 10,
                         ),
@@ -72,18 +72,18 @@ class Checkout extends StatelessWidget {
                           mainAxisAlignment: MainAxisAlignment.spaceAround,
                           children: [
                             Carddeliverytype(
-                              title: 'Delvery',
+                              title: 'توصيل',
                               isActive: controller.deloveryType=="0"?true:false,
-                              image: AppImagesasset.OnBoardingImageTwo,
+                              lottie: AppImagesasset.layBaik,
                                ontap: () { controller.chosseDeliveryType("0") ;},
                             ),
                             Carddeliverytype(
                               ontap: (){
                                 controller.chosseDeliveryType("1");
                               },
-                              title: 'Recive',
+                              title: 'استلام',
                            isActive:    controller.deloveryType=="1"?true:false,
-                              image: AppImagesasset.OnBoardingImageThree,
+                              lottie: AppImagesasset.card,
                             )
                           ],
                         ),
@@ -96,7 +96,7 @@ class Checkout extends StatelessWidget {
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children : [
                            const Text(
-                          "Shipping Address",
+                          "اختر موقعك او  انشء واحد جديد ",
                           style: TextStyle(
                               color: AppColor.maincolor,
                               fontWeight: FontWeight.bold,
@@ -123,7 +123,7 @@ class Checkout extends StatelessWidget {
                             height: 65,
                             child: Card(
                               
-                              child:Center(child: Text("Add Address",style: TextStyle(color: AppColor.maincolorblue,fontWeight: FontWeight.bold),),),
+                              child:Center(child: Text("اضف  موقع جديد",style: TextStyle(color: AppColor.maincolorblue,fontWeight: FontWeight.bold),),),
                           )),
                         )
                       ],)

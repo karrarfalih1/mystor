@@ -38,7 +38,7 @@ Get.put(AdevetismentController());
               HandlingDataView(
             statusRequest: controller.statusRequest,
             widget:
-    controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch):const Column(
+    controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch): Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
          SilderImageHome()
@@ -47,7 +47,12 @@ Get.put(AdevetismentController());
                     titlecard:controller.settings.isEmpty? '': '${controller.settings[0]['settings_title']}',
                     subtitlecard:controller.settings.isEmpty? '':   '${controller.settings[0]['settings_body']}',
                   ),*/
-                  ,  Customtitlehome(title: 'الاقسام'),
+                  ,  InkWell(
+                    onTap: (){
+                      print("${myservices.sharedPreferences.getString("retC")}");
+                    }
+                    ,
+                    child: Customtitlehome(title: 'المطاعم')),
                   ListCategorieshome(),
                    Customtitlehome(title: 'الاكثر  مبيعا'),
                    CustomListItemsHome(),

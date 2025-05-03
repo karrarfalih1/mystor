@@ -18,6 +18,7 @@ class SilderImageHome extends GetView<AdevetismentController> {
                           //  margin: const EdgeInsets.symmetric(horizontal: 10),
                             child: HandlingDataView(statusRequest: controller.statusRequest, widget: 
                       PageView.builder(
+                      
                               controller: controller.pageController,
                               itemCount: controller.data.length,
                               onPageChanged: (index) {

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/cart_controller.dart';
-import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/core/constantk/color.dart';
 import 'package:store313/view/widiget/cart/buttomorder.dart';
 import 'package:store313/view/widiget/cart/custombouttomcoupon.dart';
@@ -41,7 +40,7 @@ class Custombottomnavigationpar extends GetView<CartController> {
               child:  TextFormField(
                 controller: textcntroller,
                 decoration:const InputDecoration(
-                  hintText: "Coupon Code",
+                  hintText: "كود الخصم",
                   contentPadding:  EdgeInsets.symmetric(horizontal: 10,vertical: 10),
                   border: OutlineInputBorder()
                   ,
@@ -51,9 +50,9 @@ class Custombottomnavigationpar extends GetView<CartController> {
               const SizedBox(width: 10,),
                Expanded(
               
-                child:  Custombouttomcoupon(title: "apply",onPressedk: onAddcoupone,))
+                child:  Custombouttomcoupon(title: "تفعيل",onPressedk: onAddcoupone,))
            
-          ],),):Text("Coupon  ${controller.couponname}",style:const TextStyle(color: AppColor.maincolor,fontWeight: FontWeight.bold),),),
+          ],),):Text("كود الخصم  ${controller.couponname}",style:const TextStyle(color: AppColor.maincolor,fontWeight: FontWeight.bold),),),
      Container(
       margin:const EdgeInsets.all(10),
        padding:const EdgeInsets.all(10),
@@ -68,7 +67,7 @@ class Custombottomnavigationpar extends GetView<CartController> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: const Text(
-                  "Price",
+                  "السعر",
                   style: TextStyle(fontSize: 18),
                 ),
               ),
@@ -87,7 +86,7 @@ class Custombottomnavigationpar extends GetView<CartController> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: const Text(
-                  "discount",
+                  "الخصم",
                   style: TextStyle(fontSize: 18),
                 ),
               ),
@@ -106,7 +105,7 @@ class Custombottomnavigationpar extends GetView<CartController> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: const Text(
-                  "shipping",
+                  "التوصيل",
                   style: TextStyle(fontSize: 18),
                 ),
               ),
@@ -127,7 +126,7 @@ class Custombottomnavigationpar extends GetView<CartController> {
               Container(
                 padding: const EdgeInsets.symmetric(horizontal: 16),
                 child: const Text(
-                  "Total Price",
+                  "السعر الكلي",
                   style: TextStyle(
                       fontSize: 18,
                       color: AppColor.maincolor,
@@ -154,7 +153,7 @@ class Custombottomnavigationpar extends GetView<CartController> {
         
       ],),
      ),
-        Custombuttomcart(title: 'Place Order',onPressedk:onpressedOrder,),
+        Custombuttomcart(title: 'تاكيد الطلب',onPressedk:onpressedOrder,),
         ],
       )
     ;
