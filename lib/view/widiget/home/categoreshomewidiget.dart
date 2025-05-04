@@ -1,7 +1,6 @@
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/constantk/color.dart';
@@ -38,14 +37,15 @@ class ListCategorieshome extends GetView<HomeControllerImp> {
 class Categories extends GetView<HomeControllerImp>{
   final Categoriesmodel categoriesmodel;
   final int? i;
-  const Categories({ Key? key,required this.categoriesmodel,required this.i});
+  const Categories({super.key,required this.categoriesmodel,required this.i});
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap:(){
         controller.goToItems(
        controller.categories,i!,categoriesmodel.categoriesId.toString()
-
+,categoriesmodel.categoriesImage.toString(),
+categoriesmodel.categoriesName.toString()
         );
       },
       child: Column(children: [
@@ -56,7 +56,7 @@ class Categories extends GetView<HomeControllerImp>{
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(20),
                  // color:  AppColor.maincolorm1
-                 gradient: LinearGradient(colors:
+                 gradient: const LinearGradient(colors:
                  [    AppColor.maincolor,
              
                   AppColor.maincolorm1,
@@ -71,7 +71,9 @@ class Categories extends GetView<HomeControllerImp>{
                 //ملاحضة نستعمل هذا النوع من الصور لاننا نستطيع التلاعب بالوانه 
                 child: ClipRRect(
                   borderRadius: BorderRadius.circular(15),
-                  child: CachedNetworkImage(imageUrl: "${Applink.imagescatigores}/${categoriesmodel.categoriesImage}",fit:BoxFit.cover,height: 100,))
+                  child: Hero(
+                    tag: "${categoriesmodel.categoriesId}",
+                    child: CachedNetworkImage(imageUrl: "${Applink.imagescatigores}/${categoriesmodel.categoriesImage}",fit:BoxFit.cover,height: 100,)))
      ,),
         Text("${translateDataBase(categoriesmodel.categoriesNameAr,categoriesmodel.categoriesName)}",style: const TextStyle(color: Colors.black),)
               ],),

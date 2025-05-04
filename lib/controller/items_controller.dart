@@ -25,14 +25,17 @@ String? userid;
 //القسم ال انا ضغطت علي
 int? selectedCat;
 String? categoriesid;
+String? categoryimage;
+String? categoryname;
   @override
   intialData() {
      search=TextEditingController();
   userid=myservices.sharedPreferences.getString("id")!;
     categories=Get.arguments['categories'];
     selectedCat=Get.arguments['selectedCat'];
-   
+   categoryimage=Get.arguments['categoryimage'];
     categoriesid=Get.arguments["categoryid"];
+    categoryname=Get.arguments["categoryname"];
      getItems( categoriesid! ,userid);
   }
 

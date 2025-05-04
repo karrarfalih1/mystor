@@ -29,8 +29,7 @@ List<GetPage<dynamic>>? routes = [
   //test
   //GetPage(name: "/", page: ()=> TimerScreen()),
   //Auth
-  GetPage(
-      name: "/", page: () => const Languagek(), middlewares: [Mymiddleware()]),
+  GetPage( name: "/", page: () => const Languagek(), middlewares: [Mymiddleware()]),
 
   GetPage(name: Approute.login, page: () => const Login()),
   GetPage(name: Approute.signup, page: () => const SignUp()),

@@ -2,7 +2,6 @@
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:http/http.dart';
 import 'package:store313/controller/cart_controller.dart';
 import 'package:store313/core/classk/statusRequest.dart';
 import 'package:store313/core/constantk/routesname.dart';
@@ -14,7 +13,7 @@ MyServices myservices=Get.find();
 abstract class HomeController extends  MixSearchController{
   initialData();
   getdata();
-  goToItems(List categories,int selectedCat,String categoryid);
+  goToItems(List categories,int selectedCat,String categoryid,String categoryimage,String categoryname);
 }
 class HomeControllerImp extends HomeController{
  
@@ -88,11 +87,13 @@ update();
   }
   
   @override
-  goToItems( categories , selectedCat, categoryid) {
+  goToItems( categories , selectedCat, categoryid,categoryimage,categoryname) {
     Get.toNamed(Approute.items,arguments: {
        'categories':categories,
        "selectedCat":selectedCat,
        "categoryid":categoryid,
+       "categoryimage":categoryimage,
+       "categoryname":categoryname
     });
 print("cata-------------------cata");
   }
