@@ -62,15 +62,17 @@ goToAddAddress(){
   Get.offNamed(Approute.addressadd);
 }
   checkout()async {
+    print("ok -2");
    // if(paymentMethod ==null) return Get.snackbar("تنبيه", "عليك اختيار طريقة الدفع ");
     if(deloveryType==null) return Get.snackbar("تنبيه", "عليك اختيار طريقة الاستلام ");
     if(deloveryType=="0" && addressid==null) return Get.snackbar("تنبيه", "عليك اختيار موقعك الجغرافي ");
-
+    if(myservices.sharedPreferences.getString("retid")==null)return Get.snackbar("تنبيه", " حدث خطا ما ");
     statusRequest = StatusRequest.loading;
     update();
+    print("ok-1");
 Map data={
-  "orders_cat_id":myservices.sharedPreferences.getString("retid"),
-"usersid":myservices.sharedPreferences.getString("id"),
+"orders_cat_id":myservices.sharedPreferences.getString("retid").toString(),
+"usersid":myservices.sharedPreferences.getString("id").toString(),
 "orders_address":addressid.toString(),
 "orderstype":deloveryType.toString(),
 "pricedelivery":"200",
@@ -80,10 +82,13 @@ Map data={
 "coupondiscount":coupondiscount.toString(),
 
 };
+print("ok 0");
    var response=await checkoutdata.checkout(data);
    statusRequest=handleingData(response);
    if(StatusRequest.success==statusRequest){
+    print("ok 1");
     if(response['status']=='success'){
+      print("ok2");
       await myservices.sharedPreferences.setString("retC","0");
       Get.offAllNamed(Approute.homepage);
          Get.rawSnackbar(

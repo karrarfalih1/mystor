@@ -14,7 +14,7 @@ class Crud {
       //يتحقق اذا اكو اتصال بالانترنيت او لاي
     if(await checkInternet()){
       // ادخال لنك الصفحة الي اريد اوصل الها والبيانات 
-      var response=await http.post(Uri.parse(linkurl),body: data);
+      var response=await http.post(Uri.parse(linkurl),body:data);
       //اذا وجد الصفحة وتم الاتصال بنجاح
       if(response.statusCode==403){
         print("33333333333333333333333333333333333333333333333333333333333333333333333333");

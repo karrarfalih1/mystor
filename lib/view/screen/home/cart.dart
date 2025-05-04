@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:store313/controller/cart_controller.dart';
+import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
 import 'package:store313/view/widiget/cart/appnubberofflist.dart';
 import 'package:store313/view/widiget/cart/custombottomnavigationpar.dart';
@@ -28,7 +29,11 @@ class Cart extends StatelessWidget {
                   },
                 )),
         appBar: AppBar(
-          title: const Text("السلة"),
+          title: InkWell(
+            onTap: (){
+              print(myservices.sharedPreferences.getString("retid"));
+            },
+            child: const Text("السلة")),
         ),
         body: Container(
             padding: const EdgeInsets.all(10),
