@@ -21,10 +21,13 @@ class HomeControllerImp extends HomeController{
 @override
   // ignore: overridden_fields
   HomeData homedata=HomeData(Get.find());
+StatusRequest orderstate=StatusRequest.none;
+
 String? username;
 List categories=[];
 List settings=[];
 List items=[];
+List order=[];
 MyServices myServices=Get.find();
 String? lang;
 
@@ -61,19 +64,25 @@ initialData();
   getdata()async{
     //نعطي قيمة ابتدائية وهي اللودنغ
     statusRequest=StatusRequest.loading;
+    orderstate=StatusRequest.loading;
     update();
 //لجلب المعلومات
 //الكيت داتا ترجعلنا اما خطا معين اما المصفوفة الي بيها البيانات
-    var response=await homedata.postdata();
+    var response=await homedata.postdata(
+      myservices.sharedPreferences.getString("id")
+    );
 
     statusRequest=handleingData(response);
+    orderstate=handleingData(response);
 
 //القيمة الفوك متوقع ترجعلي ثلالث اشياء  الاولى نجاح  والثانية خطا بالانترنيت والثالثة خطا بالاتصال
 if(StatusRequest.success==statusRequest){
   if(response['status']=='success'){
+    order.clear();
    categories.addAll(response['categories']['data']);
    if( response['items']['data'] !=null){
  items.addAll(response['items']['data']);
+ order.addAll(response['order']['data']);
    }
   
   settings.addAll(response['settings']['data']);
@@ -85,7 +94,28 @@ if(StatusRequest.success==statusRequest){
 }
 update();
   }
-  
+  refrachorder()async{
+    orderstate=StatusRequest.loading;
+        var response=await homedata.postdata(
+      myservices.sharedPreferences.getString("id")
+      
+    );
+     orderstate=handleingData(response);
+     if(StatusRequest.success==statusRequest){
+  if(response['status']=='success'){
+     order.clear();
+
+   order.addAll(response['order']['data']);
+   
+  }else{
+    statusRequest=StatusRequest.failure;
+  }
+ 
+}
+update();
+
+  }
+
   @override
   goToItems( categories , selectedCat, categoryid,categoryimage,categoryname) {
     Get.toNamed(Approute.items,arguments: {

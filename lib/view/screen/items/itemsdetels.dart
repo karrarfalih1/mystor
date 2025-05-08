@@ -66,7 +66,7 @@ class ItemsDetels extends StatelessWidget {
         barBlur: 0.01,
         backgroundColor:  AppColor.maincolor,
         borderColor: AppColor.maincolor,
-        title: "اشعار", messageText:  Text("${myservices.sharedPreferences.getString("retid")}",style:  TextStyle(fontSize: 20,color: Colors.white),));
+        title: "اشعار", messageText:  Text("${myservices.sharedPreferences.getString("retid")}",style:const  TextStyle(fontSize: 20,color: Colors.white),));
                       }else{
                         
         Get.rawSnackbar(

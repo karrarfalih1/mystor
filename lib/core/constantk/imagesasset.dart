@@ -15,4 +15,6 @@ static const String Logo="assets/images/logoauth2.png";
    static const String layBaik="assets/lottie/bike.json";
    
    static const String layBaik2="assets/lottie/bike2.json";
+   
+   static const String laycatt="assets/lottie/catt.json";
 }

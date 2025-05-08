@@ -7,8 +7,10 @@ class HomeData{
 
   HomeData(this.crud);
 
-  postdata()async{
-    var response=await crud.postData(Applink.home, {});
+  postdata(id)async{
+    var response=await crud.postData(Applink.home, {
+"userid":id
+    });
 
   return response.fold((l)=>l,(r)=>r);
   }

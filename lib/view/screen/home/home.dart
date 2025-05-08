@@ -1,11 +1,14 @@
 // اول صفحة ومن خلالها احدد اللغة
 
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:lottie/lottie.dart';
 import 'package:store313/controller/home/adevetisment_controller.dart';
 import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
+import 'package:store313/core/constantk/imagesasset.dart';
 import 'package:store313/core/localizationk/changelocal.dart';
 import 'package:store313/data/model/itemsmodel.dart';
 import 'package:store313/linkapi.dart';
@@ -40,22 +43,84 @@ Get.put(AdevetismentController());
             widget:
     controller.isSearch?ListItemsSearch(modelitemssearch:controller.listdatasearch): Column(
       crossAxisAlignment: CrossAxisAlignment.start,
+      mainAxisSize: MainAxisSize.min,
       children: [
-         SilderImageHome()
+         const SilderImageHome()
         /*
                Customcardhome(
                     titlecard:controller.settings.isEmpty? '': '${controller.settings[0]['settings_title']}',
                     subtitlecard:controller.settings.isEmpty? '':   '${controller.settings[0]['settings_body']}',
-                  ),*/
-                  ,  InkWell(
-                    onTap: (){
-                      print("${myservices.sharedPreferences.getString("retC")}");
-                    }
-                    ,
-                    child: Customtitlehome(title: 'المطاعم')),
-                  ListCategorieshome(),
-                   Customtitlehome(title: 'الاكثر  مبيعا'),
-                   CustomListItemsHome(),
+                  ),*/,
+                  controller.order.isNotEmpty?
+    GetBuilder<HomeControllerImp>(builder: (controller)=>
+     Container(
+   child: EasyStepper(
+        activeStep: 0,
+        activeStepTextColor: Colors.green,
+        finishedStepTextColor: Colors.green,
+        
+        internalPadding: 0,
+        showLoadingAnimation: false,
+        stepRadius: 25,
+        showStepBorder: true,
+       
+        steps: [
+          EasyStep(
+            
+         customStep: CircleAvatar(
+         //     radius: 40,
+               backgroundColor: Colors.green[200],
+              child: Lottie.asset(
+                repeat: controller.order[0]['orders_status']==0?true:false,
+                AppImagesasset.Loading,width: 60),
+            ),
+            title: 'انتضار${controller.order.isNotEmpty?controller.order[0]['orders_id']:"k"}',
+            
+          ),
+          EasyStep(
+            customStep: CircleAvatar(
+           //   radius: 40,
+              backgroundColor: Colors.green[200],
+              child: Lottie.asset(repeat: controller.order[0]['orders_status']==1?true:false,
+                AppImagesasset.laycatt,width: 60),
+            ),
+           title: 'يتم التحضير',
+            topTitle: true,
+          ),
+           EasyStep(
+            customStep: CircleAvatar(
+             // radius: 40,
+              backgroundColor: Colors.white,
+              child: Lottie.asset(repeat: controller.order[0]['orders_status']==2?true:false,
+                AppImagesasset.layBaik,width: 60),
+            ),
+            title: 'على الطريق',
+          ),
+          const EasyStep(
+            customStep: CircleAvatar(
+              radius: 9,
+              backgroundColor: Colors.white,
+              child: CircleAvatar(
+                radius: 7,
+                backgroundColor:
+                    2 >= 3 ? Colors.orange : Colors.white,
+              ),
+            ),
+            title: 'تم التسليم ',
+            topTitle: true,
+          ),
+    
+        ],
+    
+         ),
+    )
+    )
+    :const Text(""),
+     
+                const   Customtitlehome(title: 'المطاعم'),
+                const   ListCategorieshome(),
+                const   Customtitlehome(title: 'الاكثر  مبيعا'),
+                const   CustomListItemsHome(),
               
          ],))
                 ],
