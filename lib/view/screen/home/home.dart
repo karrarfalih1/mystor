@@ -1,5 +1,7 @@
 // اول صفحة ومن خلالها احدد اللغة
 
+import 'dart:math';
+
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:easy_stepper/easy_stepper.dart';
 import 'package:flutter/material.dart';
@@ -8,6 +10,7 @@ import 'package:lottie/lottie.dart';
 import 'package:store313/controller/home/adevetisment_controller.dart';
 import 'package:store313/controller/home/home_controller.dart';
 import 'package:store313/core/classk/handlingdataview.dart';
+import 'package:store313/core/constantk/color.dart';
 import 'package:store313/core/constantk/imagesasset.dart';
 import 'package:store313/core/localizationk/changelocal.dart';
 import 'package:store313/data/model/itemsmodel.dart';
@@ -55,11 +58,16 @@ Get.put(AdevetismentController());
     GetBuilder<HomeControllerImp>(builder: (controller)=>
      Container(
    child: EasyStepper(
-        activeStep: 0,
+    
+    padding: EdgeInsets.all(1),
+        activeStep:int.parse(controller.order[0]['orders_status'].toString()) ,
         activeStepTextColor: Colors.green,
         finishedStepTextColor: Colors.green,
-        
+        finishedStepBackgroundColor:Colors.green,
+       borderThickness: 1,
         internalPadding: 0,
+       
+        stepBorderRadius: 1,
         showLoadingAnimation: false,
         stepRadius: 25,
         showStepBorder: true,
@@ -69,45 +77,54 @@ Get.put(AdevetismentController());
             
          customStep: CircleAvatar(
          //     radius: 40,
-               backgroundColor: Colors.green[200],
+               backgroundColor: Colors.white,
               child: Lottie.asset(
+                animate:controller.order[0]['orders_status']==0?true:false ,
                 repeat: controller.order[0]['orders_status']==0?true:false,
-                AppImagesasset.Loading,width: 60),
+                AppImagesasset.lowaiting,width: double.infinity),
             ),
-            title: 'انتضار${controller.order.isNotEmpty?controller.order[0]['orders_id']:"k"}',
+            title: 'انتضار',
             
           ),
           EasyStep(
             customStep: CircleAvatar(
            //   radius: 40,
-              backgroundColor: Colors.green[200],
-              child: Lottie.asset(repeat: controller.order[0]['orders_status']==1?true:false,
-                AppImagesasset.laycatt,width: 60),
+              backgroundColor: Colors.white,
+              child: Lottie.asset
+              (animate:  controller.order[0]['orders_status']==1?true:false,
+                repeat: controller.order[0]['orders_status']==1?true:false,
+                AppImagesasset.locooking,width: 60),
             ),
            title: 'يتم التحضير',
-            topTitle: true,
+            topTitle: false,
           ),
            EasyStep(
             customStep: CircleAvatar(
              // radius: 40,
               backgroundColor: Colors.white,
-              child: Lottie.asset(repeat: controller.order[0]['orders_status']==2?true:false,
-                AppImagesasset.layBaik,width: 60),
+              child: Transform(
+                alignment: Alignment.center,
+                  transform: Matrix4.rotationY(pi), // عكس أفقي
+                  child: Lottie.asset(
+                animate: controller.order[0]['orders_status']==2?true:false ,
+                repeat: controller.order[0]['orders_status']==2?true:false,
+                AppImagesasset.lobike,width: 60),
+              )
             ),
             title: 'على الطريق',
           ),
-          const EasyStep(
-            customStep: CircleAvatar(
-              radius: 9,
-              backgroundColor: Colors.white,
-              child: CircleAvatar(
-                radius: 7,
-                backgroundColor:
-                    2 >= 3 ? Colors.orange : Colors.white,
-              ),
+              EasyStep(
+            
+         customStep: CircleAvatar(
+         //     radius: 40,
+               backgroundColor: Colors.white,
+              child: Lottie.asset(
+                animate:controller.order[0]['orders_status']==4?true:false ,
+                repeat: controller.order[0]['orders_status']==4?true:false,
+                AppImagesasset.lodone,width: 60),
             ),
-            title: 'تم التسليم ',
-            topTitle: true,
+            title: 'تم',
+            
           ),
     
         ],

@@ -82,7 +82,11 @@ if(StatusRequest.success==statusRequest){
    categories.addAll(response['categories']['data']);
    if( response['items']['data'] !=null){
  items.addAll(response['items']['data']);
+ if(response['order']['data'] !=null){
+  
  order.addAll(response['order']['data']);
+
+ }
    }
   
   settings.addAll(response['settings']['data']);
